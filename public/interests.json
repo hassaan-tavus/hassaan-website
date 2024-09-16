@@ -1,0 +1,89 @@
+{
+  "introduction": "I'm pretty easily entertained by things that are aesthetic, technical, or adrenaline-pumping, but some topics that specifically interest me is how humans and computers communicate with each other, cars/racing (especially mid-2010s American cars; I'm a GM boomer at 27), architecture (specifically brutalist architecture), corporate strategy failures (Palm, DaimlerChrysler, etc.), and overall, the history of design and technology (hence this website). I also love archery; you can sometimes find me at the Golden Gate Park archery range on Sunday afternoons.",
+  "carAdLink": "https://www.youtube.com/watch?v=Vx7E1_q7cW0",
+  "sections": [
+    {
+        "title": "Art and Science / Design and Technology",
+        "content": "Things that look good, things that work well, and things that revolutionized the world around us. The best things combine all of those together. The pursuit of art and science.",
+        "subsections": [
+          {
+            "title": "Speaking of old ads",
+            "content": "[ <a href=\"https://www.youtube.com/watch?v=a2EgfkhC1eo\" target=\"_blank\">CLICK HERE TO WATCH</a> ] <br>If you know me well, you may know I LOVE old ads, especially from the 80s/90s. My favorite series of ads are the AT&T 'You Will' ads from the early 90s. They imagine a future, and it's incredible to think about what they got right and wrong, and what they missed entirely. For example, the concept of a personal computer for each person wasn't considered—instead, you'd go to a room or a 'payphone' computer. It's a great time capsule. The funniest part is that AT&T ended up not being the company that brought any of these innovations to us."
+          },
+          {
+          "title": "Human-Computer Interactions",
+          "content": "Of course, one of the things I'm most passionate about is how humans and computers communicate. I have a much longer writeup on this for the Tavus team that I will post eventually, but in summary I believe that humans communicate with computers in a compromised way. Humans are high-bandwith communicators using words, gestures, tone of voice, facial expressions and more. Historically, we've often forced ourselves to adapt to technological limitations in communication. We did this because we had to - the technology couldn't meet us where we naturally communicate. But should this be the endgame? We shouldn't be satisfied with interfaces that force us to communicate in ways that aren't natural to us. Instead, we should push for technologies that understand and accommodate our innate communication styles. When computers understand us better through seeing and hearing us, we can work with them more efficiently. This is what we're working on at Tavus. You can have a taste of the future by clicking X on this window and talking to AI me. On that note, Westworld is one of my favorite sci-fi shows that explores HCI ;)"
+          },
+          {
+            "title": "Space is the final frontier, favorite sci-fi",
+            "content": "Space has always been the ultimate engineers dream- I think many of us dreamed of being an astronaut as kids. My favorite sci-fi movies of all time are Intersellar and 2001: A Space Odyssey. A show along those lines I really enjoyed recently is For All of Mankind, it shows an alternate history of the space race if the Soviets won the moon race. Anyways, I'm really bullish on the current renaissance in space exploration. It's the ultimate pursuit of turning science fiction into reality."
+          }
+        ]
+      },
+    {
+      "title": "Cars and Racing",
+      "content": "There's nothing that quite combines art and science together like cars. I've loved cars from a very young age, the first car I remember being entranced with was the New Edge Mustang. I've always been an American car guy and recently I've specifically become a GM fanboy but I appreciate cars of all types and racing in general. My preference is lightweight, RWD, V8 and manual. I don't keep up with F1 as much as I used to. <br><br> I believe the best time period for cars was 2009-~2016, the lineup was incredibly strong and unique, with practically every manufacturer making something special. Cars were not about having the biggest screen or making the most straight line power. Cars had a ton of personality and character and some of the most iconic cars come from this era - you can find many of them in my list below. Also Top Gear was at it's peak :)",
+      "subsections": [
+        {
+          "title": "My Love for American Cars",
+          "content": "My love for American cars started at a young age. Part of it was a rebellion against the Japanese cars so popular amongst South Asian families growing up. But there was always something special about American cars that I loved—something about being the underdog and looked down upon. Growing up in Texas probably helped too.<br><br>American cars often face negative perceptions among car enthusiasts. Sure, some of that is deserved; American manufacturers have put out some truly horrendous commuter cars over the years and tarnished their reputation. However, the notion that American cars aren't as performant or cutting-edge is a narrow view, often cast by those who believe European cars are superior. Well let me tell ya, they're wrong.<br><br>I fundamentally believe that America has some of the best vehicle engineers in the world, often let down by poor management decisions. When given free rein, these engineers have produced some of the most cutting-edge and powerful cars of all time. This is consistently proven by cars like the Chevrolet Corvette (Z06, ZR1, GS), which in practically every generation has destroyed records against European competitors 2-4 times more expensive. That's the key here—American cars are for the people, attainable and unexclusive. They're the underdogs that consistently set the bar for performance. Those who dismiss them as relying on 'brute force' haven't driven many modern American performance cars.<br><br>Preference is important here, and it's totally okay to have a preference for the feel of certain manufacturers or cars. You'll see in my list somewhere on this page that many of my favorite cars are not American-- and my daily-driver is a Mazda Miata. The point is that American performance cars don't have an engineering problem—they have a marketing problem. The innovation and capability are there; they often are just dismissed with some degree of snobbery.<br><br>In every generation America has put out some of the most fun and engaging cars with character. They're not the most refined, they're not quiet and subdued because that's the /point/. It's okay to not want those things, but I'd wager you'll have a lot of fun if you try them out. Big engines and punching above their weight- that's the American dream.<br><br>Some great modern examples of these I recommend trying out are the CT4-V Blackwing, which has one of the best chassis of any car, comes with a manual and makes a racket. The C8 is ugly imo, but also a prime example of a car that destroys records for a fraction of the price."
+        },
+        {
+          "title": "Car Appreciation List",
+          "content": "Here are cars that I believe are special in some way:",
+          "list": [
+            "Mazda Miata (ND2) | A sportscar everyone should own- lightweight, manual, well balanced. Great city car too!",
+            "Chevrolet Corvette Grandsport (C7) | The perfect track car and (imo) the best Corvette ever made. Why? Looks awesome but not overly aggressive, manual, V8, lightweight, and feels like you're taming a wild horse when you push it.",
+            "Cadillac CT4-V Blackwing/ATS-V | These are the definition of a sports sedan. One of the best chassis every made, fantastic handling, great manual- a true driver's car. Would get this over an M3 any day. The ATS-V started it all and the CT4-V BW is basically the same car.",
+            "Cadillac CT5-V Blackwing | +1 to above, but with a supercharged V8. Now this is an American car. Makes me feel so patriotic.",
+            "Land Rover Defender (L663) | These are breathtakingly beautiful cars that showcase British car design- elegant, refined. Guaranteed to be ruined with a facelift :(",
+            "Saab 9-5 (YS3G, 2010-2012) | This is not a sports car- this is a regular car. However the design of the last generation Saab 9-5 is timeless and still looks like it would fit right in to new cars today.",
+            "Dodge/SRT Viper (5th Gen) | The Viper embodies everything that makes an American supercar. V10, manual only, a track weapon that was bashing the crap out of the Europeans and absolutely beautiful.",
+            "Audi R8 V10 (Gen 1) | The definition of a halo car- incredible styling that set the tone for cars to come. This was the supercar of my childhood dreams. Also, gated manual!",
+            "Aston Martin Vantage (2009 - 2017) | I dream of driving a manual V8/V12 Vantage through the Scottish Highlands as Skyfall plays in the background. Also one of the most beautiful cars of our lifetime- the British do make really pretty cars.",
+            "Ford Mustang GT500 (S197, 2013-2014) | The S197 (2013+) has a soft spot in my heart. It's peak Mustang, the styling is perfectly retro yet modern, and it's pure American muscle. The GT500 was the car I most wanted as a teenager, and I'd still own one today. I had an S197 GT and I still miss that car.",
+            "Lexus LFA | The best sounding engine (V10) ever made and a true pursuit of passion. This is an engineers car.",
+            "Lotus Exige | I'd love to have one of these as a track car- properly lightweight, manual and track focused.",
+            "Chevrolet Corvette (C3) | One of the only classics I'd love to own. This was /the/ astronaut car.",
+            "Chevrolet Corvette (C4, ZR1) | This is such an 80s car. Watch the ad I linked above and you'll immediately understand why I love this car.",
+            "Alfa Romeo Giulia Quadrifoglio | This is the only other sports sedan that I'd want if I wasn't to get a Blackwing. It drives beautifully, handles amazingly and has a great engine. It's also unique and not something you see every day.",
+            "Porsche GT3 (992) | I'd take this in a nice PTS dark green. Probably too nice of a car for me though."
+            
+          ]
+        },
+        {
+          "title": "Tracking and Favorite Racetracks",
+          "content": "Going to the track is my absolute favorite thing to do. Usually, there's nothing that can take my mind off of Tavus—except for being on the racetrack. There's just nothing like it: the focus, the adrenaline, the connection with the car and the track. It's incredibly fulfilling, especially with the right car. It's an intense puzzle- figuring out how to get the most of the car for the track, figuring out where to push and where to place yourself, setting yourself up for the next corner, optimizing your line- there are so many parameters to consider to get a good lap time. It's not about having the fastest or most capable car out there. A big part of the fun is the challenge of driving something a bit rough around the edges and having to work for the outcomes. You want a car with a personality, one that you are a bit afraid of because it will try to end you if you push it too far the wrong way. It's like taming a wild horse- you build a relationship with the car and it feels like you are operating as a team. What you don't want is a car that has limits that are impossible to achieve and does the work for you. Manual, lightweight, (mostly) no assists. If you're looking to something to start out with- get a Miata, they are amazing. <br><br> My favorite race tracks right now (I've done most tracks in/around Texas but not outside of that) are COTA (Circuit of the Americas), Barber Motorsports Park, Eagles Canyon and MSR Cresson. I'm really excited to try the tracks near SF soon! The things that make me love a track are nice technical bits and interesting terrain (elevation), having an amazing flow and surface conditions. Don't love tracks that are too flat or have too many straights. What does it mean to have a track that flows well? It's hard to explain but it just feels good, it feels like the track throws you in the right places and just well.. flows."
+        }
+      ]
+    },
+    {
+      "title": "Architecture",
+      "content": "I'm fascinated by the story that architecture tells. I love looking at buildings and imagining the thought processes, the conditions and social context that shaped them. There's something about the human stories embedded in these buildings that I find incredibly compelling. The materials that were used, the layout, the design choices, how much natural light was priotized- all give insight into what we knew and cared about at that time. It's also so interesting to see what people thought looked modern or was going to look modern. <br> A fun game I like to play (appreciative of the friends who indulge me here) is to look at the building and try to guess the year it was built and renovated.",
+      "subsections": [
+        {
+          "title": "Brutalism",
+          "content": "I /love/ brutalist architecture. It is so raw and tells an amazing story of the time period and thoughts. The monolithic structures, the exposed materials, the vastness of space- it's all so grand and almost dystopian. It's space age- it's the type of architecture that makes you feel like you're on a different planet or in a sci-fi novel. Especially in the context of the space race and the cold war, it's fascinating to think how those thoughts and ideas manifest in the built world. I don't advocate for new brutalist architecture and wouldn't want to live in a brutalist building, but I do love seeing examples of it. One of these days I'm going to go on a worldwide tour of brutalist architecture. <br><br> Some of my favorite brutalist building in SF specifically are the Cathedral of Saint Mary of the Assumption, the Glen Park BART station (you have to see it haha), the Hyatt Regency, and of course, the Transamerica Pyramid."
+        },
+        {
+          "title": "Most important traits of architecture and interior design (for me)",
+          "content": "Mid-century modern is the key to my heart- especially unique floorplans. A LOT of natural light, lots of plants, and a good mixture of woods, stones and metals. Interesting furniture with greens, browns and amber tones. A green sofa is a must."
+        }
+      ]
+    },
+    {
+      "title": "Corporate Strategy Failures",
+      "content": "Studying success stories is boring and overdone. Studying the failure cases is way more interesting and can teach you a lot. It showcases how difficult it can be to build great products, build great businesses and how many things have to come together for success. Failed mergers are especially interesting because of the products that come out of them and the lessons of culture clash and misaligned incentives. Some examples:",
+      "subsections": [
+        {
+          "title": "Palm's Downfall",
+          "content": "This is the story I love to share with the Tavus team: how Palm created the smartphone and mobile OS that scared Steve Jobs. How WebOS, its design and technology, was ahead of its time—we still see remnants of it in modern smartphones (card-based multitasking, wireless charging, rounded corners, etc.). The distribution mistakes of going with Sprint alongside the lack of developer support. How Palm was eventually sold off to HP and killed by one of the worst CEOs in history.I'm still owed a Palm Pre from my friend Arjo for losing a bet while we were watching the Blackberry movie (a great movie, by the way, and another great failure story). I'd love to use a Palm Pre as my daily driver, but unfortunately, with 3G being shut off, alas it may not be possible."
+        },
+        {
+          "title": "Daimler-Chrysler Merger",
+          "content": "I find this one fascinating. This \"merger of equals\" was meant to create a global automotive powerhouse between Mercedes-Benz (Daimler) and Chrsyler in the late 90s. Instead, it was a disastrous failure as two companies with vastly different cultures and strategies were forced together. The German perfectionists vs the American 'cowboys'. The best thing about this merger is that you can /see/ the results in the cars of the era. The parts sharing and frankenstein cars- the Chrysler Crossfire SRT-8 being a shining example. However, there were some really awesome cars that came out of this, such as the Mercedes-AMG SLS, which was sort of a chopped up (next gen) Viper."
+        }
+      ]
+    }
+  ]
+}

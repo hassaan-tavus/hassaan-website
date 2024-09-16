@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassaan's Digital Twin</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Add Three.js library here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="digital-twin-body">
+    <!-- <div id="crt-overlay"></div> -->
+    <div id="app-bar">
+        <a href="index.html" class="back-link">[ Open About Me ]</a>
+        <h1 id="ai-title">Hassaan OS v1.0</h1>
+        <a href="https://www.tavus.io" target="_blank" class="tavus-link">[ Build your digital twin with Tavus ]</a>
+    </div>
+    <div id="main-content">
+        <div id="grid-container"></div>
+        <div id="content-overlay">
+            <h1>Talk to Hassaan's Digital Twin</h1>
+            <button id="launch-call">Launch Video Call</button>
+        </div>
+        <div id="terminal-overlay" style="display: none;">
+            <div id="terminal-content"></div>
+        </div>
+    </div>
+    <audio id="dialup-sound" src="Dial-Up Sound.mp3"></audio>
+    <script src="digitaltwin.js"></script>
+</body>
+</html>
