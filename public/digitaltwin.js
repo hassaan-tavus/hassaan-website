@@ -174,26 +174,39 @@ document.getElementById('launch-call').addEventListener('click', () => {
 
     function askName() {
         terminalOutput.innerHTML += `<div class="command-line">PLEASE ENTER YOUR NAME:</div>`;
+        const inputContainer = document.createElement('div');
+        inputContainer.className = 'input-container';
         const input = document.createElement('input');
         input.type = 'text';
         input.className = 'terminal-input';
-        terminalOutput.appendChild(input);
+        const submitButton = document.createElement('button');
+        submitButton.textContent = 'Enter';
+        submitButton.className = 'submit-button';
+        inputContainer.appendChild(input);
+        inputContainer.appendChild(submitButton);
+        terminalOutput.appendChild(inputContainer);
         input.focus();
+
+        function handleSubmit() {
+            const name = input.value;
+            terminalOutput.removeChild(inputContainer);
+            terminalOutput.innerHTML += `<div class="command-line">${name.toUpperCase()}</div>`;
+            
+            if (name.toLowerCase() === 'hassaan') {
+                terminalOutput.innerHTML += `<div class="command-line">ACCESS DENIED! IMPOSTER DETECTED!</div>`;
+                setTimeout(askName, 1000); // Ask for the name again after a short delay
+            } else {
+                askEmail(name);
+            }
+        }
 
         input.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                const name = input.value;
-                terminalOutput.removeChild(input);
-                terminalOutput.innerHTML += `<div class="command-line">${name.toUpperCase()}</div>`;
-                
-                if (name.toLowerCase() === 'hassaan') {
-                    terminalOutput.innerHTML += `<div class="command-line">ACCESS DENIED! IMPOSTER DETECTED!</div>`;
-                    setTimeout(askName, 1000); // Ask for the name again after a short delay
-                } else {
-                    askEmail(name);
-                }
+                handleSubmit();
             }
         });
+
+        submitButton.addEventListener('click', handleSubmit);
     }
 
     function isValidEmail(email) {
@@ -204,28 +217,41 @@ document.getElementById('launch-call').addEventListener('click', () => {
     function askEmail(name) {
         function promptEmail() {
             terminalOutput.innerHTML += `<div class="command-line">PLEASE ENTER YOUR EMAIL:</div>`;
+            const inputContainer = document.createElement('div');
+            inputContainer.className = 'input-container';
             const input = document.createElement('input');
             input.type = 'email';
             input.className = 'terminal-input';
-            terminalOutput.appendChild(input);
+            const submitButton = document.createElement('button');
+            submitButton.textContent = 'Enter';
+            submitButton.className = 'submit-button';
+            inputContainer.appendChild(input);
+            inputContainer.appendChild(submitButton);
+            terminalOutput.appendChild(inputContainer);
             input.focus();
+
+            function handleSubmit() {
+                const email = input.value;
+                if (isValidEmail(email)) {
+                    terminalOutput.removeChild(inputContainer);
+                    terminalOutput.innerHTML += `<div class="command-line">${email.toUpperCase()}</div>`;
+                    terminalControls.style.display = 'flex';
+                    startConnection(name, email);
+                } else {
+                    terminalOutput.removeChild(inputContainer);
+                    terminalOutput.innerHTML += `<div class="command-line">${email.toUpperCase()}</div>`;
+                    terminalOutput.innerHTML += `<div class="command-line">INVALID EMAIL. ENTER A REAL EMAIL TO PROVE YOU ARE HUMAN.</div>`;
+                    promptEmail(); // Prompt for email again
+                }
+            }
 
             input.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
-                    const email = input.value;
-                    if (isValidEmail(email)) {
-                        terminalOutput.removeChild(input);
-                        terminalOutput.innerHTML += `<div class="command-line">${email.toUpperCase()}</div>`;
-                        terminalControls.style.display = 'flex';
-                        startConnection(name, email);
-                    } else {
-                        terminalOutput.removeChild(input);
-                        terminalOutput.innerHTML += `<div class="command-line">${email.toUpperCase()}</div>`;
-                        terminalOutput.innerHTML += `<div class="command-line">INVALID EMAIL. ENTER A REAL EMAIL TO PROVE YOU ARE HUMAN.</div>`;
-                        promptEmail(); // Prompt for email again
-                    }
+                    handleSubmit();
                 }
             });
+
+            submitButton.addEventListener('click', handleSubmit);
         }
 
         promptEmail(); // Initial email prompt

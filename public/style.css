@@ -707,3 +707,41 @@ canvas {
     background-color: #0f0;
     color: #000;
 }
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.terminal-input {
+    flex-grow: 1;
+    background-color: #000;
+    border: none;
+    border-bottom: 1px solid #0f0;
+    color: #0f0;
+    font-family: 'VT323', monospace;
+    font-size: 1em;
+    outline: none;
+    margin-right: 10px;
+}
+
+.submit-button {
+    background-color: #0f0;
+    color: #000;
+    border: none;
+    font-family: 'VT323', monospace;
+    font-size: 1em;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #00ff00;
+}
+
+@media (min-width: 768px) {
+    .submit-button {
+        display: none;
+    }
+}
