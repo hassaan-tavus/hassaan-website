@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    loadInterests();
+    loadInterests().then(setupTooltips);
 });
 
 function loadInterests() {
@@ -29,7 +29,7 @@ function loadInterests() {
                             html += `
                                 <p class="short-content">${shortContent}</p>
                                 <p class="full-content" style="display: none;">${subsection.content}</p>
-                                <p class="read-more-btn">[ READ MORE ]</p>
+                                <p class="read-more-btn">READ MORE</p>
                             `;
                         } else {
                             html += `<p>${subsection.content}</p>`;
@@ -68,11 +68,11 @@ function setupReadMoreButtons() {
             if (fullContent.style.display === 'none') {
                 shortContent.style.display = 'none';
                 fullContent.style.display = 'block';
-                this.textContent = '[ READ LESS ]';
+                this.textContent = 'READ LESS';
             } else {
                 shortContent.style.display = 'block';
                 fullContent.style.display = 'none';
-                this.textContent = '[ READ MORE ]';
+                this.textContent = 'READ MORE';
             }
         });
     });
@@ -82,16 +82,31 @@ function setupTooltips() {
     const tooltips = document.querySelectorAll('.car-list .tooltip');
     tooltips.forEach(tooltip => {
         const tooltiptext = tooltip.querySelector('.tooltiptext');
-        tooltip.style.display = 'inline';
-        tooltip.style.borderBottom = '1px dotted #0f0';
-        tooltiptext.style.display = 'none';
         
+        // Mouse events
         tooltip.addEventListener('mouseenter', () => {
-            tooltiptext.style.display = 'block';
+            tooltiptext.style.visibility = 'visible';
+            tooltiptext.style.opacity = '1';
         });
         
         tooltip.addEventListener('mouseleave', () => {
-            tooltiptext.style.display = 'none';
+            tooltiptext.style.visibility = 'hidden';
+            tooltiptext.style.opacity = '0';
+        });
+        
+        // Touch events
+        tooltip.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent the default touch behavior
+            tooltiptext.style.visibility = 'visible';
+            tooltiptext.style.opacity = '1';
+        });
+        
+        // Close tooltip when touching outside
+        document.addEventListener('touchstart', (e) => {
+            if (!tooltip.contains(e.target)) {
+                tooltiptext.style.visibility = 'hidden';
+                tooltiptext.style.opacity = '0';
+            }
         });
     });
 }

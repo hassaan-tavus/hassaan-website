@@ -126,3 +126,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ... (keep any existing code for other pages)
 });
+
+// Remove or comment out the typeEffect function if it's not used elsewhere
+
+// Replace the typing effect with a simple text assignment
+document.addEventListener('DOMContentLoaded', function() {
+    const contactInfo = document.getElementById('contact-info');
+    if (contactInfo) {
+        contactInfo.innerHTML = 'Contact: <a href="mailto:hassaan@tavus.io" style="color: #000;">hassaan@tavus.io</a>';
+    }
+
+    highlightCurrentPage();
+    setupCloseButton();
+
+    // ... (keep any existing code for other pages)
+});

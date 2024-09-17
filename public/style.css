@@ -308,15 +308,16 @@ canvas {
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;
+    background-color: #0f0;
+    color: #000;
 }
 
-#social-links a {
+#status-bar a {
     color: #000;
     text-decoration: none;
-    margin: 0 5px;
 }
 
-#social-links a:hover {
+#status-bar a:hover {
     text-decoration: underline;
 }
 
@@ -654,8 +655,8 @@ canvas {
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 300px;
-    max-width: 90%;
+    width: 80%; /* Increased from 300px */
+    max-width: 400px; /* Added max-width */
     background-color: #000;
     color: #0f0;
     text-align: left;
@@ -664,19 +665,45 @@ canvas {
     position: absolute;
     z-index: 1;
     bottom: 125%;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center the tooltip */
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, visibility 0.3s;
     word-wrap: break-word;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltip:hover .tooltiptext,
+.tooltip:active .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .tooltip .tooltiptext {
-        width: 200px;
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        max-width: none;
+        transform: none;
     }
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+    text-decoration: none;
+    font-family: 'VT323', monospace;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.read-more-btn:hover {
+    background-color: #0f0;
+    color: #000;
 }
