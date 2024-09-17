@@ -1,7 +1,14 @@
-const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
-require('dotenv').config();
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import fetch from 'node-fetch';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,20 +16,16 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the root directory
-app.use(express.static('public'));
+// Serve static files from the public directory
+app.use(express.static(join(__dirname, '..', 'public')));
 
 app.post('/create-video-call', async (req, res) => {
     const { name, email } = req.body;
     
     try {
-        const { name, email } = req.body;
-        
-        // insert code here
         let conversational_context = '';
         conversational_context = 'This is who you will be talking to: ' + name;
        
-
         const custom_greeting = `Howdy ${name}, I'm Hassaan's Digital Twin! How are you doing today?`;
 
         const response = await fetch('https://tavusapi.com/v2/conversations', {
@@ -37,7 +40,7 @@ app.post('/create-video-call', async (req, res) => {
                 "custom_greeting": custom_greeting,
                 "properties":{"max_call_duration":10,"participant_left_timeout":0}
             })
-        })
+        });
 
         const data = await response.json();
 
@@ -56,3 +59,5 @@ app.post('/create-video-call', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+
+export default app;
