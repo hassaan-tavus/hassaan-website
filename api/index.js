@@ -34,7 +34,7 @@ app.post('/create-video-call', async (req, res) => {
                 "persona_id": "pb98b17e",
                 "conversational_context": conversational_context,
                 "custom_greeting": custom_greeting,
-                "properties":{"max_call_duration":10,"participant_left_timeout":0}
+                "properties":{"max_call_duration":120,"participant_left_timeout":0}
             })
         });
 
