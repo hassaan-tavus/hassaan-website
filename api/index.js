@@ -1,14 +1,10 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import fetch from 'node-fetch';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const fetch = require('node-fetch');
+const path = require('path');
 
 dotenv.config();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from the public directory
-app.use(express.static(join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.post('/create-video-call', async (req, res) => {
     const { name, email } = req.body;
@@ -60,4 +56,4 @@ app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
 
-export default app;
+module.exports = app;
