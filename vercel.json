@@ -16,6 +16,30 @@
       "dest": "api/index.js"
     },
     {
+      "src": "/favicon.ico",
+      "dest": "/public/favicon.ico"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "dest": "/public/apple-touch-icon.png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "dest": "/public/favicon-32x32.png"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "dest": "/public/favicon-16x16.png"
+    },
+    {
+      "src": "/site.webmanifest",
+      "dest": "/public/site.webmanifest"
+    },
+    {
+      "src": "/safari-pinned-tab.svg",
+      "dest": "/public/safari-pinned-tab.svg"
+    },
+    {
       "src": "/",
       "dest": "/public/index.html"
     },
