@@ -15,12 +15,18 @@ app.use(express.json());
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+// Function to log calls
+function logCall(name, email) {
+    const timestamp = new Date().toISOString();
+    console.log(`${timestamp} - Call created - Name: ${name}, Email: ${email}`);
+}
+
 app.post('/create-video-call', async (req, res) => {
     const { name, email } = req.body;
     
     try {
         let conversational_context = '';
-        conversational_context = 'This is who you will be talking to: ' + name;
+        conversational_context = 'You are talking to: ' + name;
        
         const custom_greeting = `Howdy ${name}, I'm Hassaan's Digital Twin! How are you doing today?`;
 
@@ -31,16 +37,18 @@ app.post('/create-video-call', async (req, res) => {
                 "x-api-key": process.env.TAVUS_API_KEY
             },
             body: JSON.stringify({
-                "persona_id": "pb98b17e",
+                "persona_id": "p0c218ac",
                 "conversational_context": conversational_context,
                 "custom_greeting": custom_greeting,
-                "properties":{"max_call_duration":120,"participant_left_timeout":0}
+                "properties":{"max_call_duration":180,"participant_left_timeout":0}
             })
         });
 
         const data = await response.json();
 
         if (data.conversation_url) {
+            // Log the call
+            logCall(name, email);
             res.json({ meeting_link: data.conversation_url });
         } else {
             console.error('No meeting link in the response:', data);
