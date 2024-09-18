@@ -655,8 +655,8 @@ canvas {
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 80%; /* Increased from 300px */
-    max-width: 400px; /* Added max-width */
+    width: 80%;
+    max-width: 400px;
     background-color: #000;
     color: #0f0;
     text-align: left;
@@ -666,7 +666,7 @@ canvas {
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    transform: translateX(-50%); /* Center the tooltip */
+    transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.3s, visibility 0.3s;
     word-wrap: break-word;
@@ -744,4 +744,25 @@ canvas {
     .submit-button {
         display: none;
     }
+}
+
+.digital-twin-container.small {
+    max-width: 100%; /* Make the box span the content area */
+    padding: 10px; /* Adjust the padding as needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Add padding between the box and the 'Interests' title */
+}
+
+.digital-twin-container.small span {
+    font-size: 1em; /* Make the text smaller */
+    flex-grow: 1;
+    text-align: left;
+}
+
+.digital-twin-container.small a {
+    margin-left: 20px; /* Add some space between the text and the button */
+    font-size: 0.9em; /* Make the button text smaller */
+    padding: 5px 10px; /* Adjust the button padding */
 }
