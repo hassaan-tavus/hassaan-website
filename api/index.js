@@ -28,7 +28,7 @@ app.post('/create-video-call', async (req, res) => {
         let conversational_context = '';
         conversational_context = 'You are talking to: ' + name;
        
-        const custom_greeting = `Howdy ${name}, I'm Hassaan's Digital Twin! How are you doing today?`;
+        const custom_greeting = `Howdy ${name}, I'm Hasan! How are you doing today?`;
 
         const response = await fetch('https://tavusapi.com/v2/conversations', {
             method: 'POST',
