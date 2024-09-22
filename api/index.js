@@ -15,12 +15,47 @@ app.use(express.json());
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// Function to log calls
-function logCall(name, email) {
+// Function to log calls and send data to Google Sheet
+// Log the call and send data to Google Sheet
+            /*
+            1. Create a Google Sheet to store the email addresses.
+            2. Set up a Google Apps Script:
+                In your Google Sheet, go to Tools > Script editor
+                Replace the content with the following code:
+                    function doPost(e) {
+                    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+                    var data = JSON.parse(e.postData.contents);
+                    sheet.appendRow([new Date(), data.name, data.email, data.meetingUrl]);
+                    return ContentService.createTextOutput(JSON.stringify({result: 'success'})).setMimeType(ContentService.MimeType.JSON);
+                    }
+            3. Deploy the script:
+                Click on Deploy > New deployment
+                Select 'Web app' as the type
+                Set 'Execute as' to your Google account
+                Set 'Who has access' to 'Anyone'
+                Click 'Deploy' and copy the Web app URL
+                Add the Google Sheet URL to your .env file: GOOGLE_SHEET_URL=
+            */
+async function logCallAndSendToSheet(name, email, meetingUrl) {
     const timestamp = new Date().toISOString();
-    console.log(`${timestamp} - Call created - Name: ${name}, Email: ${email}`);
+    console.log(`${timestamp} - Call created - Name: ${name}, Email: ${email}, Meeting URL: ${meetingUrl}`);
+
+    // Send data to Google Sheet
+    const sheetUrl = process.env.GOOGLE_SHEET_URL;
+    try {
+        const response = await fetch(sheetUrl, {
+            method: 'POST',
+            body: JSON.stringify({ name, email, meetingUrl }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        const result = await response.json();
+        console.log('Data sent to Google Sheet:', result);
+    } catch (error) {
+        console.error('Error sending data to Google Sheet:', error);
+    }
 }
 
+// Function to create a conversation with a Tavus digital twin
 app.post('/create-video-call', async (req, res) => {
     const { name, email } = req.body;
     
@@ -47,15 +82,16 @@ app.post('/create-video-call', async (req, res) => {
         const data = await response.json();
 
         if (data.conversation_url) {
-            // Log the call
-            logCall(name, email);
+            await logCallAndSendToSheet(name, email, data.conversation_url);
             res.json({ meeting_link: data.conversation_url });
         } else {
             console.error('No meeting link in the response:', data);
+            await logCallAndSendToSheet(name, email, 'FAILED: No meeting link in the response');
             res.status(500).json({ error: 'No meeting link in the response' });
         }
     } catch (error) {
         console.error('Error:', error);
+        await logCallAndSendToSheet(name, email, `FAILED: ${error.message}`);
         res.status(500).json({ error: 'An error occurred while creating the conversation' });
     }
 });

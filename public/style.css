@@ -95,8 +95,37 @@ body, html {
 
 h1, h2, h3 {
     margin-top: 0;
-    border-bottom: 1px solid #0f0;
     padding-bottom: 5px;
+    color: #00ff00;
+}
+
+h2 {
+    border-bottom: 1px solid #0f0;
+    color: #00ff00;
+}
+
+/* New style for the page title */
+h2.page-title {
+    font-size: 1.6em;
+    color: #00ff00;
+    background-color: transparent;
+    border-bottom: 1px solid #00ff00;
+}
+
+h2.subsection-title {
+    font-size: 1.2em;
+    padding: 10px;
+    margin-top: 20px;
+    color: #000000;
+    background-color: #00ff00;
+    border: none;
+}
+
+h3 {
+    font-size: 1.0em;
+    margin-top: 20px;
+    color: #00ff00;
+    border-bottom: 1px dotted #00ff00;
 }
 
 ul {
@@ -765,4 +794,31 @@ canvas {
     margin-left: 20px; /* Add some space between the text and the button */
     font-size: 0.9em; /* Make the button text smaller */
     padding: 5px 10px; /* Adjust the button padding */
+}
+
+.read-more-section {
+    margin-top: 20px;
+}
+
+.read-more-content {
+    display: none;
+    margin-top: 10px;
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+    text-decoration: none;
+    font-family: 'VT323', monospace;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.read-more-btn:hover {
+    background-color: #0f0;
+    color: #000;
 }

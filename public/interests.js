@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function loadInterests() {
     const interestsContent = document.getElementById('interests-content');
     
-    fetch('interests.json')
+    return fetch('interests.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -13,23 +13,26 @@ function loadInterests() {
             return response.json();
         })
         .then(data => {
-            let html = `<p>${data.introduction}</p>`;
+            let html = `<h2 class="page-title">INTERESTS</h2>`; // Add the page title here
+            html += `<p>${data.introduction}</p>`;
             html += `<p><br>[ <a href="${data.carAdLink}" target="_blank">CLICK HERE</a> ] to watch an obnoxious old car ad that showcases a lot of my interests in a nutshell</p>`;
             
             data.sections.forEach(section => {
-                html += `<h3>${section.title}</h3>`;
+                html += `<h2 class="subsection-title">${section.title}</h2>`;
                 html += `<p>${section.content}</p>`;
                 
                 if (section.subsections) {
                     html += '<ul>';
                     section.subsections.forEach(subsection => {
-                        html += `<li><strong>${subsection.title}:</strong>`;
-                        if (subsection.title === "My Love for American Cars") {
+                        html += `<li>
+                            <h3 class="subsection-title">${subsection.title}:</h3>
+                            <div class="subsection-content">`;
+                        if (subsection.title === "Faster, Faster, until the thrill of speed overcomes the fear of death" || subsection.title === "My Love for American Cars") {
                             const shortContent = subsection.content.split(' ').slice(0, 50).join(' ') + '...';
                             html += `
                                 <p class="short-content">${shortContent}</p>
                                 <p class="full-content" style="display: none;">${subsection.content}</p>
-                                <p class="read-more-btn">READ MORE</p>
+                                <button class="read-more-btn">READ MORE</button>
                             `;
                         } else {
                             html += `<p>${subsection.content}</p>`;
@@ -42,7 +45,7 @@ function loadInterests() {
                             });
                             html += '</ul>';
                         }
-                        html += '</li>';
+                        html += '</div></li>';
                     });
                     html += '</ul>';
                 }
@@ -123,4 +126,15 @@ function adjustTooltipPositions() {
             }
         });
     });
+}
+
+function toggleReadMore(button) {
+    const content = button.previousElementSibling;
+    if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        button.textContent = "READ LESS";
+    } else {
+        content.style.display = "none";
+        button.textContent = "READ MORE";
+    }
 }
