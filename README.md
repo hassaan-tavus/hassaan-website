@@ -8,19 +8,19 @@ This repository contains the code for Hassaan Raza's personal website, featuring
 - `api/`: Contains server-side code (Node.js/Express)
 
 ## Prerequisites
-- A Tavus API Key and Persona ID for the AI digital twin
+- A Tavus API Key (sign up for a free account at https://www.tavus.io)
 - A Vercel account (you can also deploy to other platforms)
 
 ## Creating Your Digital Twin with Tavus
 
-To create your own digital twin using Tavus, you can either use the Tavus app or the API:
+To create your own digital twin using Tavus, you can either use the Tavus app or the API (https://docs.tavus.io):
 
 ### Using the Tavus API
 
-If you prefer programmatic control, you can use the Tavus API:
+First you'll need an API Key. You can sign up for a free account at https://www.tavus.io. Once you have your API key, you can use the following steps to create your digital twin:
 
 1. **Create a Replica:**
-   Use the Create Replica endpoint:
+   Use the [Create Replica](https://docs.tavus.io/api-reference/phoenix-replica-model/create-replica) endpoint:
    ```
    POST https://tavusapi.com/v2/replicas
    ```
@@ -28,7 +28,7 @@ If you prefer programmatic control, you can use the Tavus API:
    Note: Ceating a personal replica requires a paid account, however you can still create a conversation or persona with a stock replica.
 
 2. **Create a Persona:**
-   Once your replica is trained, create a persona:
+   Once your replica is trained, [Create a Persona](https://docs.tavus.io/api-reference/personas/create-persona):
    ```
    POST https://tavusapi.com/v2/personas
    ```
@@ -40,7 +40,7 @@ If you prefer programmatic control, you can use the Tavus API:
 
 
 3. **Start a Conversation:**
-   With your replica and persona ready, start a conversation:
+   With your replica and persona ready, [Create a Conversation](https://docs.tavus.io/api-reference/conversations/create-conversation):
    ```
    POST https://tavusapi.com/v2/conversations
    ```
