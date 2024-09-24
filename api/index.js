@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
+const fs = require('fs').promises;
 const path = require('path');
 
 dotenv.config();
@@ -92,6 +93,62 @@ app.post('/create-video-call', async (req, res) => {
     } catch (error) {
         console.error('Error:', error);
         await logCallAndSendToSheet(name, email, `FAILED: ${error.message}`);
+        res.status(500).json({ error: 'An error occurred while creating the conversation' });
+    }
+});
+
+// For investor dojo demo page
+let investorData;
+fs.readFile(path.join(__dirname, 'demo-investors.json'), 'utf8')
+    .then(data => {
+        investorData = JSON.parse(data);
+    })
+    .catch(err => {
+        console.error('Error reading investors.json:', err);
+        process.exit(1);
+    });
+
+// Function to create a conversation for YC demo day joke call
+app.post('/api/create-demo-investor-dojo-call', async (req, res) => {
+    try {
+        const { name, email } = req.body;
+        
+        // insert code here
+        let conversational_context = '';
+        if (investorData[email] && investorData[email].about_them) {
+            conversational_context = 'This is who you will be talking to: ' + investorData[email].about_them;
+        } else {
+            conversational_context = 'You are talking to an investor named: ' + name;
+        }
+
+        const custom_greeting = `Howdy ${name}, welcome to Hassaan's Dojo! How are you doing today?`;
+
+        const response = await fetch('https://tavusapi.com/v2/conversations', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "x-api-key": process.env.TAVUS_API_KEY
+            },
+            body: JSON.stringify({
+                "persona_id": "p1da6a55",
+                "conversational_context": conversational_context,
+                "custom_greeting": custom_greeting,
+                "properties":{"max_call_duration":420,"participant_left_timeout":0}
+            })
+        })
+
+        const data = await response.json();
+
+        if (data.conversation_url) {
+            await logCallAndSendToSheet('investor-dojo' + ' ' + name, email, data.conversation_url);
+            res.json({ meeting_link: data.conversation_url });
+        } else {
+            console.error('No meeting link in the response:', data);
+            await logCallAndSendToSheet('investor-dojo' + ' ' + name, email, 'FAILED: No meeting link in the response');
+            res.status(500).json({ error: 'No meeting link in the response' });
+        }
+    } catch (error) {
+        console.error('Error:', error);
         res.status(500).json({ error: 'An error occurred while creating the conversation' });
     }
 });
