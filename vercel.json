@@ -16,7 +16,7 @@
       "dest": "api/index.js"
     },
     {
-      "src": "/api/create-demo-investor-dojo-call",
+      "src": "/create-demo-investor-dojo-call",
       "dest": "api/index.js"
     },
     {
