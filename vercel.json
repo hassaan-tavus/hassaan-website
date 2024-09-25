@@ -16,6 +16,10 @@
       "dest": "api/index.js"
     },
     {
+      "src": "/api/create-demo-investor-dojo-call",
+      "dest": "api/index.js"
+    },
+    {
       "src": "/favicon.ico",
       "dest": "/public/favicon/favicon.ico"
     },
