@@ -97,7 +97,7 @@
             joinChatBtn.disabled = true;
             joinChatBtn.textContent = 'Please wait...';
 
-            fetch('/create-demo-investor-dojo-call', {
+            fetch('api/create-demo-investor-dojo-call', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
