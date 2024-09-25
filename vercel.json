@@ -56,6 +56,10 @@
       "dest": "/public/digitaltwin.html"
     },
     {
+      "src": "/investor-dojo",
+      "dest": "/public/investor-dojo.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/$1"
     }
