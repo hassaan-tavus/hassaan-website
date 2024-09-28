@@ -73,7 +73,9 @@ app.post('/create-video-call', async (req, res) => {
                 "x-api-key": process.env.TAVUS_API_KEY
             },
             body: JSON.stringify({
-                "persona_id": "p0c218ac",
+                // Persona ID for 70B - p0c218ac
+                // Persona ID for 8B - pcddd5a6
+                "persona_id": "pcddd5a6",
                 "conversational_context": conversational_context,
                 "custom_greeting": custom_greeting,
                 "properties":{"max_call_duration":180,"participant_left_timeout":0}
@@ -130,9 +132,7 @@ app.post('/api/create-demo-investor-dojo-call', async (req, res) => {
                 "x-api-key": process.env.TAVUS_API_KEY
             },
             body: JSON.stringify({
-                // Persona ID for 70B - p1da6a55
-                // Persona ID for 8B - pcddd5a6
-                "persona_id": "pcddd5a6",
+                "persona_id": "p1da6a55",
                 "conversational_context": conversational_context,
                 "custom_greeting": custom_greeting,
                 "properties":{"max_call_duration":420,"participant_left_timeout":0}
