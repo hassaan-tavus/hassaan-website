@@ -75,7 +75,7 @@ app.post('/create-video-call', async (req, res) => {
             body: JSON.stringify({
                 // Persona ID for 70B - p0c218ac
                 // Persona ID for 8B - pcddd5a6
-                "persona_id": "pcddd5a6",
+                "persona_id": "p0c218ac",
                 "conversational_context": conversational_context,
                 "custom_greeting": custom_greeting,
                 "properties":{"max_call_duration":180,"participant_left_timeout":0}
