@@ -79,7 +79,7 @@ app.post('/create-video-call', async (req, res) => {
                 "conversational_context": conversational_context,
                 "custom_greeting": custom_greeting,
                 "properties": {
-                    "max_call_duration": isUnlimited ? 0 : 180,
+                    "max_call_duration": isUnlimited ? 3600 : 180,
                     "participant_left_timeout": 0
                 }
             })
