@@ -2,8 +2,19 @@ let scene, camera, renderer, grid;
 let isMuted = false;
 let meetingLink = null;
 let terminalOutput;
+let isUnlimited = false;
 
 function init() {
+    // Check if the URL has the 'unlimited' parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    isUnlimited = urlParams.get('unlimited') === 'true';
+
+    // Update the title if it's unlimited
+    if (isUnlimited) {
+        document.getElementById('ai-title').textContent = 'Hassaan OS v1.0 (Secret Unlimited Version)';
+    }
+
+    // Rest of the init function...
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -35,7 +46,7 @@ function createCall(name, email) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ name, email, isUnlimited }),
     })
     .then(response => response.json())
     .then(data => {
