@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 const fs = require('fs').promises;
 const path = require('path');
+const axios = require('axios');
 
 dotenv.config();
 
@@ -58,9 +59,29 @@ async function logCallAndSendToSheet(name, email, meetingUrl) {
 
 // Function to create a conversation with a Tavus digital twin
 app.post('/create-video-call', async (req, res) => {
-    const { name, email, isUnlimited } = req.body;
+    const { name, email, isUnlimited, recaptchaToken } = req.body;
     
     try {
+        // Verify reCAPTCHA token
+        const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY; // Add your secret key to the .env file
+        const recaptchaResponse = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
+            params: {
+                secret: recaptchaSecret,
+                response: recaptchaToken,
+            },
+        });
+
+        const { success, score, action } = recaptchaResponse.data;
+        console.log(success)
+        console.log(score)
+        console.log(action)
+        if (!success || score < 0.5 || action !== 'submit') {
+            return res.status(400).json({ error: 'reCAPTCHA verification failed' });
+        }
+        else {
+            console.log('reCAPTCHA verification passed');
+        }
+
         let conversational_context = '';
         conversational_context = 'You are talking to: ' + name;
        
@@ -150,6 +171,44 @@ app.post('/api/create-demo-investor-dojo-call', async (req, res) => {
         } else {
             console.error('No meeting link in the response:', data);
             await logCallAndSendToSheet('investor-dojo' + ' ' + name, email, 'FAILED: No meeting link in the response');
+            res.status(500).json({ error: 'No meeting link in the response' });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'An error occurred while creating the conversation' });
+    }
+});
+
+// Function to create a conversation for the kiosk
+app.post('/api/create-kiosk-call', async (req, res) => {
+    try {
+        // No need to get name or email from req.body
+
+        const custom_greeting = `Hello! I'm the AI assistant. How can I help you today?`;
+
+        const response = await fetch('https://tavusapi.com/v2/conversations', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "x-api-key": process.env.TAVUS_API_KEY
+            },
+            body: JSON.stringify({
+                "persona_id": "pNEWPERSONAID", // Replace with the actual new persona ID
+                "custom_greeting": custom_greeting,
+                "properties": {
+                    "max_call_duration": 180, // Adjust duration if needed
+                    "participant_left_timeout": 0
+                }
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.conversation_url) {
+            // No need to log call or send to Google Sheet
+            res.json({ meeting_link: data.conversation_url });
+        } else {
+            console.error('No meeting link in the response:', data);
             res.status(500).json({ error: 'No meeting link in the response' });
         }
     } catch (error) {

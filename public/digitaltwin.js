@@ -3,7 +3,7 @@ let isMuted = false;
 let meetingLink = null;
 let terminalOutput;
 let isUnlimited = false;
-
+let connectionError = false; 
 function init() {
     // Check if the URL has the 'unlimited' parameter
     const urlParams = new URLSearchParams(window.location.search);
@@ -41,18 +41,26 @@ function init() {
 
 function createCall(name, email) {
     terminalOutput.innerHTML += `<div class="command-line">CREATING VIDEO CALL...</div>`;
+
+    const recaptchaToken = document.getElementById('recaptchaToken').value;
+
     fetch('/create-video-call', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, isUnlimited }),
+        body: JSON.stringify({ name, email, isUnlimited, recaptchaToken }),
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+        return response.json();
+    })
     .then(data => {
         if (data.error) {
             console.error(`Error: ${data.error}`);
-            terminalOutput.innerHTML += `<div class="command-line">ERROR: FAILED TO CREATE VIDEO CALL</div>`;
+            connectionError = data.error; 
         } else if (data.meeting_link) {
             meetingLink = data.meeting_link;
             terminalOutput.innerHTML += `<div class="command-line">VIDEO CALL CREATED SUCCESSFULLY</div>`;
@@ -60,12 +68,16 @@ function createCall(name, email) {
             skipButton.style.display = 'inline-block';
         } else {
             console.error('No meeting link received');
-            terminalOutput.innerHTML += `<div class="command-line">ERROR: NO MEETING LINK RECEIVED</div>`;
+            connectionError = 'No meeting link received'; 
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        terminalOutput.innerHTML += `<div class="command-line">ERROR: FAILED TO CREATE VIDEO CALL</div>`;
+        if (error.message === '400') {
+            connectionError = 'reCAPTCHA (anti-bot) verification failed';
+        } else {
+            connectionError = 'Failed to create video call';
+        }
     });
 }
 
@@ -301,6 +313,12 @@ document.getElementById('launch-call').addEventListener('click', () => {
                 terminalOutput.innerHTML += `<div class="command-line">${commands[i]}</div>`;
                 terminalOutput.scrollTop = terminalOutput.scrollHeight;
                 i++;
+
+                if (connectionError && commands[i - 1].startsWith('VERIFYING CREDENTIALS')) {
+                    terminalOutput.innerHTML += `<div class="command-line">ACCESS DENIED: ${connectionError.toUpperCase()}</div>`;
+                    return;
+                }
+
                 if (i === 1) {
                     setTimeout(typeCommand, 3000); // Wait 3 seconds after "DIALING..."
                 } else {
@@ -310,6 +328,8 @@ document.getElementById('launch-call').addEventListener('click', () => {
                 setTimeout(() => {
                     if (meetingLink) {
                         joinCall();
+                    } else if (connectionError) {
+                        terminalOutput.innerHTML += `<div class="command-line">TERMINAL SESSION ENDED</div>`;
                     } else {
                         terminalOutput.innerHTML += `<div class="command-line">WAITING FOR MEETING LINK...</div>`;
                     }

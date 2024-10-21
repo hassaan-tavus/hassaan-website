@@ -37,6 +37,18 @@
     
     <!-- Add Three.js library here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Add the reCAPTCHA v3 script -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lf212QqAAAAADF0o_vGakHJ92lS0_nFISOVIf54"></script>
+    <script>
+        // Replace 'YOUR_RECAPTCHA_SITE_KEY' with your actual site key
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Lf212QqAAAAADF0o_vGakHJ92lS0_nFISOVIf54', {action: 'submit'}).then(function(token) {
+                // Add the token to a hidden input field
+                document.getElementById('recaptchaToken').value = token;
+            });
+        });
+    </script>
 </head>
 <body class="digital-twin-body">
     <div id="app-bar">
@@ -55,6 +67,7 @@
         </div>
     </div>
     <audio id="dialup-sound" src="Dial-Up Sound.mp3"></audio>
+    <input type="hidden" id="recaptchaToken" name="recaptchaToken">
     <script src="digitaltwin.js"></script>
 </body>
 </html>
