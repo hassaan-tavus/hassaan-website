@@ -64,7 +64,6 @@ app.post('/create-video-call', async (req, res) => {
     try {
         // Verify reCAPTCHA token
         const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
-        console.log('Verifying reCAPTCHA token:', recaptchaToken);
         
         const recaptchaResponse = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
             params: {
