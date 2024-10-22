@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... existing head elements ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiosk Interaction</title>
-    <!-- Include face-api.js library for face detection -->
-    <script defer src="https://unpkg.com/face-api.js"></script>
-    <!-- Include Daily.co JavaScript SDK -->
+    <!-- Include face-api.js from a CDN -->
+    <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <!-- Include Daily.js core library -->
     <script defer src="https://unpkg.com/@daily-co/daily-js"></script>
     <!-- Include the kiosk.js script -->
-    <script defer src="kiosk.js"></script>
+    <script defer src="./kiosk.js"></script>
     <style>
         body, html {
             margin: 0;
@@ -16,7 +17,7 @@
             overflow: hidden;
             background-color: black;
         }
-        #loop-video, #daily-container {
+        #loop-video, #daily-video-container {
             position: absolute;
             top: 0;
             left: 0;
@@ -24,18 +25,55 @@
             height: 100%;
             object-fit: cover;
         }
-        #daily-container {
+        #daily-video-container {
             display: none;
+        }
+        #remote-video-element {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
     <!-- Looping video -->
-    <video id="loop-video" autoplay muted playsinline loop>
+    <video id="loop-video" playsinline loop>
         <source src="ticketus_trim.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
 
-    <!-- Container for the Daily.co video call -->
-    <div id="daily-container"></div>
+    <!-- Container for the Daily.js video -->
+    <div id="daily-video-container">
+        <video id="remote-video-element" autoplay playsinline></video>
+        <audio id="remote-audio-element" autoplay></audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loopVideo = document.getElementById('loop-video');
+            
+            // Function to play video with sound
+            function playVideo() {
+                loopVideo.muted = false;
+                loopVideo.play().catch(error => {
+                    console.error('Error playing video:', error);
+                    // If autoplay with sound fails, try muted autoplay
+                    loopVideo.muted = true;
+                    loopVideo.play();
+                });
+            }
+
+            // Try to play immediately
+            playVideo();
+
+            // Also try to play on user interaction
+            document.body.addEventListener('click', playVideo);
+            document.body.addEventListener('touchstart', playVideo);
+
+            loopVideo.addEventListener('error', function(e) {
+                console.error('Error with video playback:', e);
+            });
+        });
+    </script>
 </body>
 </html>

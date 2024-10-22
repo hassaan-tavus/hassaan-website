@@ -63,7 +63,9 @@ app.post('/create-video-call', async (req, res) => {
     
     try {
         // Verify reCAPTCHA token
-        const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY; // Add your secret key to the .env file
+        const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+        console.log('Verifying reCAPTCHA token:', recaptchaToken);
+        
         const recaptchaResponse = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
             params: {
                 secret: recaptchaSecret,
@@ -71,14 +73,17 @@ app.post('/create-video-call', async (req, res) => {
             },
         });
 
+        console.log('reCAPTCHA API response:', recaptchaResponse.data);
+
         const { success, score, action } = recaptchaResponse.data;
-        console.log(success)
-        console.log(score)
-        console.log(action)
-        if (!success || score < 0.5 || action !== 'submit') {
+        console.log('reCAPTCHA success:', success);
+        console.log('reCAPTCHA score:', score);
+        console.log('reCAPTCHA action:', action);
+
+        if (!success || score === undefined || score < 0.5 || action !== 'submit') {
+            console.log('reCAPTCHA verification failed');
             return res.status(400).json({ error: 'reCAPTCHA verification failed' });
-        }
-        else {
+        } else {
             console.log('reCAPTCHA verification passed');
         }
 
@@ -117,7 +122,7 @@ app.post('/create-video-call', async (req, res) => {
             res.status(500).json({ error: 'No meeting link in the response' });
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error in create-video-call:', error);
         await logCallAndSendToSheet(name, email, `FAILED: ${error.message}`);
         res.status(500).json({ error: 'An error occurred while creating the conversation' });
     }
@@ -193,7 +198,8 @@ app.post('/api/create-kiosk-call', async (req, res) => {
                 "x-api-key": process.env.TAVUS_API_KEY
             },
             body: JSON.stringify({
-                "persona_id": "pNEWPERSONAID", // Replace with the actual new persona ID
+                "persona_id": "p1da6a55", // Replace with the actual new persona ID
+                "replica_id": "rdc7316dce", 
                 "custom_greeting": custom_greeting,
                 "properties": {
                     "max_call_duration": 180, // Adjust duration if needed
@@ -205,7 +211,7 @@ app.post('/api/create-kiosk-call', async (req, res) => {
         const data = await response.json();
 
         if (data.conversation_url) {
-            // No need to log call or send to Google Sheet
+            // No need to log call or send to Google Sheet since this is for the local kiosk?
             res.json({ meeting_link: data.conversation_url });
         } else {
             console.error('No meeting link in the response:', data);
