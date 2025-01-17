@@ -100,7 +100,8 @@ app.post('/create-video-call', async (req, res) => {
             body: JSON.stringify({
                 // Persona ID for 70B - p0c218ac
                 // Persona ID for 8B - pcddd5a6
-                "persona_id": "pcddd5a6",
+                // Persona ID for new 70b with tavus-advanced - p739503efd18
+                "persona_id": "p739503efd18",
                 "conversational_context": conversational_context,
                 "custom_greeting": custom_greeting,
                 "properties": {
