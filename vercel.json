@@ -64,6 +64,14 @@
       "dest": "/public/investor-dojo.html"
     },
     {
+      "src": "/writing/(.+)",
+      "dest": "/public/writing.html"
+    },
+    {
+      "src": "/writing",
+      "dest": "/public/writing.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/$1"
     }

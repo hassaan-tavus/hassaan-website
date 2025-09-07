@@ -24,7 +24,7 @@ function init() {
     // Create a larger grid with bigger squares
     const size = 20000;
     const divisions = 100; // Reduced divisions for larger squares
-    grid = new THREE.GridHelper(size, divisions, 0x00ff00, 0x00ff00);
+    grid = new THREE.GridHelper(size, divisions, 0xFFA500, 0xFFA500);
     grid.position.z = 0;
     grid.position.y = -500; // Lower the grid to ensure it covers the bottom
     scene.add(grid);
