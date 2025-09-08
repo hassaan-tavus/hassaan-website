@@ -19,6 +19,10 @@ body, html {
     color: #FFA500;
     overflow: hidden;
     font-size: 16px;
+}
+
+/* Add text-shadow only to specific elements that need glow */
+h1, h2, h3, .dock-label, .command-line {
     text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
 }
 
@@ -284,22 +288,7 @@ canvas {
     animation: glitch-skew 4s cubic-bezier(.25, .46, .45, .94) infinite;
 }
 
-.digital-twin-container::before,
-.digital-twin-container::after {
-    content: "INTERACT WITH MY AI";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #000;
-    color: #FFA500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.8;
-    z-index: -1;
-}
+
 
 .digital-twin-container::before {
     left: 2px;
@@ -558,25 +547,9 @@ canvas {
     color: #000;
 }
 
-#terminal-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    background-color: #000;
-    z-index: 1000;
-    display: none;
-    flex-direction: column;
-    border: 2px solid #FFA500;
-}
 
-#terminal-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
+
+
 
 #terminal-title-bar, #terminal-status-bar {
     background-color: #FFA500;
@@ -796,14 +769,10 @@ canvas {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px; /* Add padding between the box and the 'Interests' title */
+    margin-bottom: 10px; /* Add padding between the box and the 'Interests' title */
 }
 
-.digital-twin-container.small span {
-    font-size: 1em; /* Make the text smaller */
-    flex-grow: 1;
-    text-align: left;
-}
+
 
 .digital-twin-container.small a {
     margin-left: 20px; /* Add some space between the text and the button */
@@ -1884,3 +1853,869 @@ canvas {
         display: none;
     }
 }
+
+/* Side Dock Navigation */
+#side-dock {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.dock-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 8px;
+    cursor: pointer;
+    border: 2px solid #FFA500;
+    border-bottom: none;
+    background: #000000;
+    transition: all 0.2s ease;
+    min-width: 70px;
+}
+
+.dock-item:last-child {
+    border-bottom: 2px solid #FFA500;
+}
+
+.dock-item:hover {
+    background: #FFA500;
+    color: #000000;
+    box-shadow: 0 0 8px rgba(255, 165, 0, 0.8);
+}
+
+.dock-item.active {
+    background: #FFA500;
+    color: #000000;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.dock-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+    filter: brightness(0) saturate(100%) invert(64%) sepia(100%) saturate(1352%) hue-rotate(21deg) brightness(101%) contrast(101%);
+}
+
+.dock-item:hover .dock-icon,
+.dock-item.active .dock-icon {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+}
+
+.dock-label {
+    font-family: 'Web437', 'VT323', monospace;
+    font-size: 10px;
+    text-align: center;
+    color: #FFA500;
+    text-shadow: 0 0 3px rgba(255, 165, 0, 0.5);
+}
+
+.dock-item:hover .dock-label,
+.dock-item.active .dock-label {
+    color: #000000;
+    text-shadow: none;
+}
+
+/* Make book icon slightly bigger to match others */
+.dock-item[data-app="writing"] .dock-icon {
+    width: 36px;
+    height: 36px;
+}
+
+
+
+/* OS Interface Styles */
+.os-body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Web437', 'VT323', monospace;
+    background-color: #000000;
+    color: #FFA500;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+/* Desktop Background */
+#desktop-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background: #000000;
+}
+
+#grid-container {
+    width: 100%;
+    height: 100%;
+}
+
+#content-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border: 1px solid #FFA500;
+    max-width: 80%;
+}
+
+
+
+#content-overlay h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+#launch-call {
+    font-family: 'Web437', 'VT323', monospace;
+    font-size: 1em;
+    padding: 5px 10px;
+    background-color: #000;
+    color: #FFA500;
+    border: 1px solid #FFA500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#launch-call:hover {
+    background-color: #FFA500;
+    color: #000;
+}
+
+/* App Windows */
+.app-window {
+    position: fixed;
+    top: 3%;
+    left: 5%;
+    width: 85%;
+    height: 85%;
+    min-width: 600px;
+    min-height: 400px;
+    background: #000000;
+    border: 2px solid #FFA500;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+    overflow: hidden;
+    resize: both;
+}
+
+/* Scanline effect for app windows */
+.app-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 165, 0, 0.03),
+        rgba(255, 165, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.window-header {
+    background: #FFA500;
+    color: #000000;
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Web437', 'VT323', monospace;
+    font-weight: bold;
+    cursor: move;
+    user-select: none;
+    height: 24px;
+    min-height: 24px;
+    position: relative;
+}
+
+/* Scanlines for window headers */
+.window-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.window-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.window-title {
+    font-size: 16px;
+}
+
+.close-btn {
+    background: none;
+    color: #000;
+    border: none;
+    font-family: 'Web437', 'VT323', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background-color: #000;
+    color: #FFA500;
+}
+
+.window-content {
+    flex: 1;
+    overflow: hidden;
+    background: #000000;
+}
+
+
+
+.app-content h2 {
+    color: #FFA500;
+    border-bottom: 1px solid #FFA500;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+
+
+
+
+/* Digital Twin App Specific Styles */
+.cta-button {
+    background: #FFA500;
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    font-family: 'Web437', 'VT323', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 20px 0;
+}
+
+.cta-button:hover {
+    background: #000000;
+    color: #FFA500;
+    border: 2px solid #FFA500;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+#tavus-container {
+    min-height: 300px;
+    border: 1px solid #FFA500;
+    margin: 20px 0;
+    background: rgba(255, 165, 0, 0.1);
+}
+
+/* Status Bar */
+#status-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFA500;
+    color: #000000;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Web437', 'VT323', monospace;
+    z-index: 1000;
+    font-size: 12px;
+}
+
+#status-bar a {
+    color: #000000;
+    text-decoration: none;
+}
+
+#status-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Multiple app windows positioning */
+#interests-app {
+    top: 5%;
+    left: 8%;
+}
+
+#digitaltwin-app {
+    top: 7%;
+    left: 10%;
+}
+
+/* Mobile adjustments - only for very small screens */
+@media (max-width: 390px) {
+    .app-window {
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 85%;
+        min-width: 280px;
+    }
+    
+    .top-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .top-section .column {
+        width: 100%;
+        min-width: 0;
+    }
+    
+    #content-overlay {
+        max-width: 90% !important;
+        padding: 1rem !important;
+        width: 90% !important;
+    }
+}
+
+/* Tablet adjustments - keep columns side by side longer */
+@media (max-width: 768px) and (min-width: 391px) {
+    .app-window {
+        top: 5%;
+        left: 5%;
+        width: 95%;
+        height: 80%;
+        min-width: 350px;
+    }
+    
+    .top-section {
+        gap: 5px;
+    }
+    
+    .top-section .column {
+        min-width: 140px;
+    }
+  
+    
+    #content-overlay h1 {
+        font-size: 18px;
+    }
+    
+    #side-dock {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        transform: none;
+        flex-direction: row;
+        gap: 0;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .dock-item {
+        min-width: 60px;
+        border-right: none;
+        border-bottom: 2px solid #FFA500;
+        border-top: 2px solid #FFA500;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .dock-item:last-child {
+        border-right: 2px solid #FFA500;
+    }
+    
+    .dock-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .dock-label {
+        font-size: 8px;
+    }
+}
+
+/* App Status Bar (within apps) */
+.app-status-bar {
+    background: #FFA500;
+    color: #000000;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Web437', 'VT323', monospace;
+    font-size: 16px;
+    border-top: 1px solid #FFA500;
+    min-height: 24px;
+    position: relative;
+}
+
+.app-status-bar a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.app-status-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Scanlines for status bars */
+.app-status-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.app-status-bar > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Digital Twin Container (within About app) - ORIGINAL STYLING */
+.app-content #highlight-section {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #FFA500;
+    background-color: rgba(0, 255, 0, 0.1);
+    margin-top: auto;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+}
+
+.app-content .digital-twin-container {
+    background-color: #000;
+    border: 2px solid #FFA500;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    max-width: 80%;
+    overflow: hidden;
+    animation: glitch-skew 4s cubic-bezier(.25, .46, .45, .94) infinite;
+    margin: 0 20px;
+}
+
+
+.app-content .digital-twin-container::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.app-content .digital-twin-container::after {
+    left: -2px;
+    text-shadow: 2px 0 #00ffff;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-2 5s infinite linear alternate-reverse;
+}
+
+.app-content .digital-twin-container:hover::before,
+.app-content .digital-twin-container:hover::after {
+    animation-duration: 1s;
+}
+
+.app-content .digital-twin-container h2,
+.app-content .digital-twin-container a {
+    position: relative;
+    z-index: 2;
+}
+
+.app-content .digital-twin-link {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #FFA500;
+    color: #FFA500;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.app-content .digital-twin-link:hover {
+    background-color: #FFA500;
+    color: #000;
+}
+
+/* Adjust app content layout */
+.app-content {
+    padding: 20px;
+    color: #FFA500;
+    font-family: 'Web437', 'VT323', monospace;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Hide scrollbar for webkit browsers */
+.app-content::-webkit-scrollbar {
+    display: none;
+}
+
+.top-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.top-section .column {
+    flex: 1 1 0;
+    min-width: 150px;
+    width: calc(50% - 5px);
+    box-sizing: border-box;
+}
+
+/* Override sub-column flex behavior in app context */
+.top-section .column .sub-column {
+    flex: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.app-content .sub-column {
+    margin-bottom: 25px;
+    padding: 0;
+    flex: none;
+}
+
+/* Fix timeline spacing in app context */
+.app-content .timeline {
+    margin-left: 0;
+    padding-left: 15px;
+}
+
+/* Learn more button styling */
+.learn-more-btn {
+    display: inline-block;
+    background: #000000;
+    color: #FFA500;
+    padding: 8px 15px;
+    text-decoration: none;
+    border: 1px solid #FFA500;
+    font-family: 'Web437', 'VT323', monospace;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+
+.learn-more-btn:hover {
+    background: #FFA500;
+    color: #000000;
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+/* Digital Twin App Styling */
+#content-overlay-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 40px;
+}
+
+#content-overlay-app h1 {
+    font-size: 24px;
+    color: #FFA500;
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+    font-family: 'Web437', 'VT323', monospace;
+    margin: 0 0 30px 0;
+}
+
+#launch-call-app {
+    background: #FFA500;
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    font-family: 'Web437', 'VT323', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#launch-call-app:hover {
+    background: #000000;
+    color: #FFA500;
+    border: 2px solid #FFA500;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+#terminal-overlay-app {
+    height: 100%;
+    width: 100%;
+}
+
+#digitaltwin-app #terminal-content {
+    padding: 20px;
+    background: #000000;
+    color: #FFA500;
+    font-family: 'Web437', 'VT323', monospace;
+    height: 100%;
+    overflow-y: auto;
+    font-size: 14px;
+    position: relative;
+}
+
+/* Enhanced scanlines for terminal app */
+#digitaltwin-app #terminal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 165, 0, 0.05),
+        rgba(255, 165, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 10;
+}
+
+.terminal-path {
+    color: #FFA500;
+    margin-bottom: 10px;
+}
+
+#terminal-output {
+    min-height: 300px;
+    line-height: 1.4;
+}
+
+.command-line {
+    margin: 5px 0;
+    color: #FFA500;
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.terminal-input {
+    background: #000000;
+    border: 1px solid #FFA500;
+    color: #FFA500;
+    padding: 8px 12px;
+    font-family: 'Web437', 'VT323', monospace;
+    font-size: 14px;
+    flex: 1;
+}
+
+.terminal-input:focus {
+    outline: none;
+    border-color: #FFA500;
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+.submit-button {
+    background: #FFA500;
+    color: #000000;
+    border: none;
+    padding: 8px 15px;
+    font-family: 'Web437', 'VT323', monospace;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submit-button:hover {
+    background: #000000;
+    color: #FFA500;
+    border: 1px solid #FFA500;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.terminal-controls button {
+    background: #000000;
+    color: #FFA500;
+    border: 1px solid #FFA500;
+    padding: 6px 12px;
+    font-family: 'Web437', 'VT323', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.terminal-controls button:hover {
+    background: #FFA500;
+    color: #000000;
+}
+
+/* Interests App Specific Styling */
+#interests-app h2.subsection-title {
+    color: #0D180A;
+    background-color: #FFA500;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    font-size: 1.2em;
+}
+
+#interests-app h3.subsection-title {
+    color: #FFD700;
+    background: none;
+    font-size: 1.0em;
+    margin-top: 20px;
+}
+
+#interests-app .page-title {
+    color: #FFA500;
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
+}
+
+#interests-app .digital-twin-container.small {
+    background-color: #000;
+    border: 2px solid #FFA500;
+    padding: 12px 15px;
+    margin: 15px 0;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 45px;
+    transition: all 0.3s ease;
+}
+
+#interests-app .digital-twin-container.small:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
+}
+
+#interests-app .digital-twin-container.small span {
+    color: #FFA500;
+    font-size: 14px;
+    flex: 1;
+    text-align: left;
+}
+
+#interests-app .digital-twin-container.small a {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 2px solid #FFA500;
+    color: #FFA500;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+}
+
+#interests-app .digital-twin-container.small a:hover {
+    background-color: #FFA500;
+    color: #000;
+}
+
+.read-more-btn {
+    background: #000000;
+    color: #FFA500;
+    border: 1px solid #FFA500;
+    padding: 5px 10px;
+    font-family: 'Web437', 'VT323', monospace;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: all 0.2s ease;
+}
+
+.read-more-btn:hover {
+    background: #FFA500;
+    color: #000000;
+}
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+    color: #FFA500;
+    border-bottom: 1px dotted #FFA500;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    background-color: #FFA500;
+    color: #000000;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 2000;
+    bottom: 125%;
+    left: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+/* Ensure tooltips work properly */
+.car-list {
+    position: relative;
+}
+
+.car-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.car-list li {
+    margin: 5px 0;
+    padding: 5px;
+    border-left: 2px solid #FFA500;
+    padding-left: 10px;
+}
+

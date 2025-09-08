@@ -1,41 +1,318 @@
-let scene, camera, renderer, grid;
+// Hassaan OS - Simple Working Version
+console.log('Loading Hassaan OS...');
 
-function init() {
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-    renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('cityscape'), alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+// Digital Twin Chat functionality - Make globally available
+window.openTerminal = function() {
+    console.log('Opening AI Chat app...');
+    showWindow('digitaltwin-app');
+};
 
-    // Create a static grid
-    const size = 1000;
-    const divisions = 50;
-    grid = new THREE.GridHelper(size, divisions, 0x00ff00, 0x00ff00);
-    grid.position.set(0, -250, -500);
-    grid.rotation.x = Math.PI / 2;
-    scene.add(grid);
+window.closeTerminal = function() {
+    console.log('Closing AI Chat app...');
+    hideWindow('digitaltwin-app');
+};
 
-    camera.position.set(0, 0, 10);
-    camera.lookAt(grid.position);
-
-    animate();
+function setupDock() {
+    console.log('Setting up dock...');
+    
+    const dockItems = document.querySelectorAll('.dock-item');
+    console.log('Dock items found:', dockItems.length);
+    
+    dockItems.forEach((item, i) => {
+        console.log(`Dock item ${i}:`, item.getAttribute('data-app'));
+        
+        item.onclick = function(e) {
+            console.log('DOCK CLICKED!', this.getAttribute('data-app'));
+            e.preventDefault();
+            
+            const app = this.getAttribute('data-app');
+            
+            if (app === 'about') {
+                showWindow('about-app');
+            } else if (app === 'interests') {
+                showWindow('interests-app');
+            } else if (app === 'digitaltwin') {
+                showWindow('digitaltwin-app');
+                setTimeout(() => {
+                    if (window.startTerminalSequence) {
+                        window.startTerminalSequence();
+                    }
+                }, 300);
+            } else if (app === 'writing') {
+                window.location.href = '/writing';
+            }
+        };
+    });
+    
+    // Close buttons
+    const closeBtns = document.querySelectorAll('.close-btn');
+    console.log('Close buttons found:', closeBtns.length);
+    
+    closeBtns.forEach((btn, i) => {
+        console.log(`Close button ${i}:`, btn.getAttribute('data-app'));
+        
+        btn.onclick = function(e) {
+            console.log('CLOSE CLICKED!', this.getAttribute('data-app'));
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const app = this.getAttribute('data-app');
+            hideWindow(app + '-app');
+        };
+    });
+    
+    // Setup desktop buttons
+    const launchCallBtn = document.getElementById('launch-call');
+    if (launchCallBtn) {
+        launchCallBtn.onclick = function() {
+            showWindow('digitaltwin-app');
+        };
+    }
+    
+    // Setup window dragging
+    setupWindowDragging();
 }
 
-function animate() {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
+function showWindow(windowId) {
+    console.log('Showing window:', windowId);
+    const window = document.getElementById(windowId);
+            if (window) {
+            window.style.display = 'flex';
+            bringToFront(window);
+            
+            // If it's the interests app, load the interests content
+            if (windowId === 'interests-app') {
+                loadInterestsContent();
+            }
+        }
+    }
+
+    // Load interests content dynamically
+    function loadInterestsContent() {
+        const interestsContent = document.getElementById('interests-content');
+        if (!interestsContent) return;
+        
+        fetch('interests.json')
+            .then(response => response.json())
+            .then(data => {
+                let html = `<h2 class="page-title">INTERESTS</h2>`;
+                html += `<p>${data.introduction}</p>`;
+                html += `<p><br>[ <a href="${data.carAdLink}" target="_blank">CLICK HERE</a> ] to watch an obnoxious old car ad that showcases a lot of my interests in a nutshell</p>`;
+                
+                data.sections.forEach(section => {
+                    html += `<h2 class="subsection-title">${section.title}</h2>`;
+                    html += `<p>${section.content}</p>`;
+                    
+                    if (section.subsections) {
+                        html += '<ul>';
+                        section.subsections.forEach(subsection => {
+                            html += `<li>
+                                <h3 class="subsection-title">${subsection.title}:</h3>
+                                <div class="subsection-content">`;
+                            
+                            // Handle expandable content like the original
+                            if (subsection.title === "Faster, Faster, until the thrill of speed overcomes the fear of death" || subsection.title === "My Love for American Cars") {
+                                const shortContent = subsection.content.split(' ').slice(0, 50).join(' ') + '...';
+                                html += `
+                                    <p class="short-content">${shortContent}</p>
+                                    <p class="full-content" style="display: none;">${subsection.content}</p>
+                                    <button class="read-more-btn">READ MORE</button>
+                                `;
+                            } else {
+                                html += `<p>${subsection.content}</p>`;
+                            }
+                            
+                            if (subsection.list) {
+                                html += '<ul class="car-list">';
+                                subsection.list.forEach(item => {
+                                    const [carName, description] = item.split('|').map(s => s.trim());
+                                    html += `<li><span class="tooltip">${carName}<span class="tooltiptext">${description}</span></span></li>`;
+                                });
+                                html += '</ul>';
+                            }
+                            html += '</div></li>';
+                        });
+                        html += '</ul>';
+                    }
+                });
+                
+                interestsContent.innerHTML = html;
+                setupReadMoreButtons();
+                setupTooltips();
+            })
+            .catch(error => {
+                console.error('Error loading interests:', error);
+                interestsContent.innerHTML = '<p>Error loading interests content.</p>';
+            });
+    }
+
+    function setupReadMoreButtons() {
+        const readMoreButtons = document.querySelectorAll('.read-more-btn');
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const shortContent = this.previousElementSibling.previousElementSibling;
+                const fullContent = this.previousElementSibling;
+                
+                if (fullContent.style.display === 'none') {
+                    shortContent.style.display = 'none';
+                    fullContent.style.display = 'block';
+                    this.textContent = 'READ LESS';
+                } else {
+                    shortContent.style.display = 'block';
+                    fullContent.style.display = 'none';
+                    this.textContent = 'READ MORE';
+                }
+            });
+        });
+    }
+
+    function setupTooltips() {
+        // Tooltip functionality for car list
+        const tooltips = document.querySelectorAll('.tooltip');
+        tooltips.forEach(tooltip => {
+            tooltip.addEventListener('mouseenter', function() {
+                const tooltiptext = this.querySelector('.tooltiptext');
+                if (tooltiptext) {
+                    tooltiptext.style.visibility = 'visible';
+                    tooltiptext.style.opacity = '1';
+                }
+            });
+            
+            tooltip.addEventListener('mouseleave', function() {
+                const tooltiptext = this.querySelector('.tooltiptext');
+                if (tooltiptext) {
+                    tooltiptext.style.visibility = 'hidden';
+                    tooltiptext.style.opacity = '0';
+                }
+            });
+        });
+    }
+
+
+
+function hideWindow(windowId) {
+    console.log('Hiding window:', windowId);
+    const window = document.getElementById(windowId);
+    if (window) {
+        window.style.display = 'none';
+    }
 }
 
-init();
+function bringToFront(window) {
+    const allWindows = document.querySelectorAll('.app-window');
+    allWindows.forEach(w => w.style.zIndex = '100');
+    window.style.zIndex = '101';
+}
 
-// Handle window resize
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
+function setupWindowDragging() {
+    console.log('Setting up window dragging...');
+    
+    document.querySelectorAll('.window-header').forEach(header => {
+        console.log('Setting up dragging for header:', header);
+        
+        let isDragging = false;
+        let currentX = 0;
+        let currentY = 0;
+        let initialX = 0;
+        let initialY = 0;
+        let xOffset = 0;
+        let yOffset = 0;
+        
+        const appWindow = header.closest('.app-window');
+        
+        // Mouse events
+        header.addEventListener('mousedown', startDrag);
+        
+        // Touch events for mobile
+        header.addEventListener('touchstart', startDrag);
+        
+        function startDrag(e) {
+            // Don't drag if clicking close button
+            if (e.target.classList.contains('close-btn')) {
+                console.log('Close button clicked, not dragging');
+                return;
+            }
+            
+            console.log('Starting drag...');
+            isDragging = true;
+            
+            // Get client coordinates from mouse or touch
+            const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+            
+            initialX = clientX - xOffset;
+            initialY = clientY - yOffset;
+            
+            bringToFront(appWindow);
+            
+            // Add cursor style
+            document.body.style.cursor = 'move';
+            
+            // Prevent default to avoid scrolling on mobile
+            e.preventDefault();
+        }
+        
+        // Mouse move
+        document.addEventListener('mousemove', handleMove);
+        // Touch move
+        document.addEventListener('touchmove', handleMove);
+        
+        function handleMove(e) {
+            if (isDragging) {
+                e.preventDefault();
+                
+                // Get client coordinates from mouse or touch
+                const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+                const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+                
+                currentX = clientX - initialX;
+                currentY = clientY - initialY;
+                
+                xOffset = currentX;
+                yOffset = currentY;
+                
+                // Constrain to viewport
+                const maxX = window.innerWidth - appWindow.offsetWidth;
+                const maxY = window.innerHeight - appWindow.offsetHeight;
+                
+                currentX = Math.max(0, Math.min(currentX, maxX));
+                currentY = Math.max(0, Math.min(currentY, maxY));
+                
+                appWindow.style.left = currentX + 'px';
+                appWindow.style.top = currentY + 'px';
+            }
+        }
+        
+        // Mouse up
+        document.addEventListener('mouseup', endDrag);
+        // Touch end
+        document.addEventListener('touchend', endDrag);
+        
+        function endDrag() {
+            if (isDragging) {
+                console.log('Ending drag...');
+                isDragging = false;
+                document.body.style.cursor = 'default';
+            }
+        }
+    });
+}
 
-// Page navigation
-document.querySelectorAll('#title-bar a, .learn-more-btn').forEach(anchor => {
+// Try multiple times to ensure it works
+setTimeout(setupDock, 100);
+setTimeout(setupDock, 500);
+setTimeout(setupDock, 1000);
+
+document.addEventListener('DOMContentLoaded', setupDock);
+
+if (document.readyState !== 'loading') {
+    setupDock();
+}
+
+
+
+// Page navigation (keep existing for other links)
+document.querySelectorAll('.learn-more-btn').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href').substring(1);

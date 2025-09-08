@@ -114,50 +114,40 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-document.getElementById('launch-call').addEventListener('click', () => {
-    // Hide the "Talk to Digital Twin" box
-    document.getElementById('content-overlay').style.display = 'none';
+// Function to start terminal (can be called from anywhere)
+function startTerminalSequence() {
+    console.log('Starting terminal sequence...');
+    
+    // Hide desktop content overlay if it exists
+    const contentOverlay = document.getElementById('content-overlay');
+    if (contentOverlay) {
+        contentOverlay.style.display = 'none';
+    }
 
-    // Show terminal overlay
-    const terminalOverlay = document.getElementById('terminal-overlay');
-    terminalOverlay.style.display = 'flex';
-
-    // Simulate terminal commands
-    const terminalContent = document.getElementById('terminal-content');
-    terminalContent.innerHTML = `
-        <div id="terminal-title-bar">
-            <span>Terminal</span>
-            <button id="close-terminal">x</button>
-        </div>
-        <div id="terminal-body">
-            <div class="terminal-path">]</div>
-            <div id="terminal-output"></div>
-        </div>
-        <div id="terminal-status-bar">
-            <div class="terminal-controls">
-                <button id="mute-button">Mute Sound</button>
-                <button id="skip-button" style="display: none;">Skip the fun, join the call</button>
-            </div>
-        </div>
-    `;
-
+    // Get the terminal output (already exists in app)
     terminalOutput = document.getElementById('terminal-output');
+    
+    if (!terminalOutput) {
+        console.error('Terminal output not found!');
+        return;
+    }
+    
+    // Clear any existing content
+    terminalOutput.innerHTML = '';
     const muteButton = document.getElementById('mute-button');
     const skipButton = document.getElementById('skip-button');
-    const closeButton = document.getElementById('close-terminal');
     const terminalControls = document.querySelector('.terminal-controls');
 
-    muteButton.addEventListener('click', () => {
-        isMuted = !isMuted;
-        muteButton.textContent = isMuted ? 'Unmute Sound' : 'Mute Sound';
-        const dialupSound = document.getElementById('dialup-sound');
-        dialupSound.muted = isMuted;
-    });
-
-    closeButton.addEventListener('click', () => {
-        terminalOverlay.style.display = 'none';
-        document.getElementById('content-overlay').style.display = 'block';
-    });
+    if (muteButton) {
+        muteButton.addEventListener('click', () => {
+            isMuted = !isMuted;
+            muteButton.textContent = isMuted ? 'Unmute Sound' : 'Mute Sound';
+            const dialupSound = document.getElementById('dialup-sound');
+            if (dialupSound) {
+                dialupSound.muted = isMuted;
+            }
+        });
+    }
 
     skipButton.addEventListener('click', () => {
         const name = terminalOutput.querySelector('.command-line:nth-last-child(2)').textContent;
@@ -181,6 +171,13 @@ document.getElementById('launch-call').addEventListener('click', () => {
     }
 
     function startApplication() {
+        console.log('startApplication called, terminalOutput:', terminalOutput);
+        
+        if (!terminalOutput) {
+            console.error('No terminal output element found!');
+            return;
+        }
+        
         terminalOutput.innerHTML += '<div class="command-line">]RUN HASSAAN_AI</div>';
         terminalOutput.innerHTML += '<div class="command-line">LOADING HASSAAN_AI...</div>';
         
@@ -287,9 +284,15 @@ document.getElementById('launch-call').addEventListener('click', () => {
     });
 
     function startConnection(name, email) {
+        // Show mute button when sound starts
+        const muteButton = document.getElementById('mute-button');
+        if (muteButton) {
+            muteButton.style.display = 'block';
+        }
+        
         // Play dial-up sound
         const dialupSound = document.getElementById('dialup-sound');
-        if (!isMuted) {
+        if (!isMuted && dialupSound) {
             dialupSound.play();
         }
 
@@ -340,5 +343,23 @@ document.getElementById('launch-call').addEventListener('click', () => {
         typeCommand();
     }
 
+    // Start the application
+    console.log('Starting application...');
     startApplication();
+}
+
+// Set up event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    const launchCallBtn = document.getElementById('launch-call');
+    if (launchCallBtn) {
+        launchCallBtn.addEventListener('click', startTerminalSequence);
+    }
+    
+    const launchCallAppBtn = document.getElementById('launch-call-app');
+    if (launchCallAppBtn) {
+        launchCallAppBtn.addEventListener('click', startTerminalSequence);
+    }
 });
+
+// Make function globally available for the "Talk to My Digital Twin" button
+window.startTerminalSequence = startTerminalSequence;

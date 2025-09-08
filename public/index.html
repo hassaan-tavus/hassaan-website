@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hassaan Raza</title>
+    <title>Hassaan OS</title>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     
@@ -17,112 +17,187 @@
     <meta name="theme-color" content="#ffffff">
     
     <!-- Open Graph Metadata -->
-    <!-- HTML Meta Tags -->
-    <meta name="description" content="Hassaan's personal blog and portal to his AI digital twin">   
-
-    <!-- Facebook Meta Tags -->
+    <meta name="description" content="Hassaan's personal OS and AI digital twin">   
     <meta property="og:url" content="https://hassaanraza.com">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Hassaan Raza">
-    <meta property="og:description" content="Hassaan's personal blog and portal to his AI digital twin">
+    <meta property="og:title" content="Hassaan OS">
+    <meta property="og:description" content="Hassaan's personal OS and AI digital twin">
     <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/494fbd27-a97e-4ade-b18e-11f97794e266.png?token=YQeuoKGLxDJE9O3wsY76T-98Pf71vyKb79Td7hVyzc4&height=630&width=1200&expires=33262547243">
-
-    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="hassaanraza.com">
     <meta property="twitter:url" content="https://hassaanraza.com">
-    <meta name="twitter:title" content="Hassaan Raza">
-    <meta name="twitter:description" content="Hassaan's personal blog and portal to his AI digital twin">
+    <meta name="twitter:title" content="Hassaan OS">
+    <meta name="twitter:description" content="Hassaan's personal OS and AI digital twin">
     <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/494fbd27-a97e-4ade-b18e-11f97794e266.png?token=YQeuoKGLxDJE9O3wsY76T-98Pf71vyKb79Td7hVyzc4&height=630&width=1200&expires=33262547243">
-
-    <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+    
+    <!-- Three.js for the grid background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body>
-    <div id="crt-overlay"></div>
-    <div id="dos-container">
-        <div id="title-bar">
-            <span>Hassaan Raza</span>
-            <div id="nav-links">
-                <a href="#" class="nav-link active" data-page="home">HOME</a> | <a href="interests.html" class="nav-link" data-page="interests">INTERESTS</a> | <a href="/writing" class="nav-link" data-page="writing">WRITING</a>
-            </div>
-            <button id="close-btn" onclick="window.location.href='digitaltwin.html'">x</button>
+<body class="os-body">
+    
+    <!-- Desktop Background (Digital Twin Grid) -->
+    <div id="desktop-background">
+        <div id="grid-container"></div>
+        <div id="content-overlay">
+            <h1>Talk to Hassaan's Digital Twin</h1>
+            <button id="launch-call">Launch Video Call</button>
         </div>
-        <div id="content-area">
-            <div id="home" class="page active">
-                <div class="column left">
-                    <h2>ABOUT ME</h2>
-                    <p>Howdy, I'm Hassaan Raza. I'm the CEO and Co-Founder of <a href="https://www.tavus.io" target="_blank">Tavus</a>. Tavus is a AI research lab focused on human computing, the pursuit of teaching machines how to be human. My background is in computer science, and before Tavus, I was a software engineer for many years as well as a PM (being a SWE was more my vibe though, I like building). I spend most of my time these days in San Francisco at the Tavus office in the Mission (come visit!) working with an insane team. This website was made for fun, but primarily to hold context for my digital twin.</p>
-                    <h2>WORK HISTORY</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="year">2020 - Present</span>
-                            <strong><a href="https://www.tavus.io" target="_blank">Tavus</a></strong>
-                            <p>Leading an awesome team building frontier human simulation models to bridge the human-machine divide.</p>
+    </div>
+    
+    <!-- Side Dock Navigation -->
+    <div id="side-dock">
+        <div class="dock-item" data-app="about" title="About Hassaan">
+            <img src="icons/noun-home-6351217.svg" alt="About" class="dock-icon">
+            <span class="dock-label">About</span>
+        </div>
+        <div class="dock-item" data-app="interests" title="Interests">
+            <img src="icons/noun-firework-6351198.svg" alt="Interests" class="dock-icon">
+            <span class="dock-label">Interests</span>
+        </div>
+        <div class="dock-item" data-app="writing" title="Writing">
+            <img src="icons/noun-book-7670082.svg" alt="Writing" class="dock-icon">
+            <span class="dock-label">Writing</span>
+        </div>
+        <div class="dock-item" data-app="digitaltwin" title="Digital Twin Chat">
+            <img src="icons/noun-people-6409675.svg" alt="Digital Twin" class="dock-icon">
+            <span class="dock-label">AI Chat</span>
+        </div>
+    </div>
+
+    <!-- App Windows -->
+    
+    <!-- About Me App (opens by default) -->
+    <div id="about-app" class="app-window" style="display: flex;">
+        <div class="window-header">
+            <span class="window-title">About Hassaan</span>
+            <button class="close-btn" data-app="about">x</button>
+        </div>
+        <div class="window-content">
+            <div class="app-content">
+                <div class="top-section">
+                    <div class="column left">
+                        <div class="sub-column">
+                            <h2>ABOUT ME</h2>
+                            <p>Howdy, I'm Hassaan Raza. I'm the CEO and Co-Founder of <a href="https://www.tavus.io" target="_blank">Tavus</a>. Tavus is a AI research lab focused on human computing, the pursuit of teaching machines how to be human. My background is in computer science, and before Tavus, I was a software engineer for many years as well as a PM (being a SWE was more my vibe though, I like building). I spend most of my time these days in San Francisco at the Tavus office in the Mission (come visit!) working with an insane team. This website was made for fun, but primarily to hold context for my digital twin.</p>
                         </div>
-                        <div class="timeline-item">
-                            <span class="year">2019 - 2021</span>
-                            <strong>Google</strong>
-                            <p>Shilling GCP and doing some ML stuff</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="year">2018 - 2018</span>
-                            <strong>Apple</strong>
-                            <p>Led security/OS projects for macOS as EPM/SWE</p>
-                        </div>
-                        <div class="timeline-item trail-off">
-                            <span class="year">...</span>
-                            <p>Started a product studio, worked in a few different industries as a SWE, went to UT for CS</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="year">2014 - 2015</span>
-                            <strong>HP (Hewlett-Packard)</strong>
-                            <p>Started at HP at the ripe age of 16 and it almost turned me away from tech. Mostly because I was an edgy teen probably.</p>
+                        <div class="sub-column">
+                            <h2>WORK HISTORY</h2>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <span class="year">2020 - Present</span>
+                                    <strong><a href="https://www.tavus.io" target="_blank">Tavus</a></strong>
+                                    <p>Leading an awesome team building frontier human simulation models to bridge the human-machine divide.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">2019 - 2021</span>
+                                    <strong>Google</strong>
+                                    <p>Shilling GCP and doing some ML stuff</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">2018 - 2018</span>
+                                    <strong>Apple</strong>
+                                    <p>Led security/OS projects for macOS as EPM/SWE</p>
+                                </div>
+                                <div class="timeline-item trail-off">
+                                    <span class="year">...</span>
+                                    <p>Started a product studio, worked in a few different industries as a SWE, went to UT for CS</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="year">2014 - 2015</span>
+                                    <strong>HP (Hewlett-Packard)</strong>
+                                    <p>Started at HP at the ripe age of 16 and it almost turned me away from tech. Mostly because I was an edgy teen probably.</p>
+                                </div>
+                            </div>
+                            <a href="https://www.linkedin.com/in/hassaanraza/" target="_blank" class="linkedin-link">View full work history on LinkedIn</a>
                         </div>
                     </div>
-                    <a href="https://www.linkedin.com/in/hassaanraza/" target="_blank" class="linkedin-link">View full work history on LinkedIn</a>
+                    <div class="column right">
+                        <div class="sub-column">
+                            <h2>INTERESTS</h2>
+                            <p>I'm generally pretty easily entertained, but some topics that specifically interest me are: how humans and computers communicate with each other (poorly), cars/racing (I'm a diehard American car guy; I'm a GM boomer at 28), vintage computing and computing history (I hoard old computers), architecture (specifically brutalist architecture), corporate strategy failures (Palm, DaimlerChrysler, etc.), and overall, the history of design and technology (hence this website).</p>
+                            <br>
+                            <p>[ <a href="https://www.youtube.com/watch?v=Vx7E1_q7cW0" target="_blank">CLICK HERE</a> ] to watch an obnoxious old car ad that showcases a lot of my interests in a nutshell</p>
+                            <a href="interests.html" class="learn-more-btn">READ MORE</a>
+                        </div>
+                        <div class="sub-column">
+                            <h2>PRESS THINGS</h2>
+                            <ul>
+                                <li><a href="https://sacra.com/research/hassan-raza-tavus-ai-avatar-developer-platform/" target="_blank">Sacra - Building an AI Avatar developer platform</a></li>
+                                <li><a href="https://techcrunch.com/2024/03/12/generative-ai-video-startup-tavus-raises-18m-to-bring-face-and-voice-cloning-to-any-app/" target="_blank">TechCrunch - Tavus Raises $18M Series A</a></li>
+                                <li><a href="https://www.forbes.com/sites/emmylucas/2023/11/28/meet-the-30-under-30-marketing--advertising-class-of-2024-from-ai-startups-to-a-chief-tiktok-officer/" target="_blank">Forbes - 30 Under 30, Hassaan Raza</a></li>
+                                <li><a href="https://www.sequoiacap.com/article/partnering-with-tavus-ai-personalized-videos/" target="_blank">Sequoia - Partnering with Tavus</a></li>
+                                <li><a href="https://robots4therestofus.substack.com/p/when-you-cant-talk-to-me-talk-to" target="_blank">Robots for the Rest of Us - When You Can't Talk to Me, Talk to "Me"</a></li>
+                                <li><a href="https://siliconangle.com/2024/08/15/toolkit-lets-developers-create-video-digital-twins-converse-just-like-humans/" target="_blank">Silicon Angle - Tavus lets developers create digital twins</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="column right">
-                    <div class="sub-column">
-                        <h2>INTERESTS</h2>
-                        <p>I'm generally pretty easily entertained, but some topics that specifically interest me are: how humans and computers communicate with each other (poorly), cars/racing (I'm a diehard American car guy; I'm a GM boomer at 28), vintage computing and computing history (I hoard old computers), architecture (specifically brutalist architecture), corporate strategy failures (Palm, DaimlerChrysler, etc.), and overall, the history of design and technology (hence this website).
-                        <br><br>
-                        [ <a href="https://www.youtube.com/watch?v=Vx7E1_q7cW0" target="_blank">CLICK HERE</a> ] to watch an obnoxious old car ad that showcases a lot of my interests in a nutshell</p>
-                        <a href="interests.html" class="learn-more-btn">READ MORE</a>
-                    </div>
-                    <div class="sub-column">
-                        <h2>PRESS THINGS</h2>
-                        <ul>
-                            <li><a href="https://sacra.com/research/hassan-raza-tavus-ai-avatar-developer-platform/" target="_blank">Sacra - Building an AI Avatar developer platform</a></li>
-                            <li><a href="https://techcrunch.com/2024/03/12/generative-ai-video-startup-tavus-raises-18m-to-bring-face-and-voice-cloning-to-any-app/" target="_blank">TechCrunch - Tavus Raises $18M Series A</a></li>
-                            <li><a href="https://www.forbes.com/sites/emmylucas/2023/11/28/meet-the-30-under-30-marketing--advertising-class-of-2024-from-ai-startups-to-a-chief-tiktok-officer/" target="_blank">Forbes - 30 Under 30, Hassaan Raza</a></li>
-                            <li><a href="https://www.sequoiacap.com/article/partnering-with-tavus-ai-personalized-videos/" target="_blank">Sequoia - Partnering with Tavus</a></li>
-                            <li><a href="https://robots4therestofus.substack.com/p/when-you-cant-talk-to-me-talk-to" target="_blank">Robots for the Rest of Us - When You Can't Talk to Me, Talk to "Me"</a></li>
-                            <li><a href="https://siliconangle.com/2024/08/15/toolkit-lets-developers-create-video-digital-twins-converse-just-like-humans/" target="_blank">Silicon Angle - Tavus lets developers create digital twins</a></li>
-                        </ul>
+                
+                <!-- Video Chat with AI Hassaan Section - Full Width -->
+                <div id="highlight-section">
+                    <div class="digital-twin-container">
+                        <h2>VIDEO CHAT WITH AI HASSAAN</h2>
+                        <a href="#" class="digital-twin-link" onclick="showWindow('digitaltwin-app'); setTimeout(() => { if(window.startTerminalSequence) window.startTerminalSequence(); }, 300);">Talk to My Digital Twin</a>
                     </div>
                 </div>
             </div>
-            <div id="about" class="page">
-                <h2>ABOUT ME</h2>
-                <p>[Detailed information about yourself]</p>
-            </div>
         </div>
-        <div id="highlight-section">
-            <div class="digital-twin-container">
-                <h2>VIDEO CHAT WITH AI HASSAAN</h2>
-                <a href="digitaltwin.html" class="digital-twin-link">Talk to My Digital Twin</a>
-            </div>
-        </div>
-        <div id="status-bar">
-            <span id="contact-info">Contact: <a href="mailto:hassaan@tavus.io">hassaan@tavus.io</a></span>
-            <div id="social-links">
+        <!-- Contact/Social Links as app status bar (part of window border) -->
+        <div class="app-status-bar">
+            <span class="contact-info">Contact: <a href="mailto:hassaan@tavus.io">hassaan@tavus.io</a></span>
+            <div class="social-links">
                 <a href="https://x.com/hassaanraza97" target="_blank">Twitter</a> |
                 <a href="https://www.linkedin.com/in/hassaanraza/" target="_blank">LinkedIn</a> |
                 <a href="https://www.tavus.io" target="_blank">Tavus</a>
             </div>
         </div>
     </div>
+
+    <!-- Interests App -->
+    <div id="interests-app" class="app-window" style="display: none;">
+        <div class="window-header">
+            <span class="window-title">Interests</span>
+            <button class="close-btn" data-app="interests">x</button>
+        </div>
+        <div class="window-content">
+            <div class="app-content">
+                <div class="digital-twin-container small">
+                    <span>Instead of reading all of this you can join a video call with AI Hassaan</span>
+                    <a href="#" class="digital-twin-link" onclick="showWindow('digitaltwin-app'); setTimeout(() => { if(window.startTerminalSequence) window.startTerminalSequence(); }, 300);">Talk to My Digital Twin</a>
+                </div>
+                <div id="interests-content">Loading interests...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Digital Twin Chat App -->
+    <div id="digitaltwin-app" class="app-window" style="display: none;">
+        <div class="window-header">
+            <span class="window-title">AI Hassaan Chat</span>
+            <button class="close-btn" data-app="digitaltwin">x</button>
+        </div>
+        <div class="window-content">
+            <div id="terminal-content">
+                <div class="terminal-path">]</div>
+                <div id="terminal-output"></div>
+            </div>
+        </div>
+        <div class="app-status-bar">
+            <div class="terminal-controls">
+                <button id="mute-button" style="display: none;">Mute Sound</button>
+                <button id="skip-button" style="display: none;">Skip the fun, join the call</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Audio for dial-up sound -->
+    <audio id="dialup-sound" src="Dial-Up Sound.mp3"></audio>
+    <input type="hidden" id="recaptchaToken" name="recaptchaToken">
+    
+    <script src="digitaltwin.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
