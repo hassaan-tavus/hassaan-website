@@ -1,3 +1,245 @@
+/* Color System - Theme-Based Color Variables */
+:root {
+    /* Base Colors - Default Orange Theme */
+    --primary-color: #ff5500;
+    --secondary-color: #ff7300;
+    --accent-color: #FFFFFF;
+    --background-color: #000000;
+    
+    /* Semantic Colors */
+    --text-primary: var(--primary-color);
+    --text-secondary: var(--secondary-color);
+    --text-accent: var(--accent-color);
+    --background-primary: var(--background-color);
+    --background-secondary: var(--background-color);
+    
+    /* UI Elements */
+    --border-color: var(--primary-color);
+    --border-secondary: var(--secondary-color);
+    --button-bg: var(--primary-color);
+    --button-text: var(--background-color);
+    --button-bg-hover: var(--secondary-color);
+    
+    /* Status/Window Elements */
+    --window-border: var(--primary-color);
+    --status-bar-bg: var(--primary-color);
+    --status-bar-text: var(--background-color);
+    --header-bg: var(--primary-color);
+    --header-text: var(--background-color);
+    
+    /* Dynamic Transparency/Effects - will update with theme */
+    --bg-overlay: color-mix(in srgb, var(--primary-color) 10%, transparent);
+    --bg-overlay-secondary: color-mix(in srgb, var(--primary-color) 5%, transparent);
+    --bg-overlay-strong: color-mix(in srgb, var(--primary-color) 15%, transparent);
+    --bg-overlay-stronger: color-mix(in srgb, var(--primary-color) 20%, transparent);
+    --shadow-color: color-mix(in srgb, var(--primary-color) 50%, transparent);
+    --shadow-color-strong: color-mix(in srgb, var(--primary-color) 30%, transparent);
+    --shadow-color-very-strong: color-mix(in srgb, var(--primary-color) 80%, transparent);
+    --shadow-color-weak: color-mix(in srgb, var(--primary-color) 60%, transparent);
+    --text-muted: color-mix(in srgb, var(--primary-color) 90%, transparent);
+    
+    /* SVG Icon Filters - White Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover behavior */
+    --text-hover: #000000;
+}
+
+/* THEME PROFILES - Applied to root element */
+
+/* Orange Theme (Default) */
+:root.theme-orange {
+    --primary-color: #ff5500;
+    --secondary-color: #ff7300;
+    --accent-color: #FFFFFF;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - White Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
+}
+
+/* Classic Orange Theme */
+:root.theme-classic-orange {
+    --primary-color: #FFA500;
+    --secondary-color: #FFD700;
+    --accent-color: #FFFFFF;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - White Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
+}
+
+/* Green Terminal Theme */
+:root.theme-green {
+    --primary-color: #00ff00;
+    --secondary-color: #0f0;
+    --accent-color: #FFFFFF;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - White Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
+}
+
+/* Matrix Green Theme */
+:root.theme-matrix {
+    --primary-color: #00ff41;
+    --secondary-color: #39ff14;
+    --accent-color: #FFFFFF;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - White Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
+}
+
+/* Blue Terminal Theme */
+:root.theme-blue {
+    --primary-color: #00BFFF;
+    --secondary-color: #87CEEB;
+    --accent-color: #FFFFFF;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - White Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
+}
+
+/* Purple/Magenta Theme */
+:root.theme-purple {
+    --primary-color: #9966CC;
+    --secondary-color: #DDA0DD;
+    --accent-color: #FFFFFF;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - White Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
+}
+
+/* Red Terminal Theme */
+:root.theme-red {
+    --primary-color: #FF4500;
+    --secondary-color: #FFB347;
+    --accent-color: #FFFFFF;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - White Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
+}
+
+/* Amber Theme */
+:root.theme-amber {
+    --primary-color: #FFBF00;
+    --secondary-color: #FFD700;
+    --accent-color: #000000;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - Black Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    
+    /* Text hover color to match icon hover (white) */
+    --text-hover: #FFFFFF;
+}
+
+/* Cyan Theme */
+:root.theme-cyan {
+    --primary-color: #00FFFF;
+    --secondary-color: #40E0D0;
+    --accent-color: #000000;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - Black Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    
+    /* Text hover color to match icon hover (white) */
+    --text-hover: #FFFFFF;
+}
+
+/* Silo Green Theme */
+:root.theme-silo {
+    --primary-color: #057E60;
+    --secondary-color: #8FDEC8;
+    --accent-color: #ABBA72;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - Silo Yellow Accent (#ABBA72) */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(70%) sepia(16%) saturate(1000%) hue-rotate(60deg) brightness(95%) contrast(90%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(16%) saturate(1000%) hue-rotate(60deg) brightness(95%) contrast(90%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(70%) sepia(16%) saturate(1000%) hue-rotate(60deg) brightness(95%) contrast(90%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
+}
+
+/* White on Black (High Contrast) */
+:root.theme-monochrome {
+    --primary-color: #FFFFFF;
+    --secondary-color: #CCCCCC;
+    --accent-color: #FFFFFF;
+    --background-color: #000000;
+    
+    /* SVG Icon Filters - White Accent */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
+}
+
+/* Modern browsers will use color-mix() for dynamic transparency effects,
+   older browsers will fall back to the hardcoded rgba values in each theme */
+
 @font-face {
     font-family: 'VT323';
     src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
@@ -15,15 +257,15 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Web437', 'VT323', monospace;
-    background-color: #000000;
-    color: #FFA500;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
     overflow: hidden;
     font-size: 16px;
 }
 
 /* Add text-shadow only to specific elements that need glow */
 h1, h2, h3, .dock-label, .command-line {
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
+    text-shadow: 0 0 5px var(--shadow-color-strong);
 }
 
 #dos-container {
@@ -33,22 +275,22 @@ h1, h2, h3, .dock-label, .command-line {
     transform: translate(-50%, -50%);
     width: 90vw;
     height: 90vh;
-    background-color: #000000;
-    border: 2px solid #FFA500;
+    background-color: var(--background-primary);
+    border: 2px solid var(--border-color);
     display: flex;
     flex-direction: column;
     overflow: hidden; /* Prevent scrolling on the container itself */
 }
 
 #title-bar, #status-bar {
-    background-color: #FFA500;
-    color: #000000;
+    background-color: var(--status-bar-bg);
+    color: var(--status-bar-text);
     padding: 5px;
     font-weight: bold;
 }
 
 #title-bar a {
-    color: #000;
+    color: var(--status-bar-text);
     text-decoration: none;
     margin: 0 10px;
 }
@@ -93,7 +335,7 @@ h1, h2, h3, .dock-label, .command-line {
 }
 
 .left {
-    border-right: 1px solid #FFA500;
+    border-right: 1px solid var(--border-color);
 }
 
 .right {
@@ -109,20 +351,20 @@ h1, h2, h3, .dock-label, .command-line {
 h1, h2, h3 {
     margin-top: 0;
     padding-bottom: 5px;
-    color: #FFD700;
+    color: var(--text-secondary);
 }
 
 h2 {
-    border-bottom: 1px solid #FFA500;
-    color: #FFA500;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
 }
 
 /* New style for the page title */
 h2.page-title {
     font-size: 1.6em;
-    color: #FFD700;
+    color: var(--text-secondary);
     background-color: transparent;
-    border-bottom: 1px solid #FFA500;
+    border-bottom: 1px solid var(--border-color);
 }
 
 h2.subsection-title {
@@ -130,15 +372,15 @@ h2.subsection-title {
     padding: 10px;
     margin-top: 20px;
     color: #0D180A;
-    background-color: #FFA500;
+    background-color: var(--button-bg);
     border: none;
 }
 
 h3 {
     font-size: 1.0em;
     margin-top: 20px;
-    color: #FFD700;
-    border-bottom: 1px dotted #FFA500;
+    color: var(--text-secondary);
+    border-bottom: 1px dotted var(--border-color);
 }
 
 ul {
@@ -147,7 +389,7 @@ ul {
 }
 
 a {
-    color: #FFA500;
+    color: var(--text-primary);
     text-decoration: none;
 }
 
@@ -158,9 +400,9 @@ a:hover {
 .back-link {
     display: inline-block;
     padding: 5px 10px;
-    background-color: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     text-decoration: none;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 1em;
@@ -168,8 +410,8 @@ a:hover {
 }
 
 .back-link:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 #crt-overlay {
@@ -200,7 +442,7 @@ canvas {
 
 .timeline {
     margin-left: 10px;
-    border-left: 1px solid #FFA500;
+    border-left: 1px solid var(--border-color);
     padding-left: 20px;
 }
 
@@ -213,7 +455,7 @@ canvas {
     content: '';
     width: 10px;
     height: 10px;
-    background: #FFA500;
+    background: var(--button-bg);
     position: absolute;
     left: -25px;
     top: 5px;
@@ -228,12 +470,12 @@ canvas {
     display: inline-block;
     margin-top: 10px;
     padding: 5px 10px;
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
 }
 
 .linkedin-link:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 .timeline-item.trail-off {
@@ -244,7 +486,7 @@ canvas {
 #highlight-section {
     text-align: center;
     padding: 30px 0;
-    border-top: 1px solid #FFA500;
+    border-top: 1px solid var(--border-color);
     background-color: rgba(0, 255, 0, 0.1);
 }
 
@@ -276,8 +518,8 @@ canvas {
 }
 
 .digital-twin-container {
-    background-color: #000;
-    border: 2px solid #FFA500;
+    background-color: var(--button-text);
+    border: 2px solid var(--border-color);
     padding: 20px;
     text-align: center;
     position: relative;
@@ -318,16 +560,16 @@ canvas {
 .digital-twin-link {
     display: inline-block;
     padding: 10px 20px;
-    border: 2px solid #FFA500;
-    color: #FFA500;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .digital-twin-link:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 #status-bar {
@@ -335,12 +577,12 @@ canvas {
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 #status-bar a {
-    color: #000;
+    color: var(--button-text);
     text-decoration: none;
 }
 
@@ -353,29 +595,29 @@ canvas {
 }
 
 .sub-column ul li a {
-    color: #FFA500;
+    color: var(--text-primary);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .sub-column ul li a:hover {
-    color: #FFA500;
+    color: var(--text-primary);
     text-decoration: underline;
 }
 
 .learn-more-btn {
     display: inline-block;
     padding: 5px 10px;
-    border: 1px solid #FFA500;
-    color: #FFA500;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
     text-decoration: none;
     margin-top: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .learn-more-btn:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 #title-bar {
@@ -391,7 +633,7 @@ canvas {
 }
 
 #nav-links a {
-    color: #000;
+    color: var(--status-bar-text);
     text-decoration: none;
     margin: 0 10px;
     padding: 2px 5px;
@@ -402,13 +644,13 @@ canvas {
 }
 
 #nav-links a.active {
-    background-color: #000;
-    color: #FFA500;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
 }
 
 #close-btn {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     border: none;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 16px;
@@ -417,18 +659,18 @@ canvas {
 }
 
 #close-btn:hover {
-    background-color: #000;
-    color: #FFA500;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
 }
 
 #nav-links .nav-link.active {
-    background-color: #000;
-    color: #FFA500;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
 }
 
 .digital-twin-body {
-    background-color: #000;
-    color: #FFA500;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -456,8 +698,8 @@ canvas {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000;
-    border-bottom: 1px solid #FFA500;
+    background-color: var(--button-text);
+    border-bottom: 1px solid var(--border-color);
     padding: 5px 10px;
     min-height: 30px;
 }
@@ -465,12 +707,12 @@ canvas {
 #app-bar h1 {
     font-size: 0.9em;
     margin: 0;
-    color: #FFA500;
+    color: var(--text-primary);
 }
 
 #ai-title {
     font-family: 'Web437', 'VT323', monospace;
-    color: #FFA500;
+    color: var(--text-primary);
     font-size: 1em;
     margin: 0;
     text-align: center;
@@ -483,9 +725,9 @@ canvas {
 .back-link, .tavus-link {
     flex-shrink: 0;
     padding: 2px 5px;
-    background-color: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     text-decoration: none;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 0.9em;
@@ -521,7 +763,7 @@ canvas {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 2rem;
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
     margin: 30px auto;
     max-width: 80%;
 }
@@ -535,16 +777,16 @@ canvas {
     font-family: 'Web437', 'VT323', monospace;
     font-size: 1em;
     padding: 5px 10px;
-    background-color: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 #launch-call:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 
@@ -552,8 +794,8 @@ canvas {
 
 
 #terminal-title-bar, #terminal-status-bar {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     padding: 5px;
     font-weight: bold;
     display: flex;
@@ -582,7 +824,7 @@ canvas {
 
 #close-terminal {
     background-color: transparent;
-    color: #000;
+    color: var(--button-text);
     border: none;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 16px;
@@ -592,8 +834,8 @@ canvas {
 }
 
 #close-terminal:hover {
-    background-color: #000;
-    color: #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
 }
 
 #terminal-body {
@@ -617,9 +859,9 @@ canvas {
 }
 
 #mute-button, #skip-button {
-    background-color: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     padding: 2px 5px;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 0.9em;
@@ -629,15 +871,14 @@ canvas {
 }
 
 #mute-button:hover, #skip-button:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 .terminal-input {
-    background-color: #000;
+    background-color: transparent;
     border: none;
-    border-bottom: 1px solid #FFA500;
-    color: #FFA500;
+    color: var(--text-primary);
     font-family: 'Web437', 'VT323', monospace;
     font-size: 1em;
     outline: none;
@@ -666,7 +907,7 @@ canvas {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    border-bottom: 1px dotted #FFA500;
+    border-bottom: 1px dotted var(--border-color);
     text-decoration: none;
 }
 
@@ -674,10 +915,10 @@ canvas {
     visibility: hidden;
     width: 80%;
     max-width: 400px;
-    background-color: #000;
-    color: #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
     text-align: left;
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
     padding: 10px;
     position: absolute;
     z-index: 1;
@@ -710,9 +951,9 @@ canvas {
 .read-more-btn {
     display: inline-block;
     padding: 5px 10px;
-    background-color: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     text-decoration: none;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 1em;
@@ -721,8 +962,8 @@ canvas {
 }
 
 .read-more-btn:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 .input-container {
@@ -733,10 +974,9 @@ canvas {
 
 .terminal-input {
     flex-grow: 1;
-    background-color: #000;
+    background-color: transparent;
     border: none;
-    border-bottom: 1px solid #FFA500;
-    color: #FFA500;
+    color: var(--text-primary);
     font-family: 'Web437', 'VT323', monospace;
     font-size: 1em;
     outline: none;
@@ -744,8 +984,8 @@ canvas {
 }
 
 .submit-button {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     border: none;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 1em;
@@ -754,7 +994,7 @@ canvas {
 }
 
 .submit-button:hover {
-    background-color: #FFA500;
+    background-color: var(--button-bg);
 }
 
 @media (min-width: 768px) {
@@ -792,9 +1032,9 @@ canvas {
 .read-more-btn {
     display: inline-block;
     padding: 5px 10px;
-    background-color: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     text-decoration: none;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 1em;
@@ -803,21 +1043,21 @@ canvas {
 }
 
 .read-more-btn:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 /* Writing Section Styles */
 .writing-body {
-    background-color: #000000;
-    color: #FFA500;
+    background-color: var(--button-text)000;
+    color: var(--text-primary);
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin: 0;
     padding: 0;
     font-family: 'Web437', 'VT323', monospace;
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
+    text-shadow: 0 0 5px var(--shadow-color-strong);
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -838,12 +1078,13 @@ canvas {
 
 #writing-content {
     position: relative;
+    overflow: visible;
 }
 
 .nav-panel {
     width: 300px;
-    background-color: #000000;
-    border-right: 1px solid #FFA500;
+    background-color: var(--button-text)000;
+    border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     transition: width 0.3s ease;
@@ -872,7 +1113,7 @@ canvas {
     padding: 24px 20px;
     border-bottom: 0;
     border-top: none;
-    background-color: rgba(255, 165, 0, 0.1);
+    background-color: var(--bg-overlay);
     margin: 0;
     position: relative;
     height: 98px;
@@ -890,12 +1131,12 @@ canvas {
     left: 0;
     right: 0;
     height: 1px;
-    background-color: #FFA500;
+    background-color: var(--button-bg);
 }
 
 .nav-header h3 {
     margin: 0 0 10px 0;
-    color: #FFD700;
+    color: var(--text-secondary);
     font-size: 1.2em;
     padding: 0;
     line-height: 1.2;
@@ -918,11 +1159,11 @@ canvas {
 }
 
 .stat-label {
-    color: #FFA500;
+    color: var(--text-primary);
 }
 
 .stat-value {
-    color: #FFD700;
+    color: var(--text-secondary);
     font-weight: bold;
 }
 
@@ -945,27 +1186,27 @@ canvas {
 .writing-item {
     padding: 10px;
     margin-bottom: 5px;
-    border: 1px solid #FFA500;
-    background-color: rgba(255, 165, 0, 0.05);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-overlay-secondary);
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
 }
 
 .writing-item:hover {
-    background-color: rgba(255, 165, 0, 0.15);
-    border-color: #FFD700;
+    background-color: var(--bg-overlay-strong);
+    border-color: var(--text-secondary);
 }
 
 .writing-item.active {
-    background-color: rgba(255, 165, 0, 0.2);
-    border-color: #FFD700;
-    box-shadow: inset 0 0 0 1px #FFD700;
+    background-color: var(--bg-overlay-stronger);
+    border-color: var(--text-secondary);
+    box-shadow: inset 0 0 0 1px var(--border-secondary);
 }
 
 .writing-item-title {
     font-weight: bold;
-    color: #FFD700;
+    color: var(--text-secondary);
     margin-bottom: 5px;
     font-size: 0.9em;
 }
@@ -973,15 +1214,15 @@ canvas {
 
 .writing-item-meta {
     font-size: 0.8em;
-    color: #FFA500;
+    color: var(--text-primary);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .writing-item-score {
-    background-color: #FFA500;
-    color: #000000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     padding: 2px 6px;
     border-radius: 3px;
     font-weight: bold;
@@ -1013,7 +1254,7 @@ canvas {
 }
 
 .welcome-content h2 {
-    color: #FFD700;
+    color: var(--text-secondary);
     margin-bottom: 30px;
     font-size: 1.8em;
 }
@@ -1048,7 +1289,7 @@ canvas {
     padding: 24px 20px;
     border-bottom: 0;
     border-top: none;
-    background-color: rgba(255, 165, 0, 0.1);
+    background-color: var(--bg-overlay);
     margin: 0;
     position: relative;
     width: 100%;
@@ -1069,11 +1310,11 @@ canvas {
     left: 0;
     right: 0;
     height: 1px;
-    background-color: #FFA500;
+    background-color: var(--button-bg);
 }
 
 .writing-header h2 {
-    color: #FFD700;
+    color: var(--text-secondary);
     margin: 0 0 15px 0;
     font-size: 1.6em;
     border: none;
@@ -1100,13 +1341,13 @@ canvas {
 
 .meta-label {
     font-size: 0.8em;
-    color: #FFA500;
+    color: var(--text-primary);
     text-transform: uppercase;
 }
 
 .meta-value {
     font-size: 1em;
-    color: #FFD700;
+    color: var(--text-secondary);
     font-weight: bold;
 }
 
@@ -1150,7 +1391,7 @@ canvas {
 .writing-text h4,
 .writing-text h5,
 .writing-text h6 {
-    color: #FFD700;
+    color: var(--text-secondary);
     margin: 1.5em 0 0.5em 0;
     font-weight: bold;
 }
@@ -1167,18 +1408,18 @@ canvas {
 }
 
 .writing-text a {
-    color: #FFD700;
+    color: var(--text-secondary);
     text-decoration: underline;
 }
 
 .writing-text a:hover {
-    color: #FFA500;
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+    color: var(--text-primary);
+    text-shadow: 0 0 5px var(--shadow-color);
 }
 
 .writing-text code {
-    background-color: rgba(255, 165, 0, 0.1);
-    color: #FFD700;
+    background-color: var(--bg-overlay);
+    color: var(--text-secondary);
     padding: 2px 4px;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 0.9em;
@@ -1186,8 +1427,8 @@ canvas {
 }
 
 .writing-text pre {
-    background-color: rgba(255, 165, 0, 0.05);
-    border: 1px solid #FFA500;
+    background-color: var(--bg-overlay-secondary);
+    border: 1px solid var(--border-color);
     padding: 15px;
     overflow-x: auto;
     margin: 1em 0;
@@ -1202,10 +1443,10 @@ canvas {
 }
 
 .writing-text blockquote {
-    border-left: 3px solid #FFA500;
+    border-left: 3px solid var(--border-color);
     padding-left: 15px;
     margin: 1em 0;
-    color: rgba(255, 165, 0, 0.9);
+    color: var(--text-muted);
     font-style: italic;
 }
 
@@ -1221,7 +1462,7 @@ canvas {
 
 .writing-text hr {
     border: none;
-    border-top: 1px solid #FFA500;
+    border-top: 1px solid var(--border-color);
     margin: 2em 0;
 }
 
@@ -1231,7 +1472,7 @@ canvas {
     display: block;
     margin: 1em 0;
     image-rendering: pixelated;
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
 }
 
 .writing-text table {
@@ -1242,23 +1483,23 @@ canvas {
 
 .writing-text th,
 .writing-text td {
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
     padding: 8px;
     text-align: left;
 }
 
 .writing-text th {
-    background-color: rgba(255, 165, 0, 0.1);
-    color: #FFD700;
+    background-color: var(--bg-overlay);
+    color: var(--text-secondary);
     font-weight: bold;
 }
 
 .writing-text em {
-    color: #FFD700;
+    color: var(--text-secondary);
 }
 
 .writing-text strong {
-    color: #FFD700;
+    color: var(--text-secondary);
     font-weight: bold;
 }
 
@@ -1278,60 +1519,73 @@ canvas {
     /* Inherit all the same styles from writing-text */
 }
 
-.journey-text h1 { color: #FFD700; font-size: 1.5em; margin: 1.5em 0 0.5em 0; }
-.journey-text h2 { color: #FFD700; font-size: 1.3em; margin: 1.5em 0 0.5em 0; }
-.journey-text h3 { color: #FFD700; font-size: 1.1em; margin: 1.5em 0 0.5em 0; }
+.journey-text h1 { color: var(--text-secondary); font-size: 1.5em; margin: 1.5em 0 0.5em 0; }
+.journey-text h2 { color: var(--text-secondary); font-size: 1.3em; margin: 1.5em 0 0.5em 0; }
+.journey-text h3 { color: var(--text-secondary); font-size: 1.1em; margin: 1.5em 0 0.5em 0; }
 .journey-text p { margin: 1em 0; }
-.journey-text a { color: #FFD700; text-decoration: underline; }
-.journey-text a:hover { color: #FFA500; text-shadow: 0 0 5px rgba(255, 165, 0, 0.5); }
-.journey-text code { background-color: rgba(255, 165, 0, 0.1); color: #FFD700; padding: 2px 4px; font-family: 'Web437', 'VT323', monospace; }
-.journey-text pre { background-color: rgba(255, 165, 0, 0.05); border: 1px solid #FFA500; padding: 15px; overflow-x: auto; }
-.journey-text blockquote { border-left: 3px solid #FFA500; padding-left: 15px; color: rgba(255, 165, 0, 0.9); font-style: italic; }
+.journey-text a { color: var(--text-secondary); text-decoration: underline; }
+.journey-text a:hover { color: var(--text-primary); text-shadow: 0 0 5px var(--shadow-color); }
+.journey-text code { background-color: var(--bg-overlay); color: var(--text-secondary); padding: 2px 4px; font-family: 'Web437', 'VT323', monospace; }
+.journey-text pre { background-color: var(--bg-overlay-secondary); border: 1px solid var(--border-color); padding: 15px; overflow-x: auto; }
+.journey-text blockquote { border-left: 3px solid var(--border-color); padding-left: 15px; color: var(--text-muted); font-style: italic; }
 .journey-text ul, .journey-text ol { margin: 1em 0; padding-left: 30px; }
 .journey-text li { margin: 0.5em 0; }
-.journey-text hr { border: none; border-top: 1px solid #FFA500; margin: 2em 0; }
+.journey-text hr { border: none; border-top: 1px solid var(--border-color); margin: 2em 0; }
 
 .writing-journey {
     padding: 60px 20px 20px 20px;
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
     border-bottom: none;
-    background-color: #000000;
+    background-color: var(--background-primary);
     position: absolute;
     left: -2px;
     right: 0;
-    bottom: -50vh;
-    height: 50vh;
+    bottom: calc(-50vh + 70px);
+    height: calc(50vh + 30px);
     overflow: visible;
     transition: bottom 0.3s ease;
     z-index: 100;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
 }
 
+.journey-content {
+    overflow-y: auto;
+    height: calc(100% - 40px);
+    padding-top: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.journey-content::-webkit-scrollbar {
+    display: none;
+}
+
 .writing-journey h3 {
-    color: #FFD700;
+    color: var(--text-secondary);
     margin: 0 0 15px 0;
     font-size: 1.2em;
 }
 .journey-tab {
     position: absolute;
     left: 30px;
-    top: -29px;
-    z-index: 102;
-    background: #000000;
-    color: #FFA500;
+    top: -32px;
+    z-index: 105;
+    background: var(--background-primary);
+    color: var(--text-primary);
     padding: 8px 30px;
     text-align: center;
     font-family: 'Web437', 'VT323', monospace;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 1.5px solid #FFA500;
+    border: 2px solid var(--border-color);
     border-bottom: none;
     transform: perspective(10px) rotateX(2deg);
     transform-origin: bottom;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .journey-tab:hover {
-    color: #FFD700;
+    color: var(--text-secondary);
 }
 
 .journey-tab::after {
@@ -1341,7 +1595,7 @@ canvas {
     right: -2px;
     bottom: -1px;
     height: 3px;
-    background: #000000;
+    background: var(--bg-overlay-secondary);
     z-index: 1;
 }
 
@@ -1356,8 +1610,8 @@ canvas {
 
 .nav-footer {
     padding: 10px;
-    border-top: 1px solid #FFA500;
-    background-color: rgba(255, 165, 0, 0.05);
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-overlay-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1365,9 +1619,9 @@ canvas {
 }
 
 .nav-toggle {
-    background-color: #000000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text)000;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     padding: 0;
     cursor: pointer;
     font-family: 'Web437', 'VT323', monospace;
@@ -1382,8 +1636,8 @@ canvas {
 }
 
 .nav-toggle:hover {
-    background-color: rgba(255, 165, 0, 0.1);
-    border-color: #FFD700;
+    background-color: var(--bg-overlay);
+    border-color: var(--text-secondary);
 }
 
 
@@ -1399,8 +1653,8 @@ canvas {
 .book-svg {
     width: 36px;
     height: 36px;
-    /* Make SVG orange to match theme */
-    filter: brightness(0) saturate(100%) invert(57%) sepia(89%) saturate(1351%) hue-rotate(360deg) brightness(101%) contrast(106%);
+    /* Use CSS custom property for theme-aware filter */
+    filter: var(--svg-filter-primary);
     /* Apply pixelated rendering */
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
@@ -1408,7 +1662,7 @@ canvas {
 }
 
 .nav-toggle:hover .book-svg {
-    filter: brightness(0) saturate(100%) invert(73%) sepia(91%) saturate(641%) hue-rotate(357deg) brightness(103%) contrast(104%);
+    filter: var(--svg-filter-hover);
 }
 
 .toggle-arrow {
@@ -1423,7 +1677,7 @@ canvas {
 .toggle-arrow-icon {
     width: 16px;
     height: 16px;
-    filter: brightness(0) saturate(100%) invert(57%) sepia(89%) saturate(1351%) hue-rotate(360deg) brightness(101%) contrast(106%);
+    filter: var(--svg-filter-primary);
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
@@ -1431,7 +1685,7 @@ canvas {
 }
 
 .nav-toggle:hover .toggle-arrow-icon {
-    filter: brightness(0) saturate(100%) invert(73%) sepia(91%) saturate(641%) hue-rotate(357deg) brightness(103%) contrast(104%);
+    filter: var(--svg-filter-hover);
 }
 
 .nav-panel.collapsed .toggle-arrow {
@@ -1466,9 +1720,9 @@ canvas {
 .nav-arrow {
     width: 44px;
     height: 44px;
-    background-color: #000000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text)000;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     cursor: pointer;
     font-size: 1em;
     display: flex;
@@ -1478,8 +1732,8 @@ canvas {
 }
 
 .nav-arrow:hover {
-    background-color: rgba(255, 165, 0, 0.1);
-    border-color: #FFD700;
+    background-color: var(--bg-overlay);
+    border-color: var(--text-secondary);
 }
 
 .nav-arrow:disabled {
@@ -1490,14 +1744,14 @@ canvas {
 .nav-arrow-icon {
     width: 20px;
     height: 20px;
-    filter: brightness(0) saturate(100%) invert(57%) sepia(89%) saturate(1351%) hue-rotate(360deg) brightness(101%) contrast(106%);
+    filter: var(--svg-filter-primary);
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
 }
 
 .nav-arrow:hover .nav-arrow-icon {
-    filter: brightness(0) saturate(100%) invert(73%) sepia(91%) saturate(641%) hue-rotate(357deg) brightness(103%) contrast(104%);
+    filter: var(--svg-filter-hover);
 }
 
 /* Adjust nav footer for collapsed state */
@@ -1506,7 +1760,7 @@ canvas {
 }
 
 .nav-panel.collapsed .nav-toggle {
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
     border-radius: 0;
     width: 44px;
     height: 44px;
@@ -1527,9 +1781,9 @@ canvas {
 
 .mobile-nav-icon {
     display: none;
-    background-color: #000000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text)000;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     padding: 5px 8px;
     cursor: pointer;
     font-family: 'Web437', 'VT323', monospace;
@@ -1543,8 +1797,8 @@ canvas {
 }
 
 .mobile-nav-icon:hover {
-    background-color: #FFA500;
-    color: #000000;
+    background-color: var(--button-bg);
+    color: var(--button-text)000;
 }
 
 /* Mobile navigation arrows */
@@ -1553,9 +1807,9 @@ canvas {
 }
 
 .mobile-arrow {
-    background-color: #000000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text)000;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     padding: 5px 8px;
     cursor: pointer;
     font-size: 1em;
@@ -1568,8 +1822,8 @@ canvas {
 }
 
 .mobile-arrow:hover {
-    background-color: rgba(255, 165, 0, 0.1);
-    border-color: #FFD700;
+    background-color: var(--bg-overlay);
+    border-color: var(--text-secondary);
 }
 
 .mobile-arrow:disabled {
@@ -1580,14 +1834,14 @@ canvas {
 .mobile-arrow-icon {
     width: 14px;
     height: 14px;
-    filter: brightness(0) saturate(100%) invert(57%) sepia(89%) saturate(1351%) hue-rotate(360deg) brightness(101%) contrast(106%);
+    filter: var(--svg-filter-primary);
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
 }
 
 .mobile-arrow:hover .mobile-arrow-icon {
-    filter: brightness(0) saturate(100%) invert(73%) sepia(91%) saturate(641%) hue-rotate(357deg) brightness(103%) contrast(104%);
+    filter: var(--svg-filter-hover);
 }
 
 /* Mobile Hamburger Menu */
@@ -1599,8 +1853,8 @@ canvas {
     width: 85%;
     max-width: 400px;
     height: 100vh;
-    background-color: #000000;
-    border-left: 2px solid #FFA500;
+    background-color: var(--button-text)000;
+    border-left: 2px solid var(--border-color);
     z-index: 1000;
     overflow-y: auto;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
@@ -1612,8 +1866,8 @@ canvas {
 
 .mobile-nav-header {
     padding: 10px 15px;
-    border-bottom: 1px solid #FFA500;
-    background-color: rgba(255, 165, 0, 0.1);
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-overlay);
     position: sticky;
     top: 0;
     z-index: 10;
@@ -1621,7 +1875,7 @@ canvas {
 
 .mobile-nav-header h3 {
     margin: 0 0 8px 0;
-    color: #FFD700;
+    color: var(--text-secondary);
     font-size: 1.3em;
     text-align: center;
 }
@@ -1650,35 +1904,35 @@ canvas {
 .mobile-nav-content .writing-item {
     margin-bottom: 12px;
     padding: 15px;
-    border: 1px solid #FFA500;
-    background-color: rgba(255, 165, 0, 0.05);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-overlay-secondary);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .mobile-nav-content .writing-item:hover {
-    background-color: rgba(255, 165, 0, 0.15);
-    border-color: #FFD700;
+    background-color: var(--bg-overlay-strong);
+    border-color: var(--text-secondary);
 }
 
 .mobile-nav-content .writing-item-title {
     font-weight: bold;
-    color: #FFD700;
+    color: var(--text-secondary);
     margin-bottom: 8px;
     font-size: 1em;
 }
 
 .mobile-nav-content .writing-item-meta {
     font-size: 0.85em;
-    color: #FFA500;
+    color: var(--text-primary);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .mobile-nav-content .writing-item-score {
-    background-color: #FFA500;
-    color: #000000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     padding: 2px 6px;
     border-radius: 3px;
     font-weight: bold;
@@ -1765,32 +2019,17 @@ canvas {
     }
     
     
-    .writing-journey-toggle { display: none; }
-    
-.writing-journey-toggle:hover {
-    background-color: #FFD700;
-    border-color: #FFD700;
-}
-
-/* Tab shows on all viewports */
-.writing-journey-toggle {
-    display: none !important;
-}
+    /* Journey toggle removed - using tab instead */
     
     .writing-journey h3 {
         font-size: 1em;
         margin: 0 0 8px 0;
     }
     
-    /* Show journey toggle on mobile */
-    .writing-journey-toggle {
-        display: block;
-    }
-    
     /* Journey drawer behavior on mobile */
     .writing-journey {
         display: block;
-        bottom: -50vh;
+        bottom: calc(-50vh + 35px);
         height: 50vh;
         position: fixed;
         left: 0;
@@ -1872,26 +2111,26 @@ canvas {
     align-items: center;
     padding: 12px 8px;
     cursor: pointer;
-    border: 2px solid #FFA500;
+    border: 2px solid var(--border-color);
     border-bottom: none;
-    background: #000000;
+    background: var(--background-primary);
     transition: all 0.2s ease;
     min-width: 70px;
 }
 
 .dock-item:last-child {
-    border-bottom: 2px solid #FFA500;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .dock-item:hover {
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text)000;
     box-shadow: 0 0 8px rgba(255, 165, 0, 0.8);
 }
 
 .dock-item.active {
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text);
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -1899,26 +2138,26 @@ canvas {
     width: 32px;
     height: 32px;
     margin-bottom: 4px;
-    filter: brightness(0) saturate(100%) invert(64%) sepia(100%) saturate(1352%) hue-rotate(21deg) brightness(101%) contrast(101%);
+    filter: var(--svg-filter-dock);
 }
 
 .dock-item:hover .dock-icon,
 .dock-item.active .dock-icon {
-    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    filter: var(--svg-filter-dock-hover);
 }
 
 .dock-label {
     font-family: 'Web437', 'VT323', monospace;
     font-size: 10px;
     text-align: center;
-    color: #FFA500;
-    text-shadow: 0 0 3px rgba(255, 165, 0, 0.5);
+    color: var(--text-primary);
+    text-shadow: 0 0 3px var(--shadow-color);
 }
 
 .dock-item:hover .dock-label,
 .dock-item.active .dock-label {
-    color: #000000;
-    text-shadow: none;
+    color: var(--text-hover);
+    text-shadow: 0 0 3px var(--shadow-color-strong);
 }
 
 /* Make book icon slightly bigger to match others */
@@ -1934,8 +2173,8 @@ canvas {
     margin: 0;
     padding: 0;
     font-family: 'Web437', 'VT323', monospace;
-    background-color: #000000;
-    color: #FFA500;
+    background-color: var(--button-text)000;
+    color: var(--text-primary);
     overflow: hidden;
     font-size: 16px;
 }
@@ -1948,7 +2187,7 @@ canvas {
     width: 100vw;
     height: 100vh;
     z-index: 1;
-    background: #000000;
+    background: var(--background-primary);
 }
 
 #grid-container {
@@ -1965,7 +2204,7 @@ canvas {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 2rem;
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
     max-width: 80%;
 }
 
@@ -1974,7 +2213,7 @@ canvas {
 #content-overlay h1 {
     font-size: 1.5em;
     margin-bottom: 20px;
-    color: #FFD700;
+    color: var(--text-secondary);
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
 
@@ -1982,35 +2221,43 @@ canvas {
     font-family: 'Web437', 'VT323', monospace;
     font-size: 1em;
     padding: 5px 10px;
-    background-color: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 #launch-call:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 /* App Windows */
 .app-window {
     position: fixed;
-    top: 3%;
-    left: 5%;
-    width: 85%;
-    height: 85%;
-    min-width: 600px;
-    min-height: 400px;
-    background: #000000;
-    border: 2px solid #FFA500;
+    top: 50px;
+    left: 50px;
+    width: 800px;
+    height: 600px;
+    min-width: 400px;
+    min-height: 300px;
+    max-width: calc(100vw - 100px);
+    max-height: calc(100vh - 100px);
+    background: var(--background-primary);
+    border: 2px solid var(--border-color);
     z-index: 100;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
-    overflow: hidden;
+    box-shadow: 0 0 20px var(--shadow-color);
     resize: both;
+    overflow: auto;
+}
+
+/* Ensure resize handle is visible */
+.app-window::-webkit-resizer {
+    background-color: var(--border-color);
+    opacity: 1;
 }
 
 /* Scanline effect for app windows */
@@ -2033,8 +2280,8 @@ canvas {
 }
 
 .window-header {
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text)000;
     padding: 4px 8px;
     display: flex;
     justify-content: space-between;
@@ -2074,11 +2321,12 @@ canvas {
 
 .window-title {
     font-size: 16px;
+    color: var(--button-text);
 }
 
 .close-btn {
     background: none;
-    color: #000;
+    color: var(--button-text);
     border: none;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 16px;
@@ -2088,24 +2336,24 @@ canvas {
 }
 
 .close-btn:hover {
-    background-color: #000;
-    color: #FFA500;
+    background-color: var(--button-text);
+    color: var(--text-primary);
 }
 
 .window-content {
     flex: 1;
-    overflow: hidden;
-    background: #000000;
+    overflow: auto;
+    background: var(--background-primary);
 }
 
 
 
 .app-content h2 {
-    color: #FFA500;
-    border-bottom: 1px solid #FFA500;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 5px;
     margin-bottom: 15px;
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+    text-shadow: 0 0 5px var(--shadow-color);
 }
 
 
@@ -2114,8 +2362,8 @@ canvas {
 
 /* Digital Twin App Specific Styles */
 .cta-button {
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text)000;
     border: none;
     padding: 15px 30px;
     font-family: 'Web437', 'VT323', monospace;
@@ -2126,15 +2374,15 @@ canvas {
 }
 
 .cta-button:hover {
-    background: #000000;
-    color: #FFA500;
-    border: 2px solid #FFA500;
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    background: var(--background-primary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 0 10px var(--shadow-color);
 }
 
 #tavus-container {
     min-height: 300px;
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
     margin: 20px 0;
     background: rgba(255, 165, 0, 0.1);
 }
@@ -2145,8 +2393,8 @@ canvas {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text);
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
@@ -2157,7 +2405,7 @@ canvas {
 }
 
 #status-bar a {
-    color: #000000;
+    color: var(--button-text);
     text-decoration: none;
 }
 
@@ -2242,8 +2490,8 @@ canvas {
     .dock-item {
         min-width: 60px;
         border-right: none;
-        border-bottom: 2px solid #FFA500;
-        border-top: 2px solid #FFA500;
+        border-bottom: 2px solid var(--border-color);
+        border-top: 2px solid var(--border-color);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -2251,7 +2499,7 @@ canvas {
     }
     
     .dock-item:last-child {
-        border-right: 2px solid #FFA500;
+        border-right: 2px solid var(--border-color);
     }
     
     .dock-icon {
@@ -2266,21 +2514,48 @@ canvas {
 
 /* App Status Bar (within apps) */
 .app-status-bar {
-    background: #FFA500;
-    color: #000000;
-    padding: 6px 12px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    padding: 6px 32px 6px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 16px;
-    border-top: 1px solid #FFA500;
+    border-top: 1px solid var(--border-color);
     min-height: 24px;
     position: relative;
 }
 
+/* Resize handle in status bar */
+.resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(
+        -45deg,
+        transparent 0%,
+        transparent 30%,
+        #000000 30%,
+        #000000 35%,
+        transparent 35%,
+        transparent 45%,
+        #000000 45%,
+        #000000 50%,
+        transparent 50%,
+        transparent 60%,
+        #000000 60%,
+        #000000 65%,
+        transparent 65%
+    );
+    cursor: se-resize;
+    z-index: 10;
+}
+
 .app-status-bar a {
-    color: #000000;
+    color: var(--button-text)000;
     text-decoration: none;
 }
 
@@ -2316,7 +2591,7 @@ canvas {
 .app-content #highlight-section {
     text-align: center;
     padding: 30px 0;
-    border-top: 1px solid #FFA500;
+    border-top: 1px solid var(--border-color);
     background-color: rgba(0, 255, 0, 0.1);
     margin-top: auto;
     margin-left: -20px;
@@ -2325,8 +2600,8 @@ canvas {
 }
 
 .app-content .digital-twin-container {
-    background-color: #000;
-    border: 2px solid #FFA500;
+    background-color: var(--button-text);
+    border: 2px solid var(--border-color);
     padding: 20px;
     text-align: center;
     position: relative;
@@ -2367,22 +2642,22 @@ canvas {
 .app-content .digital-twin-link {
     display: inline-block;
     padding: 10px 20px;
-    border: 2px solid #FFA500;
-    color: #FFA500;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .app-content .digital-twin-link:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 /* Adjust app content layout */
 .app-content {
     padding: 20px;
-    color: #FFA500;
+    color: var(--text-primary);
     font-family: 'Web437', 'VT323', monospace;
     height: calc(100% - 40px);
     overflow-y: auto;
@@ -2433,19 +2708,19 @@ canvas {
 /* Learn more button styling */
 .learn-more-btn {
     display: inline-block;
-    background: #000000;
-    color: #FFA500;
+    background: var(--background-primary);
+    color: var(--text-primary);
     padding: 8px 15px;
     text-decoration: none;
-    border: 1px solid #FFA500;
+    border: 1px solid var(--border-color);
     font-family: 'Web437', 'VT323', monospace;
     margin-top: 10px;
     transition: all 0.2s ease;
 }
 
 .learn-more-btn:hover {
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text)000;
     box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
 }
 
@@ -2462,15 +2737,15 @@ canvas {
 
 #content-overlay-app h1 {
     font-size: 24px;
-    color: #FFA500;
-    text-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+    color: var(--text-primary);
+    text-shadow: 0 0 10px var(--shadow-color-very-strong);
     font-family: 'Web437', 'VT323', monospace;
     margin: 0 0 30px 0;
 }
 
 #launch-call-app {
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text)000;
     border: none;
     padding: 15px 30px;
     font-family: 'Web437', 'VT323', monospace;
@@ -2480,10 +2755,10 @@ canvas {
 }
 
 #launch-call-app:hover {
-    background: #000000;
-    color: #FFA500;
-    border: 2px solid #FFA500;
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    background: var(--background-primary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 0 10px var(--shadow-color);
 }
 
 #terminal-overlay-app {
@@ -2493,13 +2768,31 @@ canvas {
 
 #digitaltwin-app #terminal-content {
     padding: 20px;
-    background: #000000;
-    color: #FFA500;
+    background: var(--background-primary);
+    color: var(--text-primary);
     font-family: 'Web437', 'VT323', monospace;
     height: 100%;
     overflow-y: auto;
     font-size: 14px;
     position: relative;
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+#digitaltwin-app #terminal-content::-webkit-scrollbar {
+    display: none; /* WebKit */
+}
+
+/* Hide scrollbar on digital twin window content */
+#digitaltwin-app .window-content {
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+#digitaltwin-app .window-content::-webkit-scrollbar {
+    display: none; /* WebKit */
 }
 
 /* Enhanced scanlines for terminal app */
@@ -2522,7 +2815,7 @@ canvas {
 }
 
 .terminal-path {
-    color: #FFA500;
+    color: var(--text-primary);
     margin-bottom: 10px;
 }
 
@@ -2533,8 +2826,8 @@ canvas {
 
 .command-line {
     margin: 5px 0;
-    color: #FFA500;
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
+    color: var(--text-primary);
+    text-shadow: 0 0 5px var(--shadow-color-strong);
 }
 
 .input-container {
@@ -2545,10 +2838,10 @@ canvas {
 }
 
 .terminal-input {
-    background: #000000;
-    border: 1px solid #FFA500;
-    color: #FFA500;
-    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 0;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 14px;
     flex: 1;
@@ -2556,13 +2849,12 @@ canvas {
 
 .terminal-input:focus {
     outline: none;
-    border-color: #FFA500;
-    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+    background: transparent;
 }
 
 .submit-button {
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text)000;
     border: none;
     padding: 8px 15px;
     font-family: 'Web437', 'VT323', monospace;
@@ -2571,9 +2863,9 @@ canvas {
 }
 
 .submit-button:hover {
-    background: #000000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
 }
 
 .terminal-controls {
@@ -2583,9 +2875,9 @@ canvas {
 }
 
 .terminal-controls button {
-    background: #000000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     padding: 6px 12px;
     font-family: 'Web437', 'VT323', monospace;
     font-size: 16px;
@@ -2594,14 +2886,14 @@ canvas {
 }
 
 .terminal-controls button:hover {
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text)000;
 }
 
 /* Interests App Specific Styling */
 #interests-app h2.subsection-title {
     color: #0D180A;
-    background-color: #FFA500;
+    background-color: var(--button-bg);
     padding: 10px;
     margin-top: 20px;
     border: none;
@@ -2609,20 +2901,20 @@ canvas {
 }
 
 #interests-app h3.subsection-title {
-    color: #FFD700;
+    color: var(--text-secondary);
     background: none;
     font-size: 1.0em;
     margin-top: 20px;
 }
 
 #interests-app .page-title {
-    color: #FFA500;
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
+    color: var(--text-primary);
+    text-shadow: 0 0 5px var(--shadow-color-strong);
 }
 
 #interests-app .digital-twin-container.small {
-    background-color: #000;
-    border: 2px solid #FFA500;
+    background-color: var(--button-text);
+    border: 2px solid var(--border-color);
     padding: 12px 15px;
     margin: 15px 0;
     max-width: 100%;
@@ -2636,11 +2928,11 @@ canvas {
 
 #interests-app .digital-twin-container.small:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
+    box-shadow: 0 0 15px var(--shadow-color-weak);
 }
 
 #interests-app .digital-twin-container.small span {
-    color: #FFA500;
+    color: var(--text-primary);
     font-size: 14px;
     flex: 1;
     text-align: left;
@@ -2649,8 +2941,8 @@ canvas {
 #interests-app .digital-twin-container.small a {
     display: inline-block;
     padding: 8px 16px;
-    border: 2px solid #FFA500;
-    color: #FFA500;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
@@ -2658,14 +2950,14 @@ canvas {
 }
 
 #interests-app .digital-twin-container.small a:hover {
-    background-color: #FFA500;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 .read-more-btn {
-    background: #000000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     padding: 5px 10px;
     font-family: 'Web437', 'VT323', monospace;
     cursor: pointer;
@@ -2674,23 +2966,23 @@ canvas {
 }
 
 .read-more-btn:hover {
-    background: #FFA500;
-    color: #000000;
+    background: var(--button-bg);
+    color: var(--button-text)000;
 }
 
 .tooltip {
     position: relative;
     cursor: pointer;
-    color: #FFA500;
-    border-bottom: 1px dotted #FFA500;
+    color: var(--text-primary);
+    border-bottom: 1px dotted var(--border-color);
 }
 
 .tooltiptext {
     visibility: hidden;
     opacity: 0;
     width: 140px;
-    background-color: #FFA500;
-    color: #000000;
+    background-color: var(--button-bg);
+    color: var(--button-text)000;
     text-align: center;
     padding: 5px;
     border-radius: 3px;
@@ -2715,7 +3007,7 @@ canvas {
 .car-list li {
     margin: 5px 0;
     padding: 5px;
-    border-left: 2px solid #FFA500;
+    border-left: 2px solid var(--border-color);
     padding-left: 10px;
 }
 

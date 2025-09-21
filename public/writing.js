@@ -104,6 +104,11 @@ The 78% authenticity score reflects this hybrid approach. The core writing happe
 
 // Initialize the writing section
 document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize theme manager if it exists
+    if (window.ThemeManager) {
+        window.ThemeManager.init();
+    }
+    
     // Load writings from JSON file
     await loadWritings();
     

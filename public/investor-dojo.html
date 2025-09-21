@@ -8,7 +8,7 @@
         body {
             font-family: 'Courier New', monospace;
             background-color: #000;
-            color: #0f0;
+            color: #FFA500;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,17 +18,17 @@
         }
         .container {
             text-align: center;
-            border: 2px solid #0f0;
+            border: 2px solid #FFA500;
             padding: 40px;
             background-color: rgba(0, 0, 0, 0.8);
-            box-shadow: 0 0 20px #0f0;
+            box-shadow: 0 0 20px #FFA500;
         }
         h1 {
             font-size: 2.5em;
             margin-bottom: 20px;
         }
         .btn {
-            background-color: #0f0;
+            background-color: #FFA500;
             color: #000;
             border: none;
             padding: 15px 30px;
@@ -38,8 +38,8 @@
         }
         .btn:hover {
             background-color: #000;
-            color: #0f0;
-            box-shadow: 0 0 10px #0f0;
+            color: #FFA500;
+            box-shadow: 0 0 10px #FFA500;
         }
         .matrix-bg {
             position: fixed;
@@ -59,8 +59,8 @@
             padding: 5px;
             width: 100%;
             background-color: #000;
-            color: #0f0;
-            border: 1px solid #0f0;
+            color: #FFA500;
+            border: 1px solid #FFA500;
         }
     </style>
 </head>
@@ -151,7 +151,7 @@
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#0f0';
+            ctx.fillStyle = '#FFA500';
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < rainDrops.length; i++) {

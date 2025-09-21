@@ -24,7 +24,13 @@ function init() {
     // Create a larger grid with bigger squares
     const size = 20000;
     const divisions = 100; // Reduced divisions for larger squares
-    grid = new THREE.GridHelper(size, divisions, 0xFFA500, 0xFFA500);
+    // Start with current theme color
+    const style = getComputedStyle(document.documentElement);
+    let currentColor = style.getPropertyValue('--primary-color').trim() || '#FFA500';
+    const colorHex = currentColor.startsWith('#') ? currentColor.slice(1) : 'FFA500';
+    const colorInt = parseInt(colorHex, 16);
+    
+    grid = new THREE.GridHelper(size, divisions, colorInt, colorInt);
     grid.position.z = 0;
     grid.position.y = -500; // Lower the grid to ensure it covers the bottom
     scene.add(grid);
@@ -360,6 +366,19 @@ document.addEventListener('DOMContentLoaded', () => {
         launchCallAppBtn.addEventListener('click', startTerminalSequence);
     }
 });
+
+// Function to update grid color when theme changes
+window.updateGridColor = function(newColor) {
+    if (grid && newColor) {
+        const colorHex = newColor.startsWith('#') ? newColor.slice(1) : newColor;
+        const colorInt = parseInt(colorHex, 16);
+        
+        if (!isNaN(colorInt)) {
+            grid.material.color.setHex(colorInt);
+            console.log('Grid color updated to:', newColor);
+        }
+    }
+};
 
 // Make function globally available for the "Talk to My Digital Twin" button
 window.startTerminalSequence = startTerminalSequence;
