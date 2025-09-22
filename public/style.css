@@ -1798,7 +1798,7 @@ canvas {
 
 .mobile-nav-icon:hover {
     background-color: var(--button-bg);
-    color: var(--button-text)000;
+    color: var(--button-text);
 }
 
 /* Mobile navigation arrows */
@@ -1853,7 +1853,7 @@ canvas {
     width: 85%;
     max-width: 400px;
     height: 100vh;
-    background-color: var(--button-text)000;
+    background-color: var(--background-primary);
     border-left: 2px solid var(--border-color);
     z-index: 1000;
     overflow-y: auto;
