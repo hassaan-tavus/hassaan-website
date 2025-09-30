@@ -86,15 +86,15 @@
 
 /* Green Terminal Theme */
 :root.theme-green {
-    --primary-color: #00ff00;
-    --secondary-color: #0f0;
-    --accent-color: #FFFFFF;
+    --primary-color: #09CC50;
+    --secondary-color: #7FC07F;
+    --accent-color: #00FF7F;
     --background-color: #000000;
     
-    /* SVG Icon Filters - White Accent */
-    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    /* SVG Icon Filters - Spring Green Accent (#00FF7F) */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(75%) sepia(100%) saturate(2000%) hue-rotate(90deg) brightness(150%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(65%) sepia(100%) saturate(1500%) hue-rotate(90deg) brightness(130%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(75%) sepia(100%) saturate(2000%) hue-rotate(90deg) brightness(150%) contrast(100%);
     --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
     
     /* Text hover color to match icon hover (black) */
@@ -156,13 +156,13 @@
 :root.theme-red {
     --primary-color: #FF4500;
     --secondary-color: #FFB347;
-    --accent-color: #FFFFFF;
+    --accent-color: #FF6600;
     --background-color: #000000;
     
-    /* SVG Icon Filters - White Accent */
-    --svg-filter-primary: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-    --svg-filter-hover: brightness(0) saturate(100%) invert(80%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-    --svg-filter-dock: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    /* SVG Icon Filters - Red-Orange Accent (#FF6600) */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(2000%) hue-rotate(15deg) brightness(120%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(40%) sepia(100%) saturate(1500%) hue-rotate(15deg) brightness(100%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(2000%) hue-rotate(15deg) brightness(120%) contrast(100%);
     --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
     
     /* Text hover color to match icon hover (black) */
@@ -173,17 +173,17 @@
 :root.theme-amber {
     --primary-color: #FFBF00;
     --secondary-color: #FFD700;
-    --accent-color: #000000;
+    --accent-color: #FFA500;
     --background-color: #000000;
     
-    /* SVG Icon Filters - Black Accent */
-    --svg-filter-primary: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
-    --svg-filter-hover: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
-    --svg-filter-dock: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
-    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    /* SVG Icon Filters - Amber Accent (#FFA500) */
+    --svg-filter-primary: brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(1500%) hue-rotate(30deg) brightness(110%) contrast(100%);
+    --svg-filter-hover: brightness(0) saturate(100%) invert(60%) sepia(100%) saturate(1200%) hue-rotate(30deg) brightness(90%) contrast(100%);
+    --svg-filter-dock: brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(1500%) hue-rotate(30deg) brightness(110%) contrast(100%);
+    --svg-filter-dock-hover: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
     
-    /* Text hover color to match icon hover (white) */
-    --text-hover: #FFFFFF;
+    /* Text hover color to match icon hover (black) */
+    --text-hover: #000000;
 }
 
 /* Cyan Theme */
@@ -222,9 +222,9 @@
 
 /* White on Black (High Contrast) */
 :root.theme-monochrome {
-    --primary-color: #FFFFFF;
-    --secondary-color: #CCCCCC;
-    --accent-color: #FFFFFF;
+    --primary-color: #888888;
+    --secondary-color: #999999;
+    --accent-color: #DDDDDD;
     --background-color: #000000;
     
     /* SVG Icon Filters - White Accent */
@@ -2214,7 +2214,7 @@ canvas {
     font-size: 1.5em;
     margin-bottom: 20px;
     color: var(--text-secondary);
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    text-shadow: 0 0 10px var(--shadow-color-very-strong);
 }
 
 #launch-call {

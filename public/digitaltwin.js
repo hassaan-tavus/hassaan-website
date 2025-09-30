@@ -24,10 +24,17 @@ function init() {
     // Create a larger grid with bigger squares
     const size = 20000;
     const divisions = 100; // Reduced divisions for larger squares
-    // Start with current theme color
+    // Start with current theme color, with better fallback
     const style = getComputedStyle(document.documentElement);
-    let currentColor = style.getPropertyValue('--primary-color').trim() || '#FFA500';
-    const colorHex = currentColor.startsWith('#') ? currentColor.slice(1) : 'FFA500';
+    let currentColor = style.getPropertyValue('--primary-color').trim();
+    
+    // If no color found, use default orange and let theme manager update it later
+    if (!currentColor) {
+        currentColor = '#ff5500'; // Default orange theme color
+        console.log('No primary color found, using default orange');
+    }
+    
+    const colorHex = currentColor.startsWith('#') ? currentColor.slice(1) : currentColor;
     const colorInt = parseInt(colorHex, 16);
     
     grid = new THREE.GridHelper(size, divisions, colorInt, colorInt);

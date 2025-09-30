@@ -378,17 +378,17 @@ function setupCloseButton() {
 // Theme Switching Functionality
 const ThemeManager = {
     themes: {
-        'orange': { name: 'Orange', class: 'theme-orange' },
-        'classic-orange': { name: 'Classic Orange', class: 'theme-classic-orange' },
-        'green': { name: 'Matrix Green', class: 'theme-green' },
-        'matrix': { name: 'Matrix Neo', class: 'theme-matrix' },
-        'blue': { name: 'Blue Terminal', class: 'theme-blue' },
-        'purple': { name: 'Purple Haze', class: 'theme-purple' },
-        'red': { name: 'Red Alert', class: 'theme-red' },
-        'amber': { name: 'Amber Glow', class: 'theme-amber' },
-        'cyan': { name: 'Cyan Space', class: 'theme-cyan' },
-        'silo': { name: 'Silo Green', class: 'theme-silo' },
-        'monochrome': { name: 'Monochrome', class: 'theme-monochrome' }
+        // 'orange': { name: 'Orange', class: 'theme-orange' },
+        // 'classic-orange': { name: 'Classic Orange', class: 'theme-classic-orange' },
+        'green': { name: 'IBM 5151', class: 'theme-green' },
+        // 'matrix': { name: 'Matrix Neo', class: 'theme-matrix' },
+        // 'blue': { name: 'Blue Terminal', class: 'theme-blue' },
+        // 'purple': { name: 'Purple Haze', class: 'theme-purple' },
+        'red': { name: 'Compaq Portable III', class: 'theme-red' },
+        'amber': { name: 'P3 Phosphor', class: 'theme-amber' },
+        // 'cyan': { name: 'Cyan Space', class: 'theme-cyan' },
+        'silo': { name: 'Silo', class: 'theme-silo' },
+        'monochrome': { name: 'Eye Pain Mono', class: 'theme-monochrome' }
     },
     
     currentTheme: 'orange',
@@ -463,7 +463,7 @@ const ThemeManager = {
         selector.className = 'theme-selector';
         selector.innerHTML = `
             <button id="theme-toggle" class="theme-toggle">
-                🎨 THEMES
+                 CHANGE PHOSPHOR COLOR
             </button>
             <div id="theme-menu" class="theme-menu">
                 ${Object.entries(this.themes).map(([key, theme]) => 
@@ -623,6 +623,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize theme manager
     console.log('Initializing ThemeManager from main DOMContentLoaded');
     ThemeManager.init();
+    
+    // Ensure grid color is updated after theme initialization
+    setTimeout(() => {
+        if (window.updateGridColor && typeof window.updateGridColor === 'function') {
+            const style = getComputedStyle(document.documentElement);
+            const primaryColor = style.getPropertyValue('--primary-color').trim();
+            if (primaryColor) {
+                console.log('Updating grid color after theme init:', primaryColor);
+                window.updateGridColor(primaryColor);
+            }
+        }
+    }, 100); // Small delay to ensure theme is applied
 });
 
 // Also try to initialize on window load as a backup
