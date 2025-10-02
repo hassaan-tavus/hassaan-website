@@ -457,8 +457,8 @@ canvas {
     height: 10px;
     background: var(--button-bg);
     position: absolute;
-    left: -25px;
-    top: 5px;
+    left: -20px;
+    top: 0.5em;
 }
 
 .year {
