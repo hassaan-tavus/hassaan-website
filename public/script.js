@@ -366,7 +366,7 @@ function setupCloseButton() {
     const closeBtn = document.getElementById('close-btn');
     if (closeBtn) {
         closeBtn.addEventListener('click', function() {
-            alert('Thanks for visiting! This would close the window in a real application.');
+            window.location.href = '/';
         });
     }
 }

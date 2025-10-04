@@ -356,7 +356,7 @@ h1, h2, h3 {
 
 h2 {
     border-bottom: 1px solid var(--border-color);
-    color: var(--text-primary);
+    color: var(--text-accent);
 }
 
 /* New style for the page title */
@@ -2364,7 +2364,7 @@ canvas {
 
 
 .app-content h2 {
-    color: var(--text-primary);
+    color: var(--text-accent);
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 5px;
     margin-bottom: 15px;
