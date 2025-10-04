@@ -2254,10 +2254,25 @@ canvas {
     overflow: auto;
 }
 
-/* Ensure resize handle is visible */
+/* Safari-specific resize handle styling */
 .app-window::-webkit-resizer {
     background-color: var(--border-color);
     opacity: 1;
+}
+
+/* Custom resize handle - small corner square */
+.app-window .resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    cursor: nw-resize;
+    z-index: 1001;
+    display: block; /* Always visible - Safari detection is unreliable */
+    border-top: 1px solid var(--background-color);
+    border-left: 1px solid var(--background-color);
 }
 
 /* Scanline effect for app windows */

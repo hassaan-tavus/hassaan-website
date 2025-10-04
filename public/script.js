@@ -590,6 +590,97 @@ const ThemeManager = {
 // Make ThemeManager globally available
 window.ThemeManager = ThemeManager;
 
+// Safari resize functionality
+function initializeSafariResize() {
+    const resizeHandles = document.querySelectorAll('.resize-handle');
+    
+    resizeHandles.forEach(handle => {
+        const appWindow = handle.parentElement;
+        let isResizing = false;
+        let startX, startY, startWidth, startHeight;
+        
+        handle.addEventListener('mousedown', function(e) {
+            isResizing = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            startWidth = parseInt(getComputedStyle(appWindow).width, 10);
+            startHeight = parseInt(getComputedStyle(appWindow).height, 10);
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Use arrow functions to maintain context
+            const doResize = (e) => {
+                if (!isResizing) return;
+                
+                const newWidth = startWidth + (e.clientX - startX);
+                const newHeight = startHeight + (e.clientY - startY);
+                
+                // Apply constraints
+                const minWidth = 400;
+                const minHeight = 300;
+                const maxWidth = window.innerWidth - 100;
+                const maxHeight = window.innerHeight - 100;
+                
+                const constrainedWidth = Math.max(minWidth, Math.min(newWidth, maxWidth));
+                const constrainedHeight = Math.max(minHeight, Math.min(newHeight, maxHeight));
+                
+                appWindow.style.width = constrainedWidth + 'px';
+                appWindow.style.height = constrainedHeight + 'px';
+            };
+            
+            const stopResize = () => {
+                isResizing = false;
+                document.removeEventListener('mousemove', doResize);
+                document.removeEventListener('mouseup', stopResize);
+            };
+            
+            document.addEventListener('mousemove', doResize);
+            document.addEventListener('mouseup', stopResize);
+        });
+        
+        // Also try touch events for Safari mobile compatibility
+        handle.addEventListener('touchstart', function(e) {
+            const touch = e.touches[0];
+            isResizing = true;
+            startX = touch.clientX;
+            startY = touch.clientY;
+            startWidth = parseInt(getComputedStyle(appWindow).width, 10);
+            startHeight = parseInt(getComputedStyle(appWindow).height, 10);
+            
+            e.preventDefault();
+            
+            const doTouchResize = (e) => {
+                if (!isResizing) return;
+                const touch = e.touches[0];
+                
+                const newWidth = startWidth + (touch.clientX - startX);
+                const newHeight = startHeight + (touch.clientY - startY);
+                
+                const minWidth = 400;
+                const minHeight = 300;
+                const maxWidth = window.innerWidth - 100;
+                const maxHeight = window.innerHeight - 100;
+                
+                const constrainedWidth = Math.max(minWidth, Math.min(newWidth, maxWidth));
+                const constrainedHeight = Math.max(minHeight, Math.min(newHeight, maxHeight));
+                
+                appWindow.style.width = constrainedWidth + 'px';
+                appWindow.style.height = constrainedHeight + 'px';
+            };
+            
+            const stopTouchResize = () => {
+                isResizing = false;
+                document.removeEventListener('touchmove', doTouchResize);
+                document.removeEventListener('touchend', stopTouchResize);
+            };
+            
+            document.addEventListener('touchmove', doTouchResize);
+            document.addEventListener('touchend', stopTouchResize);
+        });
+    });
+}
+
 // Main DOMContentLoaded event listener - consolidating all initialization
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Main DOMContentLoaded event fired');
@@ -600,8 +691,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize window dragging
     setupWindowDragging();
     
-    // Initialize status bar
-    setupStatusBar();
     
     // Handle contact info with typing effect
     const contactInfo = document.getElementById('contact-info');
@@ -623,6 +712,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize theme manager
     console.log('Initializing ThemeManager from main DOMContentLoaded');
     ThemeManager.init();
+    
+    // Initialize Safari resize handles
+    initializeSafariResize();
     
     // Ensure grid color is updated after theme initialization
     setTimeout(() => {
