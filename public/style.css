@@ -1353,7 +1353,7 @@ canvas {
 
 .writing-content-body {
     flex: 1;
-    padding: 20px;
+    padding: 20px 20px 200px 20px;
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: none;
@@ -1366,7 +1366,7 @@ canvas {
 }
 
 .writing-text {
-    line-height: 1.8;
+    line-height: 1.5;
     font-size: 1em;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -1379,7 +1379,7 @@ canvas {
 }
 
 .writing-text {
-    line-height: 1.8;
+    line-height: 1.5;
     font-size: 1em;
     word-wrap: break-word;
 }
@@ -1404,7 +1404,7 @@ canvas {
 .writing-text h6 { font-size: 0.9em; }
 
 .writing-text p {
-    margin: 1em 0;
+    margin: 0.5em 0;
 }
 
 .writing-text a {

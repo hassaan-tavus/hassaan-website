@@ -14,6 +14,21 @@ Type: Color CRT
 
 Resolution: 80-column monochrome, 40-column color 
 
+## False-ish Alarm, She Lives
+After writing that first post, I opened up the IIe to see what the damage really was. I was quite sad, bracing for it to be something that would take more time than I had, and end up sitting on the ever-growing list of projects. But the logic board looked perfectly fine. Nothing burned, nothing shorted.
+
+So I powered it back on and started sniffing around (literally). The power supply smelled cancerous, we had a match. My first assumption was that a cap inside was blown and I'd be better off getting a new supply. I discovered instead it was just a RIFA cap or a line filter- apparently these are made of paper that disintegerates over 40 years and.. burns up. They are not necessary for operation though, as their purpose was to protect other stuff in your home from the electrical noise of the power supply. This mattered more in the days of analog TVs, radio, unshielded electornics as that noise would make its way in pretty easily. The IIe runs perfectly without it :) 
+
+## Scoring 
+Authenticity: –10 (Post was written on my MacBook since the IIe pooped)
+
+Reliability: –5 (Broke mid-use)
+
+Hassaan’s Score: 18/25 (Pure, simple, intentional and memorable)
+
+Age Multiplier: ×4.2 (42 years old)
+
+# Final Score: 13 pts
 
 
 ## Machine History
@@ -33,4 +48,4 @@ My time was cut short when the machine eventually went up in smoke during use. A
 ### Reflection
 The Apple IIe was one of the first vintage machines I ever bought, so it holds a special place for me. Getting it directly from its original owner made it even more meaningful. For him it had been a work tool, something that kept his restaurant running. At the same time, it also carried memories of his kids playing games on it, with the worn floppies and chunky controllers still tucked in the box. That mix of work and play feels like the truest picture of what these early personal computers were.
 
-Using the IIe today makes it clear how much we take for granted. This was once a revolution, a portal into computing at a simpler time. I can picture it sitting on a desk in the restaurant’s back office during the day, printing schedules and invoices, then later that night becoming the family’s game machine, loading up adventures one floppy at a time.
+Using the IIe today makes it clear how much we take for granted. This was once a revolution, a portal into computing at a simpler time. I can picture it sitting on a desk in the restaurant’s back office during the day, printing schedules and invoices, then later that night becoming the family’s game machine, loading up adventures one floppy at a time. A simpler time.

@@ -238,7 +238,7 @@ function populateWritingList() {
             <div class="writing-item-title">${writing.title}</div>
             <div class="writing-item-meta">
                 <span>${writing.machine}</span>
-                <span class="writing-item-score">${writing.authenticity}%</span>
+                <span class="writing-item-score">${writing.authenticity} pts</span>
             </div>
         `;
         
@@ -263,7 +263,7 @@ function populateMobileWritingList() {
             <div class="writing-item-title">${writing.title}</div>
             <div class="writing-item-meta">
                 <span>${writing.machine}</span>
-                <span class="writing-item-score">${writing.authenticity}%</span>
+                <span class="writing-item-score">${writing.authenticity} pts</span>
             </div>
         `;
         
@@ -314,7 +314,7 @@ async function showWritingContent(writing) {
     // Update writing content
     document.getElementById('writing-title-display').textContent = writing.title;
     document.getElementById('machine-used').textContent = writing.machine;
-    document.getElementById('authenticity-score').textContent = writing.authenticity + '%';
+    document.getElementById('authenticity-score').textContent = writing.authenticity + ' pts';
     document.getElementById('writing-date').textContent = writing.date;
     
     // Load and parse markdown content from files
@@ -334,11 +334,11 @@ function updateStats() {
     
     // Update desktop stats
     document.getElementById('total-pieces').textContent = totalPieces;
-    document.getElementById('avg-score').textContent = avgScore + '%';
+    document.getElementById('avg-score').textContent = avgScore + ' pts';
     
     // Update mobile stats
     document.getElementById('total-pieces-mobile').textContent = totalPieces;
-    document.getElementById('avg-score-mobile').textContent = avgScore + '%';
+    document.getElementById('avg-score-mobile').textContent = avgScore + ' pts';
 }
 
 // Handle window resize

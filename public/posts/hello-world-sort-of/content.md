@@ -41,11 +41,9 @@ Reliability:
 - 15 pts --- Machine worked perfectly the whole time
 
 Hassaan's Score:
-
 My review of the design, usability, and fun in actually using the machine. Completely subjective, 0-25 pts
 
 Age Multiplier:
-
 Final score × (machine's age ÷ 10), so the older guys gets a fighting chance.
 
 *Note: some lack of points awarded will be due to incompetence, laziness, or time, rather than what was actually possible.*
