@@ -1,77 +1,45 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
+  "outputDirectory": "public",
   "cleanUrls": true,
-  "builds": [
+  "rewrites": [
     {
-      "src": "api/index.js",
-      "use": "@vercel/node"
+      "source": "/create-video-call",
+      "destination": "/api/index.js"
     },
     {
-      "src": "public/**",
-      "use": "@vercel/static"
+      "source": "/api/create-demo-investor-dojo-call",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/create-kiosk-call",
+      "destination": "/api/index.js"
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "/api/create-demo-investor-dojo-call",
-      "dest": "api/index.js"
+      "source": "/favicon.ico",
+      "destination": "/favicon/favicon.ico"
     },
     {
-      "src": "/create-video-call",
-      "dest": "api/index.js"
+      "source": "/apple-touch-icon.png",
+      "destination": "/favicon/apple-touch-icon.png"
     },
     {
-      "src": "/create-demo-investor-dojo-call",
-      "dest": "api/index.js"
+      "source": "/favicon-32x32.png",
+      "destination": "/favicon/favicon-32x32.png"
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/public/favicon/favicon.ico"
+      "source": "/favicon-16x16.png",
+      "destination": "/favicon/favicon-16x16.png"
     },
     {
-      "src": "/apple-touch-icon.png",
-      "dest": "/public/favicon/apple-touch-icon.png"
+      "source": "/site.webmanifest",
+      "destination": "/favicon/site.webmanifest"
     },
     {
-      "src": "/favicon-32x32.png",
-      "dest": "/public/favicon/favicon-32x32.png"
-    },
-    {
-      "src": "/favicon-16x16.png",
-      "dest": "/public/favicon/favicon-16x16.png"
-    },
-    {
-      "src": "/site.webmanifest",
-      "dest": "/public/favicon/site.webmanifest"
-    },
-    {
-      "src": "/safari-pinned-tab.svg",
-      "dest": "/public/favicon/safari-pinned-tab.svg"
-    },
-    {
-      "src": "/",
-      "dest": "/public/index.html"
-    },
-    {
-      "src": "/interests",
-      "dest": "/public/interests.html"
-    },
-    {
-      "src": "/digitaltwin",
-      "dest": "/public/digitaltwin.html"
-    },
-    {
-      "src": "/investor-dojo",
-      "dest": "/public/investor-dojo.html"
-    },
-    {
-      "src": "/writing$",
-      "dest": "/public/writing.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "source": "/safari-pinned-tab.svg",
+      "destination": "/favicon/safari-pinned-tab.svg"
     }
   ]
 }

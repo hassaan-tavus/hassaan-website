@@ -68,6 +68,53 @@ Remember to handle API responses and errors appropriately in your application.
 6. You can use your API key and persona ID to run this same site with your own AI digital twin.
 
 
+## Writing Section & SEO
+
+The website includes a writing section with static HTML generation for SEO optimization.
+
+### Building Static Pages
+
+Before deployment, generate static HTML pages:
+
+```bash
+npm run build
+```
+
+This command:
+- Generates static HTML pages for each writing in `public/writing/`
+- Creates/updates `public/sitemap.xml` with all pages
+- Ensures search engines can crawl your writing content
+
+### Adding New Writings
+
+1. Create markdown files:
+   - `public/posts/{slug}/content.md` - The main article content
+   - `public/posts/{slug}/journey.md` - The writing journey/backstory
+
+2. Add entry to `public/writings.json`:
+```json
+{
+  "id": 2,
+  "slug": "your-slug",
+  "title": "Your Title",
+  "date": "2025-01-01",
+  "machine": "Machine Name",
+  "authenticity": 85,
+  "contentFile": "/posts/your-slug/content.md",
+  "journeyFile": "/posts/your-slug/journey.md"
+}
+```
+
+3. Build and commit:
+```bash
+npm run build
+git add .
+git commit -m "Add new writing: Your Title"
+git push
+```
+
+Vercel will automatically run `npm run build` during deployment.
+
 ## Local Development
 
 1. Clone the repository:
