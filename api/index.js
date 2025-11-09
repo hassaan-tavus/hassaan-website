@@ -17,6 +17,27 @@ app.use(express.json());
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+// Route for individual writing pages
+app.get('/writing/:slug', (req, res, next) => {
+    const slug = req.params.slug;
+    const filePath = path.join(__dirname, '..', 'public', 'writing', `${slug}.html`);
+
+    // Check if the static HTML file exists
+    if (fs.existsSync(filePath)) {
+        fs.readFile(filePath, 'utf8')
+            .then(html => res.send(html))
+            .catch(err => next());
+    } else {
+        // Fall back to writing.html for the main writing page
+        res.sendFile(path.join(__dirname, '..', 'public', 'writing.html'));
+    }
+});
+
+// Route for main writing page
+app.get('/writing', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'writing.html'));
+});
+
 // Function to log calls and send data to Google Sheet
 // Log the call and send data to Google Sheet
             /*

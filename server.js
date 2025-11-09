@@ -8,7 +8,22 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('public'));
 
 // Route for writing and its sub-paths
-app.get('/writing*', (req, res) => {
+app.get('/writing/:slug', (req, res, next) => {
+    const slug = req.params.slug;
+    const filePath = path.join(__dirname, 'public', 'writing', `${slug}.html`);
+
+    // Check if the static HTML file exists
+    const fs = require('fs');
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+    } else {
+        // Fall back to writing.html for the main writing page
+        res.sendFile(path.join(__dirname, 'public', 'writing.html'));
+    }
+});
+
+// Route for main writing page
+app.get('/writing', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'writing.html'));
 });
 

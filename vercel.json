@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "cleanUrls": true,
   "builds": [
     {
       "src": "api/index.js",
@@ -64,11 +66,7 @@
       "dest": "/public/investor-dojo.html"
     },
     {
-      "src": "/writing/(.+)",
-      "dest": "/public/writing.html"
-    },
-    {
-      "src": "/writing",
+      "src": "/writing$",
       "dest": "/public/writing.html"
     },
     {
