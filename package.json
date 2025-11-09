@@ -7,8 +7,9 @@
     "start": "node api/index.js",
     "dev": "node server.js",
     "dev-spa": "http-server-spa public index.html 3000",
-    "build": "node build-writings.mjs && node generate-sitemap.mjs",
+    "build": "node build-interests.mjs && node build-writings.mjs && node generate-sitemap.mjs",
     "build:writings": "node build-writings.mjs",
+    "build:interests": "node build-interests.mjs",
     "build:sitemap": "node generate-sitemap.mjs"
   },
   "keywords": [],

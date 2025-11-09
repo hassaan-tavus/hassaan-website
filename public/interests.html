@@ -3,70 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hassaan Raza - Interests</title>
+    <title>Interests - Hassaan Raza</title>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="/style.css">
+
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    
-    <!-- Open Graph Metadata -->
-    <!-- HTML Meta Tags -->
-    <meta name="description" content="Hassaan's personal blog and portal to his AI digital twin">   
 
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://hassaanraza.com">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="I&#039;m generally pretty easily entertained, but some topics that specifically interest me are: how humans and computers communicate with each other, cars/tracking/...">
+    <link rel="canonical" href="https://hassaanraza.com/interests">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:url" content="https://hassaanraza.com/interests">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Hassaan Raza">
-    <meta property="og:description" content="Hassaan's personal blog and portal to his AI digital twin">
+    <meta property="og:title" content="Interests - Hassaan Raza">
+    <meta property="og:description" content="I&#039;m generally pretty easily entertained, but some topics that specifically interest me are: how humans and computers communicate with each other, cars/tracking/...">
     <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/494fbd27-a97e-4ade-b18e-11f97794e266.png?token=YQeuoKGLxDJE9O3wsY76T-98Pf71vyKb79Td7hVyzc4&height=630&width=1200&expires=33262547243">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="hassaanraza.com">
-    <meta property="twitter:url" content="https://hassaanraza.com">
-    <meta name="twitter:title" content="Hassaan Raza">
-    <meta name="twitter:description" content="Hassaan's personal blog and portal to his AI digital twin">
+    <meta property="twitter:url" content="https://hassaanraza.com/interests">
+    <meta name="twitter:title" content="Interests - Hassaan Raza">
+    <meta name="twitter:description" content="I&#039;m generally pretty easily entertained, but some topics that specifically interest me are: how humans and computers communicate with each other, cars/tracking/...">
     <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/494fbd27-a97e-4ade-b18e-11f97794e266.png?token=YQeuoKGLxDJE9O3wsY76T-98Pf71vyKb79Td7hVyzc4&height=630&width=1200&expires=33262547243">
 
-    <!-- Sitemap -->
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Hassaan Raza",
+            "description": "I&#039;m generally pretty easily entertained, but some topics that specifically interest me are: how humans and computers communicate with each other, cars/tracking/...",
+            "url": "https://hassaanraza.com",
+            "sameAs": [
+                "https://x.com/hassaanrza",
+                "https://www.linkedin.com/in/hassaanraza/",
+                "https://www.tavus.io"
+            ]
+        }
+    }
+    </script>
 </head>
-<body>
-    <div id="crt-overlay"></div>
-    <div id="dos-container">
-        <div id="title-bar">
-            <span>Hassaan Raza</span>
-            <div id="nav-links">
-                <a href="index.html" class="nav-link" data-page="home">HOME</a> | <a href="#" class="nav-link active" data-page="interests">INTERESTS</a>
-            </div>
-            <button id="close-btn" onclick="window.location.href='digitaltwin.html'">x</button>
+<body class="os-body">
+
+    <!-- Side Dock Navigation -->
+    <div id="side-dock">
+        <div class="dock-item" data-app="about" title="About Hassaan" onclick="window.location.href='/'">
+            <img src="icons/noun-home-6351217.svg" alt="About" class="dock-icon">
+            <span class="dock-label">About</span>
         </div>
-        <div id="content-area">
-            <div id="interests" class="page active">
+        <div class="dock-item active" data-app="interests" title="Interests">
+            <img src="icons/noun-firework-6351198.svg" alt="Interests" class="dock-icon">
+            <span class="dock-label">Interests</span>
+        </div>
+        <div class="dock-item" data-app="writing" title="Writing" onclick="window.location.href='/writing'">
+            <img src="icons/noun-book-7670082.svg" alt="Writing" class="dock-icon">
+            <span class="dock-label">Writing</span>
+        </div>
+        <div class="dock-item" data-app="digitaltwin" title="Digital Twin Chat" onclick="window.location.href='/digitaltwin'">
+            <img src="icons/noun-people-6409675.svg" alt="Digital Twin" class="dock-icon">
+            <span class="dock-label">AI Chat</span>
+        </div>
+    </div>
+
+    <!-- Interests App Window -->
+    <div id="interests-app" class="app-window" style="display: flex;">
+        <div class="resize-handle"></div>
+        <div class="window-header">
+            <span class="window-title">Interests</span>
+            <button class="close-btn" data-app="interests" onclick="window.location.href='/'">x</button>
+        </div>
+        <div class="window-content">
+            <div class="app-content">
                 <div class="digital-twin-container small">
                     <span>Instead of reading all of this you can join a video call with AI Hassaan</span>
-                    <a href="digitaltwin.html" class="digital-twin-link">Talk to My Digital Twin</a>
+                    <a href="/digitaltwin" class="digital-twin-link">Talk to My Digital Twin</a>
                 </div>
-                <div id="interests-content">Loading interests...</div>
-            </div>
-        </div>
-        <div id="status-bar">
-            <span id="contact-info">Contact: <a href="mailto:hassaan@tavus.io">hassaan[at]tavus.io</a></span>
-            <div id="social-links">
-                <a href="https://x.com/hassaanraza97" target="_blank">Twitter</a> |
-                <a href="https://www.linkedin.com/in/hassaanraza/" target="_blank">LinkedIn</a> |
-                <a href="https://www.tavus.io" target="_blank">Tavus</a>
+                <div id="interests-content">
+                    <h2 class="page-title">INTERESTS</h2><p>I'm generally pretty easily entertained, but some topics that specifically interest me are: how humans and computers communicate with each other, cars/tracking/racing (Diehard American car guy; I'm a GM boomer at 28 and love to track), vintage computing and computing history (I hoard old computers), architecture (specifically brutalist architecture), corporate strategy failures (Palm, DaimlerChrysler, etc.), and overall, the history of design and technology (hence this website). I (try to) write about some of these interests on the vintage computers, and score how the whole process went. [ <a href="/writing">CLICK HERE</a> ] to read my writings.</p><p><br>[ <a href="https://www.youtube.com/watch?v=Vx7E1_q7cW0" target="_blank">CLICK HERE</a> ] to watch an obnoxious old car ad that showcases a lot of my interests in a nutshell</p><h2 class="subsection-title">Art and Science / Design and Technology</h2><p>Things that look good, things that work well, and things that revolutionize the world around us. Exceptional products harmonize all three dimensions. We live in the pursuit of art and science.</p><ul><li>
+                    <h3 class="subsection-title">Faster, Faster, until the thrill of speed overcomes the fear of death:</h3>
+                    <div class="subsection-content">
+                        <p class="short-content">This quote is the rallying cry at Tavus, much to the dismay of the team who are begrudgingly asked to repeat it constantly (they secretly love doing it). Here's a summarized version of an internal memo on what it means:<br><br><b>Strap in, we’re accelerating towards oblivion</b><br>I imagine some of you haven't...</p>
+                        <p class="full-content" style="display: none;">This quote is the rallying cry at Tavus, much to the dismay of the team who are begrudgingly asked to repeat it constantly (they secretly love doing it). Here's a summarized version of an internal memo on what it means:<br><br><b>Strap in, we’re accelerating towards oblivion</b><br>I imagine some of you haven't really thought about our motto more than saying it when I ask you to repeat. The reality is (as Paul Graham and Michael Siebel often talk about) that we are default dead- most startups are, often especially so those that have VC funding. However, this isn't only about runway, we have plenty of that, it's mostly about <i>relevancy</i>. No matter how much runway we have, the worst death for a technology company is one of fading into mediocre obscurity. No matter how far ahead we might be right now, no matter how transformative what we are building might be, we have to assume we are headed towards oblivion. There are graveyards of once-greats that show this as the default path. Thinking through this you have a few options. One is of persistent existential dread- constantly afraid of this forthcoming death and questioning why you would join something with this much <i>risk</i>. It's okay to think that way <i>sometimes</i>. Too much though and you're probably better off at a FAANG in that case, and there's nothing wrong with that.<br><br> At Tavus- we only believe in a single option, the last option. In the face of oblivion looming ahead and nipping at your heels, you strap yourself in, buckle your harness, and push the throttle in. While every instinct screams to pull back, to stop the madness you push <i>harder</i>, faster. Alarms blaring in your head, a cacophony of thoughts and warnings drowning out your own thundering heartbeat, yet you just. go. faster.<br><br> As you push harder, faster, darkness begins to encroach. It seeps into your peripheral vision, threatening to consume you entirely. The default instinct is to let go now- to save yourself, to retreat to safety. Instead, you lean into the darkness, accelerating towards the unknown. As you continue to accelerate, something remarkable happens. Death seems imminent... but that's not what's making your skin tingle anymore. It's the speed. The pure, unadulterated velocity. A small smile lights up on your face. You're no longer running from death. You're chasing something else entirely.<br><br>The world is a blur, your body pinned to the seat by forces that should liquefy your organs... but you feel... alive. More alive than you've ever felt before. You let the adrenaline surge through your veins- the glorious, intoxicating speed and the whistling of air molecules being ripped apart by your passage. In this moment, dancing on the knife-edge of physics itself, you understand. This is what you were born for. This is living.<br>The fear of death that gripped you moments ago? It's still there, a whisper in the back of your mind. But it's been drowned out, overwhelmed, annihilated by something far more potent: the pure, unadulterated thrill of speed. You've done it. You've outrun oblivion. You are faster than fear. Faster than death itself.<br><br><i>Here's to outrunning death.</i><br><br>Okay but what does this <i>mean</i> at Tavus? We live for the thrill and adrenaline of building faster than what seems humanly possible, release products that seem to defy reality and laugh in the face of death. We don't just survive the race against oblivion - we thrive in it.<br>-<br>Note, this is why I love studying company failures so much, they were unable to outrun oblivion.</p>
+                        <button class="read-more-btn">READ MORE</button>
+                    </div></li><li>
+                    <h3 class="subsection-title">Human-Computer Interactions:</h3>
+                    <div class="subsection-content"><p>Of course, one of the things I'm most passionate about is how humans and computers communicate. I have a much longer writeup on this for the Tavus team that I will post eventually, but in summary, I believe that humans communicate with computers in a compromised way. Humans are high-bandwidth communicators using words, gestures, tone of voice, facial expressions, and more. Historically, we've often forced ourselves to adapt to technological limitations in communication. We did this because we had to - the technology couldn't meet us where we naturally communicate. But should this be the endgame? We shouldn't be satisfied with interfaces that force us to communicate in ways that aren't natural to us. Instead, we should push for technologies that understand and accommodate our innate communication styles. When computers understand us better through seeing and hearing us, we can work with them more efficiently. This is what we're working on at Tavus. You can have a taste of the future by clicking X on this window and talking to AI me. On that note, Westworld is one of my favorite sci-fi shows that 'explores' an extreme dimension of HCI ;)</p></div></li><li>
+                    <h3 class="subsection-title">Speaking of old ads:</h3>
+                    <div class="subsection-content"><p>[ <a href="https://www.youtube.com/watch?v=a2EgfkhC1eo" target="_blank">CLICK HERE TO WATCH</a> ] <br>If you know me well, you may know I LOVE old ads, especially from the 80s/90s. My favorite series of ads are the AT&T 'You Will' ads from the early 90s. They imagine a future that, in retrospect, it's incredible to think about what they got right and wrong, and what they missed entirely. For example, the concept of a personal computer for each person wasn't considered. Yet they imagined video conferencing (although at a payphone), e-mail (though they called it faxing), buying tickets online (at an ATM), e-learning, and so much more. It's a great time capsule that shows how far we've come and how exciting the times were. The funniest part is that AT&T ended up not being the company that brought any of these innovations to us.</p></div></li><li>
+                    <h3 class="subsection-title">Space is the final frontier, favorite sci-fi:</h3>
+                    <div class="subsection-content"><p>My favorite sci-fi movies of all time are Interstellar and 2001: A Space Odyssey. Space has always been the ultimate engineer's dream- I think many of us dreamed of being an astronaut as kids. A show along those lines I really enjoyed recently is For All of Mankind, it shows an alternate history of the space race if the Soviets won the moon race. Anyways, I'm really bullish on the current renaissance in space exploration. It's the ultimate pursuit of turning science fiction into reality.</p></div></li></ul><h2 class="subsection-title">Cars and Racing</h2><p>There's nothing that quite combines art and science like cars. I've been obsessed with everything cars from a very young age; the first car I remember being entranced with was the New Edge Mustang. I've always been an American car guy, and recently I've specifically become a GM fanboy, but I appreciate cars of all types. My preference for a car is lightweight, RWD, V8, and manual. Unfortunately, I also prefer understated cars so those preferences don't always align. My favorite hobby is to track (taking my car to the racetrack).</p><ul><li>
+                    <h3 class="subsection-title">The Golden Age of Cars (2009-~2016):</h3>
+                    <div class="subsection-content"><p>I believe the best time period for performance cars was the period around 2009-~2016. The post-financial-crisis boom- money was /flying/. Automotive design was at its peak, with bold and aggressive styling that could be supported with modern manufacturing. Manufacturers were taking risks with designs and technology without going overboard or turning cars into an aerodynamic soapbox. Reliability and technology were made accessible to all cars, with ICE engines being more powerful, more efficient, and more reliable than ever. But crucially, cars were not about having the biggest screen or making the most straight-line power. <br>The lineup of this era was incredibly strong and unique, with practically every manufacturer making something special, something with personality. The American muscle cars (Challenger, Camaro, and Mustang) were reborn, the Italians were on fire with cars like the 458 and the Giulia. The British were showing off their snobbery with timeless designs like the Vantage, and the Japanese were putting out engineering marvels like the Lexus LFA. Even the /Australians/ were putting out with cars like the Holden Commodore or the Ford Falcon. It was the golden age, with a car available for every kind of enthusiast at every price point. Some of the most iconic cars come from this era, full of personality and character-- you can find many of them in my list below. Also, Top Gear was at its peak :)</p></div></li><li>
+                    <h3 class="subsection-title">My Love for American Cars:</h3>
+                    <div class="subsection-content">
+                        <p class="short-content">My love for American cars started at a young age. Part of it was a rebellion against the Japanese cars so popular among South Asian families while I was growing up. But I always found something special about American cars; I was drawn to their underdog status and the way...</p>
+                        <p class="full-content" style="display: none;">My love for American cars started at a young age. Part of it was a rebellion against the Japanese cars so popular among South Asian families while I was growing up. But I always found something special about American cars; I was drawn to their underdog status and the way they were often looked down upon. Growing up in Texas probably helped too.<br><br>American cars often face negative perceptions among car enthusiasts. Sure, some of that is deserved - American manufacturers have put out some truly horrendous commuter cars over the years and tarnished their reputation.. However, the notion that American cars aren't as performant or cutting-edge is a narrow view, often cast by those who believe European cars are superior. Well, let me tell ya, they're wrong.<br><br>I fundamentally believe that America has some of the best vehicle engineers in the world, often let down by poor management decisions. When given free rein, these engineers have produced some of the most cutting-edge and powerful cars of all time. This is consistently proven by cars like the Chevrolet Corvette (Z06, ZR1, GS), which in practically every generation has destroyed records against European competitors 2-4 times more expensive. That's the key here— American cars are for the people, attainable and unexclusive. They're the underdogs that consistently set the bar for performance. Those who dismiss them as relying on 'brute force' haven't driven many modern American performance cars.<br><br>Preference is important here, and it's totally okay to have a preference for the feel of certain manufacturers or cars. You'll see in my list somewhere on this page that many of my favorite cars are not American and my daily driver is a Mazda Miata. The point is that American performance cars don't have an engineering problem; they have a marketing problem. The innovation and capability are there; they often are just dismissed with some degree of snobbery.<br><br>In every generation, America has put out some of the most fun and engaging cars with character. They're not the most refined, quiet, or subdued - because that's the /point/. It's okay to not want those things, but I'd wager you'll have a lot of fun if you try them out. Big engines and punching above their weight- that's the American dream.<br><br>Some great modern examples I recommend trying out include the CT4-V Blackwing, which boasts one of the best chassis in any car, comes with one of the best-feeling manual transmissions, and makes a glorious racket. While the C8 is ugly in my opinion, it's also a prime example of a car that destroys records for a fraction of the price of its competitors.</p>
+                        <button class="read-more-btn">READ MORE</button>
+                    </div></li><li>
+                    <h3 class="subsection-title">Car Appreciation List:</h3>
+                    <div class="subsection-content"><p>Here are cars that I believe are special in some way:</p><ul class="car-list"><li><span class="tooltip">Mazda Miata (ND2)<span class="tooltiptext">A sportscar everyone should own- lightweight, manual, well balanced. Great city car too! I'm bias as I have one.</span></span></li><li><span class="tooltip">Porsche 928 S4 (1987-88 optimally)<span class="tooltiptext">I wanted this car so bad for a while. This is a fascinating car that is sort of forgotten and seen as the ugly duckling of the Porsche family. The alternative timeline car to if the 911 has been killed off. I'm not a huge Porsche fanboy, so it's the perfect Porsche for me, the forgotten one with all of the 70/80's technology and a big ole V8. I've been trying to find one for a long time now.</span></span></li><li><span class="tooltip">Chevrolet Corvette Grandsport (C7)<span class="tooltiptext">The perfect track car and (imo) the best Corvette ever made. Why? Looks awesome but not overly aggressive, manual, V8, lightweight, and feels like you're taming a wild horse when you push it.</span></span></li><li><span class="tooltip">Cadillac CT4-V Blackwing/ATS-V<span class="tooltiptext">These embody the definition of a sports sedan. One of the best chassis ever made, fantastic handling, great manual- a true driver's car. Would get this over an M3 any day. The ATS-V started it all and the CT4-V BW is basically the same car.</span></span></li><li><span class="tooltip">Cadillac CT5-V Blackwing<span class="tooltiptext">+1 to above, but with a supercharged V8. Now this is an American car. Makes me feel so patriotic.</span></span></li><li><span class="tooltip">Land Rover Defender (L663)<span class="tooltiptext">These are breathtakingly beautiful cars that showcase British car design; elegant and refined. Guaranteed to be ruined with a facelift :(</span></span></li><li><span class="tooltip">Saab 9-5 (YS3G, 2010-2012)<span class="tooltiptext">This is not a sports car or even a high-end luxury car- this is a regular sedan that most people wouldn't think of as a car enthusiast's car. However, the design of the last generation Saab 9-5 is timeless and still looks like it would fit right into new cars today. As well, Saab should be remembered for being one of the greats in the automotive world.</span></span></li><li><span class="tooltip">Dodge/SRT Viper (5th Gen)<span class="tooltiptext">The Viper embodies everything that makes an American supercar. V10, manual only, a track weapon that was bashing the crap out of the Europeans and absolutely beautiful.</span></span></li><li><span class="tooltip">Audi R8 V10 (Gen 1)<span class="tooltiptext">The definition of a halo car- incredible styling that set the tone for cars to come. This was the supercar of my childhood dreams. Also, gated manual!</span></span></li><li><span class="tooltip">Aston Martin Vantage (2009 - 2017)<span class="tooltiptext">I dream of driving a manual V8/V12 Vantage through the Scottish Highlands as Skyfall plays in the background. Also one of the most beautiful cars of our lifetime- the British do make some really beauitful cars.</span></span></li><li><span class="tooltip">Ford Mustang GT500 (S197, 2013-2014)<span class="tooltiptext">The S197 (2013+) has a soft spot in my heart. It's peak Mustang, the styling is perfectly retro yet modern, and it's pure American muscle. The GT500 was the car I most wanted as a teenager, and I'd still own one today. I had an S197 GT and I still miss that car.</span></span></li><li><span class="tooltip">Lexus LFA<span class="tooltiptext">The best sounding engine (V10) ever made and a true pursuit of passion. This is an engineer's car.</span></span></li><li><span class="tooltip">Lotus Exige<span class="tooltiptext">I'd love to have one of these as a track car- properly lightweight, manual and track focused.</span></span></li><li><span class="tooltip">Chevrolet Corvette (C3)<span class="tooltiptext">One of the only classics I'd love to own. This was /the/ astronaut car.</span></span></li><li><span class="tooltip">Chevrolet Corvette (C4)<span class="tooltiptext">This is such an 80s car. Watch the ad I linked above and you'll immediately understand why I love this car. I'm currently restoring a 1985 C4 as a project. I'll get to uploading my progress.</span></span></li><li><span class="tooltip">Alfa Romeo Giulia Quadrifoglio<span class="tooltiptext">This is the only other sports sedan that I'd want if I wasn't to get a Blackwing. It drives beautifully, handles amazingly and has a great engine with a great note. It's also unique and not something you see every day.</span></span></li><li><span class="tooltip">Porsche GT3 (992)<span class="tooltiptext">I'd take this in a nice PTS dark green. Probably too nice of a car for me though.</span></span></li></ul></div></li><li>
+                    <h3 class="subsection-title">Tracking and Favorite Racetracks:</h3>
+                    <div class="subsection-content"><p>Usually, there's nothing that can take my mind off of Tavus—except for being on the racetrack. There's just nothing like it. The focus, the adrenaline, the connection with the car and the track. It's incredibly fulfilling, especially with the right car. It's an intense puzzle; figuring out how to get the most out of the car for the track, deciding where to push and where to place yourself, setting yourself up for the next corner, optimizing your line. There are so many parameters to consider to get a good lap time.<br><br>It's not about having the fastest or most capable car out there. A big part of the fun is the challenge of driving something a bit rough around the edges and having to work for the outcomes. You want a car with personality, one that commands respect because it can be unforgiving if you push it too far in the wrong way, one that you're a bit afraid of. It's like taming a wild horse; you build a relationship with the car and it feels like you are operating as a team. What you don't want is a car that has limits that are impossible to achieve and does the work for you. Manual, lightweight, (mostly) no assists. If you're looking for something to start out with, get a Miata—they are amazing.<br><br>My favorite race tracks right now are COTA (Circuit of the Americas), Barber Motorsports Park, Thunderhill 5 mile, Sonoma, Eagles Canyon, and MSR Cresson. I've started to try out the tracks near SF more recently, but have done all the tracks in and near Texas. The things that make me love a track are nice technical bits and interesting terrain (elevation), having an amazing flow, and good surface conditions. I don't love tracks that are too flat or have too many straights. What does it mean to have a track that flows well? It's hard to explain, but it just feels good. It feels like the track throws you in the right places and just, well... flows. One of these days I'll do some track reviews.</p></div></li></ul><h2 class="subsection-title">Architecture</h2><p>I'm fascinated by the story that architecture tells. I love looking at buildings and imagining the thought processes, conditions, and social context that shaped them. There's something incredibly compelling about the human stories embedded in these structures. The materials used, the layout, the design choices—even details like how natural light was prioritized—all give insight into what we knew and cared about at that time. It's fascinating to see what design elements and styles were considered 'modern' in their time, and how they compare to our current ideas of modernity. A fun game I like to play (appreciative of the friends who indulge me here) is to look at a building and try to guess the year it was built and renovated.</p><ul><li>
+                    <h3 class="subsection-title">Brutalism:</h3>
+                    <div class="subsection-content"><p>I /love/ brutalist architecture. It is so raw and tells an amazing story of the time period and thoughts. The monolithic structures, the exposed materials, the vastness of space- it's all so grand and almost dystopian. It's space age- it's the type of architecture that makes you feel like you're on a different planet or in a sci-fi novel. Especially in the context of the space race and the cold war, it's fascinating to think how those thoughts and ideas manifest in the built world. I don't advocate for new brutalist architecture and wouldn't want to live in a brutalist building, but I do love seeing examples of it. One of these days I'm going to go on a worldwide tour of brutalist architecture. <br><br> Some of my favorite brutalist buildings in SF specifically are the Cathedral of Saint Mary of the Assumption, the Glen Park BART station (you have to see it haha), the Hyatt Regency, and of course, the Transamerica Pyramid.</p></div></li><li>
+                    <h3 class="subsection-title">Important traits for architecture and interior design (for me):</h3>
+                    <div class="subsection-content"><p>Mid-century modern is the key to my heart- especially unique floorplans. A LOT of natural light, lots of plants, and a good mixture of woods, stones and metals. Interesting furniture with greens, browns and amber tones. A green sofa is a must.</p></div></li></ul><h2 class="subsection-title">Corporate Strategy Failures</h2><p>Studying success stories is boring and overdone. Studying failure cases is far more interesting and can teach you a lot. It showcases how difficult it can be to build great products and businesses, and how many things have to come together for success. Failed mergers are especially intriguing because of the products that emerge from them and the lessons they offer about culture clashes and misaligned incentives. Some examples:</p><ul><li>
+                    <h3 class="subsection-title">Palm's Downfall:</h3>
+                    <div class="subsection-content"><p>This is the story I love to share with the Tavus team: how Palm created the smartphone and mobile OS that scared Steve Jobs. How WebOS, its design and technology, was ahead of its time—we still see remnants of it in modern smartphones (card-based multitasking, wireless charging, rounded corners, etc.). The distribution mistakes of going with Sprint as the exclusive carrier alongside the lack of developer support. How Palm was eventually sold off to HP and killed by one of the worst CEOs in history. I'm still owed a Palm Pre from my friend Arjo for losing a bet while we were watching the Blackberry movie (a great movie, by the way, and another great failure story). I'd love to use a Palm Pre as my daily driver, but unfortunately, with 3G being shut off, alas it may not be possible.</p></div></li><li>
+                    <h3 class="subsection-title">Daimler-Chrysler Merger:</h3>
+                    <div class="subsection-content"><p>I find this one fascinating. This "merger of equals" was meant to create a global automotive powerhouse between Mercedes-Benz (Daimler) and Chrysler in the late 90s. Instead, it was a disastrous failure as two companies with vastly different cultures and strategies were forced together. The German perfectionists vs the American 'cowboys'. The best thing about this merger is that you can /see/ the results in the cars of the era. The parts sharing and frankenstein cars- the Chrysler Crossfire SRT-8 being a shining example. However, there were some really awesome cars that came out of this, such as the Mercedes-AMG SLS, which was sort of a chopped up (next gen) Viper.</p></div></li></ul>
+                </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
-    <script src="interests.js"></script>
+
+    <script src="/script.js"></script>
+    <script src="/interests.js"></script>
 </body>
 </html>

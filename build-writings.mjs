@@ -7,6 +7,16 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// Function to escape HTML for use in attributes
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
 // Read writings.json
 const writingsPath = path.join(__dirname, 'public', 'writings.json');
 const writings = JSON.parse(fs.readFileSync(writingsPath, 'utf8'));
@@ -30,16 +40,6 @@ function generateExcerpt(content, maxLength = 160) {
 
     if (plainText.length <= maxLength) return plainText;
     return plainText.substring(0, maxLength).trim() + '...';
-}
-
-// Function to escape HTML for use in attributes
-function escapeHtml(text) {
-    return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
 }
 
 // Function to generate HTML page for a writing
