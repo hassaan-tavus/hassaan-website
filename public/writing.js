@@ -307,25 +307,53 @@ async function selectWriting(writingId, updateUrl = true) {
 async function showWritingContent(writing) {
     const welcomeScreen = document.getElementById('welcome-screen');
     const writingDisplay = document.getElementById('writing-display');
-    
+
     welcomeScreen.style.display = 'none';
     writingDisplay.style.display = 'flex';
-    
+
     // Update writing content
     document.getElementById('writing-title-display').textContent = writing.title;
     document.getElementById('machine-used').textContent = writing.machine;
     document.getElementById('authenticity-score').textContent = writing.authenticity + ' pts';
     document.getElementById('writing-date').textContent = writing.date;
-    
-    // Load and parse markdown content from files
-    const contentText = await loadMarkdownFile(writing.contentFile);
-    const journeyText = await loadMarkdownFile(writing.journeyFile);
-    
-    document.getElementById('writing-text').innerHTML = marked.parse(contentText);
-    document.getElementById('journey-text').innerHTML = marked.parse(journeyText);
-    
-    // Update journey title dynamically
-    document.getElementById('journey-title').textContent = `THE JOURNEY: ${writing.title.toUpperCase()}`;
+
+    // Check if this is a raw HTML post
+    if (writing.type === 'html') {
+        // For HTML posts, dynamically create the iframe
+        const iframe = document.createElement('iframe');
+        iframe.src = writing.contentFile;
+        iframe.className = 'raw-html-viewer';
+        iframe.setAttribute('sandbox', 'allow-same-origin');
+
+        // Auto-resize iframe when loaded
+        iframe.onload = function() {
+            try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const height = iframeDoc.documentElement.scrollHeight;
+                iframe.style.height = height + 'px';
+            } catch(e) {
+                // If we can't access iframe content (CORS), set a default height
+                iframe.style.height = '800px';
+            }
+        };
+
+        document.getElementById('writing-text').innerHTML = '';
+        document.getElementById('writing-text').appendChild(iframe);
+
+        // Load the journey markdown
+        const journeyText = await loadMarkdownFile(writing.journeyFile);
+        document.getElementById('journey-text').innerHTML = marked.parse(journeyText);
+    } else {
+        // For markdown posts, load and parse both content and journey
+        const contentText = await loadMarkdownFile(writing.contentFile);
+        const journeyText = await loadMarkdownFile(writing.journeyFile);
+
+        document.getElementById('writing-text').innerHTML = marked.parse(contentText);
+        document.getElementById('journey-text').innerHTML = marked.parse(journeyText);
+    }
+
+    // Update journey title dynamically with machine name
+    document.getElementById('journey-title').textContent = `THE JOURNEY: ${writing.machine.toUpperCase()}`;
 }
 
 function updateStats() {

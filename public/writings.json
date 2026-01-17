@@ -8,5 +8,16 @@
         "authenticity": 13,
         "contentFile": "/posts/hello-world-sort-of/content.md",
         "journeyFile": "/posts/hello-world-sort-of/journey.md"
+    },
+    {
+        "id": 2,
+        "type": "html",
+        "slug": "the-perfect-software-did-exist",
+        "title": "The perfect software did exist, and it was Microsoft Word 98",
+        "date": "2026-01-16",
+        "machine": "Apple PowerBook 1400c (1996)",
+        "authenticity": 1595,
+        "contentFile": "/posts/the-perfect-software-did-exist/content.html",
+        "journeyFile": "/posts/the-perfect-software-did-exist/journey.md"
     }
 ]

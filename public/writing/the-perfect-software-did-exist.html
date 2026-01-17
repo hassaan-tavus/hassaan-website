@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The perfect software did exist, and it was Microsoft Word 98 - Hassaan Raza</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Raw HTML Document Viewer Styles -->
+    <style>
+        .raw-html-viewer {
+            width: 100%;
+            min-height: 600px;
+            border: 2px solid #333;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            display: block;
+        }
+        .writing-text:has(.raw-html-viewer) {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+
+    <!-- Script to auto-resize iframe -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.querySelector('.raw-html-viewer');
+            if (iframe) {
+                iframe.onload = function() {
+                    try {
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        const height = iframeDoc.documentElement.scrollHeight;
+                        iframe.style.height = height + 'px';
+                    } catch(e) {
+                        // If we can't access iframe content (CORS), set a default height
+                        iframe.style.height = '800px';
+                    }
+                };
+            }
+        });
+    </script>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="The perfect software did exist, and it was Microsoft Word 98 The perfect software did exist, and it was Microsoft Word 98 January 16th 2026 This article was wri...">
+    <link rel="canonical" href="https://hassaanraza.com/writing/the-perfect-software-did-exist">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:url" content="https://hassaanraza.com/writing/the-perfect-software-did-exist">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The perfect software did exist, and it was Microsoft Word 98 - Hassaan Raza">
+    <meta property="og:description" content="The perfect software did exist, and it was Microsoft Word 98 The perfect software did exist, and it was Microsoft Word 98 January 16th 2026 This article was wri...">
+    <meta property="og:image" content="https://hassaanraza.com/posts/the-perfect-software-did-exist/Image3.gif">
+    <meta property="article:published_time" content="2026-01-16">
+    <meta property="article:author" content="Hassaan Raza">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="hassaanraza.com">
+    <meta property="twitter:url" content="https://hassaanraza.com/writing/the-perfect-software-did-exist">
+    <meta name="twitter:title" content="The perfect software did exist, and it was Microsoft Word 98 - Hassaan Raza">
+    <meta name="twitter:description" content="The perfect software did exist, and it was Microsoft Word 98 The perfect software did exist, and it was Microsoft Word 98 January 16th 2026 This article was wri...">
+    <meta name="twitter:image" content="https://hassaanraza.com/posts/the-perfect-software-did-exist/Image3.gif">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The perfect software did exist, and it was Microsoft Word 98",
+    "description": "The perfect software did exist, and it was Microsoft Word 98 The perfect software did exist, and it was Microsoft Word 98 January 16th 2026 This article was wri...",
+    "author": {
+        "@type": "Person",
+        "name": "Hassaan Raza",
+        "url": "https://hassaanraza.com"
+    },
+    "datePublished": "2026-01-16",
+    "url": "https://hassaanraza.com/writing/the-perfect-software-did-exist",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://hassaanraza.com/writing/the-perfect-software-did-exist"
+    }
+}
+    </script>
+</head>
+<body class="writing-body">
+    <div id="app-bar">
+        <button id="mobile-nav-icon" class="mobile-nav-icon">☰</button>
+        <div class="mobile-nav-arrows">
+            <button class="mobile-arrow" id="mobile-prev" aria-label="Previous writing">
+                <img src="/icons/noun-arrow-170017.svg" alt="Previous" class="mobile-arrow-icon">
+            </button>
+            <button class="mobile-arrow" id="mobile-next" aria-label="Next writing">
+                <img src="/icons/noun-arrow-170014.svg" alt="Next" class="mobile-arrow-icon">
+            </button>
+        </div>
+        <h1 id="writing-title">Hassaan's Writing</h1>
+        <div id="theme-button-container"></div>
+        <button id="close-btn" onclick="window.location.href='/'">x</button>
+    </div>
+
+    <!-- Mobile Hamburger Menu -->
+    <div id="hamburger-menu" class="hamburger-menu">
+        <div class="mobile-nav-header">
+            <h3>WRITINGS</h3>
+            <div class="mobile-nav-stats">
+                <div class="stat-item">
+                    <span class="stat-label">TOTAL PIECES:</span>
+                    <span class="stat-value" id="total-pieces-mobile">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">AVG SCORE:</span>
+                    <span class="stat-value" id="avg-score-mobile">0 pts</span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-nav-content">
+            <div class="writing-list" id="writing-list-mobile">
+                <!-- Writing items will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div id="writing-container">
+        <!-- Left Navigation Panel -->
+        <div id="writing-nav" class="nav-panel">
+            <div class="nav-header">
+                <h3>WRITINGS</h3>
+                <div class="nav-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">TOTAL PIECES:</span>
+                        <span class="stat-value" id="total-pieces">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">AVG SCORE:</span>
+                        <span class="stat-value" id="avg-score">0 pts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-content">
+                <div class="writing-list" id="writing-list">
+                    <!-- Writing items will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="nav-footer">
+                <button class="nav-toggle" id="nav-toggle">
+                    <span class="toggle-icon">
+                        <img src="/icons/noun-book-7670082.svg" alt="Book" class="book-svg">
+                    </span>
+                    <span class="toggle-arrow">
+                        <img src="/icons/noun-angle-170011.svg" alt="Toggle" class="toggle-arrow-icon">
+                    </span>
+                </button>
+            </div>
+            <!-- Collapsed navigation controls -->
+            <div class="collapsed-nav-controls">
+                <button class="nav-arrow" id="nav-prev" aria-label="Previous writing">
+                    <img src="/icons/noun-arrow-170017.svg" alt="Previous" class="nav-arrow-icon">
+                </button>
+                <button class="nav-arrow" id="nav-next" aria-label="Next writing">
+                    <img src="/icons/noun-arrow-170014.svg" alt="Next" class="nav-arrow-icon">
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Content Panel -->
+        <div id="writing-content" class="content-panel">
+            <div id="welcome-screen" class="welcome-screen" style="display: none;">
+                <div class="welcome-content">
+                    <h2>VINTAGE WRITING EXPERIMENTS</h2>
+                    <div class="welcome-text">
+                        <p>Welcome to my vintage writing lab. Each piece here was written (or attempted) on a different vintage computer, with varying degrees of success.</p>
+                        <p>Every writing includes:</p>
+                        <ul>
+                            <li><strong>SCORE:</strong> How much was actually written on the vintage machine</li>
+                            <li><strong>MACHINE USED:</strong> The specific vintage computer used</li>
+                            <li><strong>WRITING JOURNEY:</strong> The story of the writing process</li>
+                        </ul>
+                        <p>Select a writing from the left panel to begin reading.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="writing-display" class="writing-display" style="display: flex;">
+                <div class="writing-header">
+                    <h2 id="writing-title-display">The perfect software did exist, and it was Microsoft Word 98</h2>
+                    <div class="writing-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">MACHINE:</span>
+                            <span class="meta-value" id="machine-used">Apple PowerBook 1400c (1996)</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">SCORE:</span>
+                            <span class="meta-value" id="authenticity-score">1595 pts</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">DATE:</span>
+                            <span class="meta-value" id="writing-date">2026-01-16</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="writing-content-body">
+                    <div class="writing-text" id="writing-text"><iframe src="/posts/the-perfect-software-did-exist/content.html" class="raw-html-viewer" sandbox="allow-same-origin"></iframe></div>
+                </div>
+
+                <div class="writing-journey" id="writing-journey">
+                    <button class="journey-tab" id="journey-toggle" aria-expanded="false">THE MACHINE AND JOURNEY</button>
+                    <div class="journey-content">
+                        <h3 id="journey-title">THE JOURNEY: APPLE POWERBOOK 1400C (1996)</h3>
+                        <div class="journey-text" id="journey-text"><h1>Apple PowerBook 1400c - Released October 1996</h1>
+<h2>Specifications</h2>
+<h3>Computer</h3>
+<p>CPU: PowerPC 603e @ 133 MHz </p>
+<p>Memory: 32MB of RAM </p>
+<h3>Monitor</h3>
+<p>Model: Built-in</p>
+<p>Size: 11.3in </p>
+<p>Type: Active-matrix backlit LCD display</p>
+<p>Resolution: 800 × 600 pixel</p>
+<h2>Scoring</h2>
+<p>Authenticity: +20 (Post was written fully on the PowerBook, but transferred to my modern Mac. However, it also has images all created on the machine, which gains it an additional 10 points)</p>
+<p>Reliability: +15 (Has worked perfectly since I got it)</p>
+<p>Hassaan’s Score: 20/25 (Pure, simple, intentional and memorable)</p>
+<p>Age Multiplier: ×29 (29 years old, rounding down)</p>
+<h1>Final Score: 1595 pts</h1>
+<h2>Machine History</h2>
+<p>Coming Soon</p>
+<h2>Machine Review</h2>
+<p>Honestly, incredible. I loved every part of this beautiful machine. The bookcover lid, the industrial modernist design, it&#39;s just a nostalgic, well-built machine that feels so nice to use. The setup may have been a pain, but it was totally worth it in the end. I have written more in the 24 hours after I got this machine working than I had in the last 3-4 months. It&#39;s just an absolute joy and makes me so happy to use. </p>
+<h3>The Design</h3>
+<p>This is such an interesting machine, and in a lot of ways, seems very antithetical to the Apple we know today, and in other ways, was very much them. This makes sense, this was a machine born during Steve Job&#39;s absence from Apple. A founder&#39;s DNA cannot be fully removed though. </p>
+<p>Maybe some of the quirkiness that feels anti-Apple now were just artifacts of the time, things they had to do. Here are some examples of the very interesting parts of this machine:</p>
+<ul>
+<li>The PC Card slot is electronically/software controlled. This is very Apple DNA. The vast, vast majority of Windows laptops/PCs used purely mechanical PC card slots, meaning you could pull the card out at any time yourself. This was true from the beginning though- the Macintosh used an electronically controlled Floppy disk drive, while many/most PCs I believe just had manual ejects you could fire at any time.</li>
+</ul>
+<p>This, in Apple style, was designed to protect the user from themselves to some degree. It allowed safe-removal of hardware. You had to consciouslly request an eject or drag the disk to the trash. The OS could spin down, exit and then safely eject. It&#39;s a really nice polish detail. I am always in awe of the early commitment and implementation of software-controlled <em>everything</em> by Apple. </p>
+<p>It also feels so good to eject, so much so that I almost broke the mechanism by constantly ejecting and inserting the PC card. </p>
+<ul>
+<li><p>What seems less Apple like, is the two modular &#39;accessory&#39; slots/bays. I&#39;m not sure what Apple called them, but in this laptops case, one of them has the battery, the other has a floppy disk drive. These are hot-swappable, you can push a button and the entire floppy module comes out. You could theoretically install 2 batteries, or 2 floppys, or whatever else they supported. I&#39;m not sure how to feel about this- the element of choice and modularity seems out of character, very much a Sculley/Amelio-era decision. In other ways, it&#39;s very well designed in it&#39;s implementation.  </p>
+</li>
+<li><p>The bookcover lid is INCREDIBLE. I love it so much, and it really feels like a breath of color/love/character in an era where everything was bland, beige or industrial. It is just the right touch that feels like a bridge to the colorful G3 line that transformed the design of computers entirely. It is also customizable, you can print and cut in your own designs.</p>
+</li>
+</ul>
+<h3>Using the Machine</h3>
+<p>The built-in keyboard has become one of my absolute favorites to use. I enjoy it far more than my modern MacBooks keyboard, and more than any of the post 2000 Apple keyboards, which have always been mushy or lacking feel. </p>
+<p>The PowerBook&#39;s keyboard is perfectly creamy with the right amount of travel- I sincerely enjoy typing on it. It makes me want to type on it, and I did. I wrote more in 24 hours of getting it working than I had written in the last 3-4 months. Multiple blog posts, memos etc. I&#39;ll be posting at least 2-3 from this machine. </p>
+<p>I enjoyed using this machine so much it&#39;s going to be hard to move to the next one. I considered using this as my everyday typewriter. Part of it is because I&#39;ve found a really good process with it and am able to get things transferred back and forth easily thanks to the CF card. </p>
+<p>The setup of getting Word installed was arduous (see the German Surprise post), but that was more a reflection of the era than the machine itself. Once setup it&#39;s been a pleasure to use. Mac OS 8.6 is perfectly nostalgic, borderline beautiful in a brutalist way. As long as you don&#39;t try to multi-task too much, it holds up just fine. Interestingly, for single-app tasks OS 8.6 with cooperative multi-tasking <em>feels</em> faster than the very-early 2000s OSX machines we have that have more powerful PowerPC chips. This makes sense to me logically, while pre-emptive multi-tasking is better for modern OS workloads/multi-tasking/etc, it ultimately is switching resources around more often vs OS 8.6 focusing all its resources on the foreground application. </p>
+<p>I was surprised to find that OS 8.6 has all the same screenshotting tools that modern macOS has! </p>
+<p>One thing I will say is that using classic Mac OS made me feel dumb at times, as I couldn&#39;t figure out how to switch apps easily along with other &#39;easy&#39; functions. Once figured out it felt &#39;intuitive&#39;, but it&#39;s interesting and goes to show why computers may have felt so much harder for newbies back then. Even with my knowledge of operating systems modern and old, even I had to look in the manual. </p>
+<h3>Reflection</h3>
+<p>I feel that the German Surprise post covers my reflection in using this machine well. Nonetheless, a few words:</p>
+<p>My aim is always to gain perspective (and focus) when using these machines. The entire experience really did put in perspective how much we take granted for these days, but also how lovely simplicity can be. What a wonderful machine, and what a wonderful time period of computing. </p>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/script.js"></script>
+    <script src="/writing.js"></script>
+    <script>
+        // Set the current writing ID for navigation
+        window.PRELOADED_WRITING_ID = 2;
+    </script>
+</body>
+</html>

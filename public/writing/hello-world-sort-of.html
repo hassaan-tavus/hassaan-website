@@ -7,6 +7,43 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 
+    <!-- Raw HTML Document Viewer Styles -->
+    <style>
+        .raw-html-viewer {
+            width: 100%;
+            min-height: 600px;
+            border: 2px solid #333;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            display: block;
+        }
+        .writing-text:has(.raw-html-viewer) {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+
+    <!-- Script to auto-resize iframe -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.querySelector('.raw-html-viewer');
+            if (iframe) {
+                iframe.onload = function() {
+                    try {
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        const height = iframeDoc.documentElement.scrollHeight;
+                        iframe.style.height = height + 'px';
+                    } catch(e) {
+                        // If we can't access iframe content (CORS), set a default height
+                        iframe.style.height = '800px';
+                    }
+                };
+            }
+        });
+    </script>
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -69,7 +106,8 @@
                 <img src="/icons/noun-arrow-170014.svg" alt="Next" class="mobile-arrow-icon">
             </button>
         </div>
-        <h1 id="writing-title">Hello, World (Sort Of)</h1>
+        <h1 id="writing-title">Hassaan's Writing</h1>
+        <div id="theme-button-container"></div>
         <button id="close-btn" onclick="window.location.href='/'">x</button>
     </div>
 
@@ -217,7 +255,7 @@ Final score × (machine&#39;s age ÷ 10), so the older guys gets a fighting chan
                 <div class="writing-journey" id="writing-journey">
                     <button class="journey-tab" id="journey-toggle" aria-expanded="false">THE MACHINE AND JOURNEY</button>
                     <div class="journey-content">
-                        <h3 id="journey-title">THE JOURNEY: HELLO, WORLD (SORT OF)</h3>
+                        <h3 id="journey-title">THE JOURNEY: APPLE IIE (1983)</h3>
                         <div class="journey-text" id="journey-text"><h1>Apple IIe - Released January 1983</h1>
 <h2>Specifications</h2>
 <h3>Computer</h3>

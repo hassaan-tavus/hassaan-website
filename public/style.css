@@ -1296,7 +1296,7 @@ canvas {
     min-width: 100%;
     box-sizing: border-box;
     flex-shrink: 0;
-    height: 98px;
+    height: auto;
     min-height: 98px;
     display: flex;
     flex-direction: column;
@@ -1319,7 +1319,9 @@ canvas {
     font-size: 1.6em;
     border: none;
     padding: 0;
-    line-height: 1.2;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .writing-meta {
@@ -1533,14 +1535,14 @@ canvas {
 .journey-text hr { border: none; border-top: 1px solid var(--border-color); margin: 2em 0; }
 
 .writing-journey {
-    padding: 60px 20px 20px 20px;
+    padding: 40px 20px 20px 20px;
     border: 1px solid var(--border-color);
     border-bottom: none;
     background-color: var(--background-primary);
     position: absolute;
     left: -2px;
     right: 0;
-    bottom: calc(-50vh + 70px);
+    bottom: calc(-50vh + 5px);
     height: calc(50vh + 30px);
     overflow: visible;
     transition: bottom 0.3s ease;
@@ -1965,13 +1967,14 @@ canvas {
         height: auto;
         min-height: auto;
         max-height: none;
-        padding: 10px 15px;
+        padding: 15px 15px;
         margin: 0px 0 0 0;
     }
-    
+
     .writing-header h2 {
-        font-size: 1.2em;
-        margin: 0 0 15px 0;
+        font-size: 1.1em;
+        margin: 0 0 12px 0;
+        line-height: 1.4;
     }
     
     .writing-meta {
@@ -2029,12 +2032,12 @@ canvas {
     /* Journey drawer behavior on mobile */
     .writing-journey {
         display: block;
-        bottom: calc(-50vh + 35px);
+        bottom: calc(-50vh + 5px);
         height: 50vh;
         position: fixed;
         left: 0;
         right: 0;
-        padding: 50px 10px 10px 10px;
+        padding: 35px 10px 10px 10px;
     }
     
     .writing-journey.open {
@@ -2076,8 +2079,15 @@ canvas {
     
     #writing-title {
         font-size: 0.9em;
-        margin: 0 60px;
+        margin: 0 auto;
         text-align: center;
+        max-width: calc(100% - 240px);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     #close-btn {
@@ -2463,6 +2473,11 @@ canvas {
         max-width: 90% !important;
         padding: 1rem !important;
         width: 90% !important;
+    }
+
+    #writing-title {
+        max-width: calc(100% - 200px);
+        font-size: 0.8em;
     }
 }
 
@@ -3026,3 +3041,37 @@ canvas {
     padding-left: 10px;
 }
 
+/* Raw HTML Document Viewer Styles */
+.raw-html-viewer {
+    width: 100%;
+    min-height: 600px;
+    border: 2px solid #333;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    display: block;
+}
+
+.writing-text:has(.raw-html-viewer) {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Theme Button in App Bar */
+#theme-button-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    #theme-button-container {
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
+}

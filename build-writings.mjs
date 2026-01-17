@@ -42,21 +42,107 @@ function generateExcerpt(content, maxLength = 160) {
     return plainText.substring(0, maxLength).trim() + '...';
 }
 
+// Function to extract first image from content
+function extractFirstImage(content, isHtml = false) {
+    if (isHtml) {
+        // For HTML content, extract first img src
+        const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
+        return imgMatch ? imgMatch[1] : null;
+    } else {
+        // For markdown, look for both markdown images and HTML img tags
+        const mdImageMatch = content.match(/!\[.*?\]\(([^)]+)\)/);
+        if (mdImageMatch) return mdImageMatch[1];
+
+        const htmlImageMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
+        if (htmlImageMatch) return htmlImageMatch[1];
+
+        return null;
+    }
+}
+
+// Function to make image URL absolute
+function makeAbsoluteImageUrl(imagePath, baseUrl = 'https://hassaanraza.com') {
+    if (!imagePath) return null;
+
+    // Already absolute URL
+    if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+        return imagePath;
+    }
+
+    // Make relative paths absolute
+    if (imagePath.startsWith('/')) {
+        return baseUrl + imagePath;
+    }
+
+    return baseUrl + '/' + imagePath;
+}
+
 // Function to generate HTML page for a writing
 function generateWritingPage(writing) {
-    // Read markdown files
+    const postType = writing.type || 'markdown'; // Default to markdown
+    let contentHtml, journeyHtml, excerpt, contentForExcerpt;
+
+    if (postType === 'html') {
+        // For raw HTML posts
+        const contentPath = path.join(__dirname, 'public', writing.contentFile);
+        const journeyPath = path.join(__dirname, 'public', writing.journeyFile);
+
+        // Read raw HTML content - it should already exist at this path
+        const rawHtml = fs.readFileSync(contentPath, 'utf8');
+
+        // Use iframe with src pointing to the raw HTML file
+        // The contentFile path should be relative to /public
+        contentHtml = `<iframe src="${writing.contentFile}" class="raw-html-viewer" sandbox="allow-same-origin"></iframe>`;
+
+        // Journey can still be markdown
+        const journeyMarkdown = fs.readFileSync(journeyPath, 'utf8');
+        journeyHtml = marked.parse(journeyMarkdown);
+
+        // Generate excerpt from raw HTML by stripping tags
+        const plainText = rawHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        excerpt = escapeHtml(plainText.substring(0, 160) + '...');
+        contentForExcerpt = plainText;
+    } else {
+        // Original markdown processing
+        const contentPath = path.join(__dirname, 'public', writing.contentFile);
+        const journeyPath = path.join(__dirname, 'public', writing.journeyFile);
+
+        const contentMarkdown = fs.readFileSync(contentPath, 'utf8');
+        const journeyMarkdown = fs.readFileSync(journeyPath, 'utf8');
+
+        // Convert markdown to HTML
+        contentHtml = marked.parse(contentMarkdown);
+        journeyHtml = marked.parse(journeyMarkdown);
+
+        // Generate excerpt for meta description
+        contentForExcerpt = contentMarkdown;
+        excerpt = escapeHtml(generateExcerpt(contentMarkdown));
+    }
+
+    // Extract first image from content or journey for meta tags
     const contentPath = path.join(__dirname, 'public', writing.contentFile);
     const journeyPath = path.join(__dirname, 'public', writing.journeyFile);
+    const contentRaw = fs.readFileSync(contentPath, 'utf8');
+    const journeyRaw = fs.readFileSync(journeyPath, 'utf8');
 
-    const contentMarkdown = fs.readFileSync(contentPath, 'utf8');
-    const journeyMarkdown = fs.readFileSync(journeyPath, 'utf8');
+    let firstImage = extractFirstImage(contentRaw, postType === 'html');
+    if (!firstImage) {
+        firstImage = extractFirstImage(journeyRaw, false); // Journey is always markdown
+    }
 
-    // Convert markdown to HTML
-    const contentHtml = marked.parse(contentMarkdown);
-    const journeyHtml = marked.parse(journeyMarkdown);
+    // If image is relative and from posts directory, make it absolute
+    if (firstImage && !firstImage.startsWith('http')) {
+        // Handle relative paths from the HTML file
+        if (postType === 'html' && !firstImage.startsWith('/')) {
+            // Image path is relative to the HTML file location
+            const contentDir = path.dirname(writing.contentFile);
+            firstImage = contentDir + '/' + firstImage;
+        }
+        firstImage = makeAbsoluteImageUrl(firstImage);
+    }
 
-    // Generate excerpt for meta description
-    const excerpt = escapeHtml(generateExcerpt(contentMarkdown));
+    // Fallback to default image if none found
+    const ogImage = firstImage || 'https://opengraph.b-cdn.net/production/images/494fbd27-a97e-4ade-b18e-11f97794e266.png?token=YQeuoKGLxDJE9O3wsY76T-98Pf71vyKb79Td7hVyzc4&height=630&width=1200&expires=33262547243';
 
     // Generate JSON-LD structured data
     const structuredData = {
@@ -87,6 +173,43 @@ function generateWritingPage(writing) {
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 
+    <!-- Raw HTML Document Viewer Styles -->
+    <style>
+        .raw-html-viewer {
+            width: 100%;
+            min-height: 600px;
+            border: 2px solid #333;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            display: block;
+        }
+        .writing-text:has(.raw-html-viewer) {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+
+    <!-- Script to auto-resize iframe -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.querySelector('.raw-html-viewer');
+            if (iframe) {
+                iframe.onload = function() {
+                    try {
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        const height = iframeDoc.documentElement.scrollHeight;
+                        iframe.style.height = height + 'px';
+                    } catch(e) {
+                        // If we can't access iframe content (CORS), set a default height
+                        iframe.style.height = '800px';
+                    }
+                };
+            }
+        });
+    </script>
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -105,7 +228,7 @@ function generateWritingPage(writing) {
     <meta property="og:type" content="article">
     <meta property="og:title" content="${escapeHtml(writing.title)} - Hassaan Raza">
     <meta property="og:description" content="${excerpt}">
-    <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/494fbd27-a97e-4ade-b18e-11f97794e266.png?token=YQeuoKGLxDJE9O3wsY76T-98Pf71vyKb79Td7hVyzc4&height=630&width=1200&expires=33262547243">
+    <meta property="og:image" content="${ogImage}">
     <meta property="article:published_time" content="${writing.date}">
     <meta property="article:author" content="Hassaan Raza">
 
@@ -115,7 +238,7 @@ function generateWritingPage(writing) {
     <meta property="twitter:url" content="https://hassaanraza.com/writing/${writing.slug}">
     <meta name="twitter:title" content="${escapeHtml(writing.title)} - Hassaan Raza">
     <meta name="twitter:description" content="${excerpt}">
-    <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/494fbd27-a97e-4ade-b18e-11f97794e266.png?token=YQeuoKGLxDJE9O3wsY76T-98Pf71vyKb79Td7hVyzc4&height=630&width=1200&expires=33262547243">
+    <meta name="twitter:image" content="${ogImage}">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -133,7 +256,8 @@ ${JSON.stringify(structuredData, null, 4)}
                 <img src="/icons/noun-arrow-170014.svg" alt="Next" class="mobile-arrow-icon">
             </button>
         </div>
-        <h1 id="writing-title">${escapeHtml(writing.title)}</h1>
+        <h1 id="writing-title">Hassaan's Writing</h1>
+        <div id="theme-button-container"></div>
         <button id="close-btn" onclick="window.location.href='/'">x</button>
     </div>
 
@@ -245,7 +369,7 @@ ${JSON.stringify(structuredData, null, 4)}
                 <div class="writing-journey" id="writing-journey">
                     <button class="journey-tab" id="journey-toggle" aria-expanded="false">THE MACHINE AND JOURNEY</button>
                     <div class="journey-content">
-                        <h3 id="journey-title">THE JOURNEY: ${escapeHtml(writing.title).toUpperCase()}</h3>
+                        <h3 id="journey-title">THE JOURNEY: ${escapeHtml(writing.machine).toUpperCase()}</h3>
                         <div class="journey-text" id="journey-text">${journeyHtml}</div>
                     </div>
                 </div>

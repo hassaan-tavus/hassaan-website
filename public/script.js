@@ -456,35 +456,45 @@ const ThemeManager = {
             console.log('Theme selector already exists');
             return;
         }
-        
+
         // Create theme selector
         const selector = document.createElement('div');
         selector.id = 'theme-selector';
         selector.className = 'theme-selector';
         selector.innerHTML = `
             <button id="theme-toggle" class="theme-toggle">
-                 CHANGE PHOSPHOR COLOR
+                <span class="theme-toggle-text">CHANGE PHOSPHOR COLOR</span>
+                <span class="theme-toggle-icon">
+                    <img src="/icons/noun-palette-5073996.svg" alt="Color" class="palette-icon">
+                </span>
             </button>
             <div id="theme-menu" class="theme-menu">
-                ${Object.entries(this.themes).map(([key, theme]) => 
+                ${Object.entries(this.themes).map(([key, theme]) =>
                     `<button class="theme-option" data-theme="${key}">${theme.name}</button>`
                 ).join('')}
             </div>
         `;
-        
+
         // Add styles for theme selector
         if (!document.getElementById('theme-selector-styles')) {
             const styles = document.createElement('style');
             styles.id = 'theme-selector-styles';
             styles.textContent = `
-                .theme-selector {
+                /* Check if we're in app-bar or standalone */
+                #theme-button-container .theme-selector {
+                    position: relative;
+                    font-family: 'Web437', 'VT323', monospace;
+                }
+
+                /* Fallback for non-app-bar pages */
+                body > .theme-selector {
                     position: fixed;
                     top: 20px;
                     right: 20px;
                     z-index: 10000;
                     font-family: 'Web437', 'VT323', monospace;
                 }
-                
+
                 .theme-toggle {
                     background: var(--button-bg);
                     color: var(--button-text);
@@ -494,12 +504,58 @@ const ThemeManager = {
                     font-family: inherit;
                     font-size: 12px;
                     box-shadow: 0 0 5px var(--shadow-color);
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
                 }
-                
+
                 .theme-toggle:hover {
                     background: var(--button-bg-hover);
                 }
-                
+
+                /* Show text on desktop, icon on mobile */
+                .theme-toggle-icon {
+                    display: none;
+                }
+
+                .palette-icon {
+                    width: 14px;
+                    height: 14px;
+                    filter: var(--svg-filter-primary);
+                    image-rendering: pixelated;
+                    image-rendering: -moz-crisp-edges;
+                    image-rendering: crisp-edges;
+                    display: block;
+                }
+
+                .theme-toggle:hover .palette-icon {
+                    filter: var(--svg-filter-hover);
+                }
+
+                @media (max-width: 768px) {
+                    .theme-toggle-text {
+                        display: none;
+                    }
+                    .theme-toggle-icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .theme-toggle {
+                        padding: 5px 8px;
+                        background-color: transparent;
+                        border: 1px solid var(--border-color);
+                        color: var(--text-primary);
+                        box-shadow: none;
+                        display: flex;
+                        align-items: center;
+                    }
+                    .theme-toggle:hover {
+                        background-color: var(--bg-overlay);
+                        border-color: var(--text-secondary);
+                    }
+                }
+
                 .theme-menu {
                     position: absolute;
                     top: 100%;
@@ -511,12 +567,14 @@ const ThemeManager = {
                     overflow-y: auto;
                     display: none;
                     box-shadow: 0 0 10px var(--shadow-color);
+                    margin-top: 5px;
+                    z-index: 10001;
                 }
-                
+
                 .theme-menu.open {
                     display: block;
                 }
-                
+
                 .theme-option {
                     display: block;
                     width: 100%;
@@ -530,15 +588,15 @@ const ThemeManager = {
                     font-size: 11px;
                     border-bottom: 1px solid var(--border-color);
                 }
-                
+
                 .theme-option:hover {
                     background: var(--bg-overlay);
                 }
-                
+
                 .theme-option:last-child {
                     border-bottom: none;
                 }
-                
+
                 .theme-option.active {
                     background: var(--bg-overlay-strong);
                     color: var(--text-secondary);
@@ -546,9 +604,16 @@ const ThemeManager = {
             `;
             document.head.appendChild(styles);
         }
-        
-        document.body.appendChild(selector);
-        console.log('Theme selector appended to body');
+
+        // Check if there's a theme-button-container in the app-bar
+        const container = document.getElementById('theme-button-container');
+        if (container) {
+            container.appendChild(selector);
+            console.log('Theme selector appended to theme-button-container');
+        } else {
+            document.body.appendChild(selector);
+            console.log('Theme selector appended to body');
+        }
         
         // Add event listeners
         const toggle = document.getElementById('theme-toggle');

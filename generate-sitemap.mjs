@@ -18,7 +18,6 @@ const staticPages = [
     { url: '/', priority: '1.0', changefreq: 'weekly' },
     { url: '/writing', priority: '0.8', changefreq: 'weekly' },
     { url: '/interests', priority: '0.6', changefreq: 'monthly' },
-    { url: '/digitaltwin', priority: '0.6', changefreq: 'monthly' },
 ];
 
 // Generate sitemap XML
