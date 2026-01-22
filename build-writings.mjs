@@ -92,7 +92,7 @@ function generateWritingPage(writing) {
 
         // Use iframe with src pointing to the raw HTML file
         // The contentFile path should be relative to /public
-        contentHtml = `<iframe src="${writing.contentFile}" class="raw-html-viewer" sandbox="allow-same-origin"></iframe>`;
+        contentHtml = `<iframe src="${writing.contentFile}" class="raw-html-viewer" sandbox="allow-same-origin allow-top-navigation-by-user-activation" scrolling="no"></iframe>`;
 
         // Journey can still be markdown
         const journeyMarkdown = fs.readFileSync(journeyPath, 'utf8');
@@ -191,7 +191,7 @@ function generateWritingPage(writing) {
         }
     </style>
 
-    <!-- Script to auto-resize iframe -->
+    <!-- Script to auto-resize iframe and fix link navigation -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const iframe = document.querySelector('.raw-html-viewer');
@@ -201,6 +201,17 @@ function generateWritingPage(writing) {
                         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
                         const height = iframeDoc.documentElement.scrollHeight;
                         iframe.style.height = height + 'px';
+
+                        // Add base target to make all links open in parent window
+                        const base = iframeDoc.createElement('base');
+                        base.target = '_top';
+                        iframeDoc.head.appendChild(base);
+
+                        // Forward wheel events from iframe to parent scrollable container
+                        const scrollContainer = document.querySelector('.content-panel');
+                        iframeDoc.addEventListener('wheel', function(e) {
+                            scrollContainer.scrollBy(0, e.deltaY);
+                        }, { passive: true });
                     } catch(e) {
                         // If we can't access iframe content (CORS), set a default height
                         iframe.style.height = '800px';
@@ -344,25 +355,24 @@ ${JSON.stringify(structuredData, null, 4)}
             </div>
 
             <div id="writing-display" class="writing-display" style="display: flex;">
-                <div class="writing-header">
-                    <h2 id="writing-title-display">${escapeHtml(writing.title)}</h2>
-                    <div class="writing-meta">
-                        <div class="meta-item">
-                            <span class="meta-label">MACHINE:</span>
-                            <span class="meta-value" id="machine-used">${escapeHtml(writing.machine)}</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label">SCORE:</span>
-                            <span class="meta-value" id="authenticity-score">${writing.authenticity} pts</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label">DATE:</span>
-                            <span class="meta-value" id="writing-date">${writing.date}</span>
+                <div class="writing-content-body">
+                    <div class="writing-header">
+                        <h2 id="writing-title-display">${escapeHtml(writing.title)}</h2>
+                        <div class="writing-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">MACHINE:</span>
+                                <span class="meta-value" id="machine-used">${escapeHtml(writing.machine)}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">SCORE:</span>
+                                <span class="meta-value" id="authenticity-score">${writing.authenticity} pts</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">DATE:</span>
+                                <span class="meta-value" id="writing-date">${writing.date}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="writing-content-body">
                     <div class="writing-text" id="writing-text">${contentHtml}</div>
                 </div>
 

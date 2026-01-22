@@ -323,7 +323,8 @@ async function showWritingContent(writing) {
         const iframe = document.createElement('iframe');
         iframe.src = writing.contentFile;
         iframe.className = 'raw-html-viewer';
-        iframe.setAttribute('sandbox', 'allow-same-origin');
+        iframe.setAttribute('sandbox', 'allow-same-origin allow-top-navigation-by-user-activation');
+        iframe.setAttribute('scrolling', 'no');
 
         // Auto-resize iframe when loaded
         iframe.onload = function() {
@@ -331,6 +332,17 @@ async function showWritingContent(writing) {
                 const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
                 const height = iframeDoc.documentElement.scrollHeight;
                 iframe.style.height = height + 'px';
+
+                // Add base target to make all links open in parent window
+                const base = iframeDoc.createElement('base');
+                base.target = '_top';
+                iframeDoc.head.appendChild(base);
+
+                // Forward wheel events from iframe to parent scrollable container
+                const scrollContainer = document.querySelector('.writing-content-body');
+                iframeDoc.addEventListener('wheel', function(e) {
+                    scrollContainer.scrollBy(0, e.deltaY);
+                }, { passive: true });
             } catch(e) {
                 // If we can't access iframe content (CORS), set a default height
                 iframe.style.height = '800px';
