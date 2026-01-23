@@ -21,9 +21,9 @@ Reliability: +15 (Has worked perfectly since I got it)
 
 Hassaan’s Score: 20/25 (Pure, simple, intentional and memorable)
 
-Age Multiplier: ×29 (29 years old, rounding down)
+Age Multiplier: ×2.9 (29 years old, rounding down)
 
-# Final Score: 1595 pts
+# Final Score: 103 pts
 
 
 ## Machine History
