@@ -16,7 +16,7 @@
         "title": "German Surprise",
         "date": "2026-01-15",
         "machine": "Apple PowerBook 1400c (1996)",
-        "authenticity": 1600,
+        "authenticity": 108,
         "contentFile": "/posts/german-surprise/content.html",
         "journeyFile": "/posts/german-surprise/journey.md"
     },
@@ -27,7 +27,7 @@
         "title": "The perfect software did exist, and it was Microsoft Word 98",
         "date": "2026-01-16",
         "machine": "Apple PowerBook 1400c (1996)",
-        "authenticity": 1595,
+        "authenticity": 103,
         "contentFile": "/posts/the-perfect-software-did-exist/content.html",
         "journeyFile": "/posts/the-perfect-software-did-exist/journey.md"
     }
