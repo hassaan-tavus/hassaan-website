@@ -98,8 +98,10 @@ function generateWritingPage(writing) {
         const journeyMarkdown = fs.readFileSync(journeyPath, 'utf8');
         journeyHtml = marked.parse(journeyMarkdown);
 
-        // Generate excerpt from raw HTML by stripping tags
-        const plainText = rawHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        // Generate excerpt from raw HTML body content
+        const bodyMatch = rawHtml.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+        const bodyContent = bodyMatch ? bodyMatch[1] : rawHtml;
+        const plainText = bodyContent.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
         excerpt = escapeHtml(plainText.substring(0, 160) + '...');
         contentForExcerpt = plainText;
     } else {
