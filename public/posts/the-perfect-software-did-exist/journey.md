@@ -28,7 +28,8 @@ Age Multiplier: ×2.9 (29 years old, rounding down)
 
 ## Machine History
 
-Coming Soon
+I got hold of this machine from a really cool estate-type sale down near Redwood City that featured a 30-40 year old collection of multiple-garages worth of old Apple gear. The incredible collection was all from one avid collector who had truly everything across the eras. He had passed away, leaving the collection to his brother. Everything was sold at incredibly low prices and this PowerBook was one of the first things that caught my eye because of the BookCover. I don't know too much on the history of owners, the drive was mostly empty of contents. The machine did seem to recieve battery servicing back in 2012, which shows that someone must have been trying to keep it alive at one point. 
+
 
 ## Machine Review 
 Honestly, incredible. I loved every part of this beautiful machine. The bookcover lid, the industrial modernist design, it's just a nostalgic, well-built machine that feels so nice to use. The setup may have been a pain, but it was totally worth it in the end. I have written more in the 24 hours after I got this machine working than I had in the last 3-4 months. It's just an absolute joy and makes me so happy to use. 
