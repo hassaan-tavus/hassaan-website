@@ -18,7 +18,9 @@
         "machine": "Apple PowerBook 1400c (1996)",
         "authenticity": 108,
         "contentFile": "/posts/german-surprise/content.html",
-        "journeyFile": "/posts/german-surprise/journey.md"
+        "journeyFile": "/posts/german-surprise/journey.md",
+        "ogImage": "https://hassaanraza.com/posts/german-surprise/Image4.gif",
+        "ogDescription": "January 15th, 2026 - This article was written entirely on an Apple PowerBook 1400c (1996) using Microsoft Word 98, and exported directly into HTML. You can read..."
     },
     {
         "id": 3,
@@ -29,6 +31,7 @@
         "machine": "Apple PowerBook 1400c (1996)",
         "authenticity": 103,
         "contentFile": "/posts/the-perfect-software-did-exist/content.html",
-        "journeyFile": "/posts/the-perfect-software-did-exist/journey.md"
+        "journeyFile": "/posts/the-perfect-software-did-exist/journey.md",
+        "ogDescription": "January 16th, 2026 - This article was written entirely on an Apple PowerBook 1400c (1996) using Micro..."
     }
 ]

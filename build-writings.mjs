@@ -143,8 +143,13 @@ function generateWritingPage(writing) {
         firstImage = makeAbsoluteImageUrl(firstImage);
     }
 
-    // Fallback to default image if none found
-    const ogImage = firstImage || 'https://opengraph.b-cdn.net/production/images/494fbd27-a97e-4ade-b18e-11f97794e266.png?token=YQeuoKGLxDJE9O3wsY76T-98Pf71vyKb79Td7hVyzc4&height=630&width=1200&expires=33262547243';
+    // Use custom ogImage from writings.json if provided, otherwise use detected image or fallback
+    const ogImage = writing.ogImage || firstImage || 'https://opengraph.b-cdn.net/production/images/494fbd27-a97e-4ade-b18e-11f97794e266.png?token=YQeuoKGLxDJE9O3wsY76T-98Pf71vyKb79Td7hVyzc4&height=630&width=1200&expires=33262547243';
+
+    // Use custom ogDescription from writings.json if provided, otherwise use auto-generated excerpt
+    if (writing.ogDescription) {
+        excerpt = escapeHtml(writing.ogDescription);
+    }
 
     // Generate JSON-LD structured data
     const structuredData = {
